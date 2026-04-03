@@ -1,26 +1,102 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
+
+  /* Apple Light Mode 2026 Guidelines */
+  --color-background-light: #F5F5F7;
+  /* Apple main background */
+  --color-foreground-light: #1D1D1F;
+  /* Apple main text */
+  --color-card-light: rgba(255, 255, 255, 0.7);
+  /* Translucent cards */
+  --color-border-light: rgba(0, 0, 0, 0.08);
+  /* Extremely subtle borders */
+  --color-accent-light: #007AFF;
+  /* Apple System Blue */
+  --color-muted-light: #86868B;
+  /* Secondary text */
+
+  /* Apple Dark Mode 2026 Guidelines */
+  --color-background-dark: #000000;
+  /* Pure black */
+  --color-foreground-dark: #F5F5F7;
+  /* Off-white text */
+  --color-card-dark: rgba(28, 28, 30, 0.7);
+  /* Translucent dark cards */
+  --color-border-dark: rgba(255, 255, 255, 0.12);
+  /* Subtle light borders */
+  --color-accent-dark: #0A84FF;
+  /* Dark Mode System Blue */
+  --color-muted-dark: #98989D;
+  /* Dark Mode secondary text */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--color-background-light);
+    --foreground: var(--color-foreground-light);
+    --card: var(--color-card-light);
+    --border: var(--color-border-light);
+    --accent: var(--color-accent-light);
+    --muted: var(--color-muted-light);
+  }
+
+  .dark {
+    --background: var(--color-background-dark);
+    --foreground: var(--color-foreground-dark);
+    --card: var(--color-card-dark);
+    --border: var(--color-border-dark);
+    --accent: var(--color-accent-dark);
+    --muted: var(--color-muted-dark);
+  }
+
+  * {
+    @apply border-[color:var(--border)];
+  }
+
+  body {
+    @apply bg-[color:var(--background)] text-[color:var(--foreground)] antialiased selection:bg-[color:var(--accent)] selection:text-white transition-colors duration-500 ease-in-out;
+    font-feature-settings: "cv11" 1, "ss01" 1, "cv01" 1;
+    /* Best Inter settings to match SF Pro */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    letter-spacing: -0.04em;
+    font-weight: 700;
+  }
+
+  p {
+    letter-spacing: -0.011em;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .glass-panel {
+    @apply bg-[color:var(--card)] border border-[color:var(--border)];
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[color:var(--foreground)] to-[color:var(--muted)];
+  }
+
+  /* Убираем сильные цветные пятна, делаем фон очень чистым с едва уловимым свечением из центра */
+  .mesh-bg {
+    background-color: var(--background);
+    background-image: radial-gradient(circle at 50% -10%, rgba(0, 122, 255, 0.05) 0%, transparent 40%);
+  }
+
+  .dark .mesh-bg {
+    background-color: var(--background);
+    background-image: radial-gradient(circle at 50% -10%, rgba(10, 132, 255, 0.1) 0%, transparent 40%);
+  }
 }

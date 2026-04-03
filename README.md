@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WebStudio Landing
 
-## Getting Started
+Маркетинговый сайт веб-студии на Next.js 16 App Router с тёмной/светлой темой, анимациями на `framer-motion` и базовым тестовым контуром на Vitest.
 
-First, run the development server:
+## Стек
+
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- Framer Motion
+- Vitest + Testing Library
+
+## Быстрый старт
+
+```bash
+npm install
+npm run dev
+```
+
+Приложение будет доступно на [http://localhost:3000](http://localhost:3000).
+
+## Скрипты
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run lint
+npm run test
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Структура
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `src/app` — маршруты App Router и route-level metadata
+- `src/components` — общие UI-компоненты и клиентские анимационные обёртки
+- `src/app/contact` — placeholder-логика формы контактов, server action и тесты
+- `task.md` — текущий список задач
+- `implementation_plan.md` — план реализации с hashline-ссылками
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Что уже реализовано
 
-## Learn More
+- У каждой основной страницы есть собственные `title` и `description`
+- Контактная форма валидируется и обрабатывается через placeholder Server Action
+- На мобильных устройствах доступно меню навигации
+- Юридические ссылки ведут на локальные placeholder-страницы
 
-To learn more about Next.js, take a look at the following resources:
+## Текущие ограничения
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Отправка формы пока не интегрирована с email, CRM или Telegram
+- Социальные ссылки и Telegram в футере оставлены как безопасные placeholder-элементы
+- Контент юридических страниц временный
