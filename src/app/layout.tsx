@@ -1,21 +1,24 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
-const inter = Inter({
-  subsets: ["latin", "cyrillic"],
-  variable: "--font-inter",
-});
-
 export const metadata: Metadata = {
   title: {
-    template: "%s | Web Studio",
-    default: "Создание сайтов и мобильных приложений | Заказать сайт под ключ",
+    template: "%s | WebStudio",
+    default: "Премиальная разработка сайтов и приложений",
   },
-  description: "Разработка современных сайтов и мобильных приложений (iOS, Android) для малого бизнеса и частных лиц. Премиум-дизайн по доступной цене от 5000 руб.",
+  description:
+    "WebStudio проектирует сайты и цифровые продукты с премиальной навигацией, сильной типографикой и продуманной light/dark-системой.",
+};
+
+export const viewport: Viewport = {
+  colorScheme: "light dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f4f5f8" },
+    { media: "(prefers-color-scheme: dark)", color: "#05070b" },
+  ],
 };
 
 export default function RootLayout({
@@ -25,18 +28,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans min-h-screen flex flex-col`}>
+      <body className="min-h-screen font-sans text-base">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          <main className="flex-grow pt-32">
-            {children}
-          </main>
-          <Footer />
+          <a href="#main-content" className="skip-link">
+            Перейти к содержанию
+          </a>
+          <div className="site-shell">
+            <Header />
+            <main id="main-content" className="flex-1 pt-28 md:pt-32">
+              {children}
+            </main>
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>

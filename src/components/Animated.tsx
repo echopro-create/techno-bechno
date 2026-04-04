@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import type { PropsWithChildren } from "react";
 
 type MotionProps = PropsWithChildren<{
@@ -19,20 +19,20 @@ type HoverScaleProps = PropsWithChildren<{
 
 const defaultViewport = {
   once: true,
-  margin: "-100px",
+  margin: "-80px",
 };
 
 const baseTransition = {
-  duration: 0.8,
-  ease: "easeOut" as const,
+  duration: 0.55,
+  ease: [0.22, 1, 0.36, 1] as const,
 };
 
 const staggerVariants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.08,
     },
   },
 };
@@ -54,9 +54,15 @@ export function StaggerEnter({
 }
 
 export function FadeIn({ children, className, delay = 0 }: MotionProps) {
+  const reduceMotion = useReducedMotion();
+
+  if (reduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ ...baseTransition, delay }}
       className={className}
@@ -67,9 +73,15 @@ export function FadeIn({ children, className, delay = 0 }: MotionProps) {
 }
 
 export function Reveal({ children, className, delay = 0 }: MotionProps) {
+  const reduceMotion = useReducedMotion();
+
+  if (reduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={defaultViewport}
       transition={{ ...baseTransition, delay }}
@@ -84,11 +96,17 @@ export function HoverLift({
   children,
   className,
   delay = 0,
-  lift = -4,
+  lift = -6,
 }: HoverLiftProps) {
+  const reduceMotion = useReducedMotion();
+
+  if (reduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={defaultViewport}
       transition={{ ...baseTransition, delay }}
@@ -103,12 +121,18 @@ export function HoverLift({
 export function HoverScale({
   children,
   className,
-  scale = 1.05,
+  scale = 1.02,
 }: HoverScaleProps) {
+  const reduceMotion = useReducedMotion();
+
+  if (reduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       whileHover={{ scale }}
-      transition={{ duration: 0.4 }}
+      transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       {children}

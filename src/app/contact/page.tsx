@@ -4,89 +4,114 @@ import { FadeIn, Reveal } from "@/components/Animated";
 import { ContactForm } from "./ContactForm";
 
 export const metadata: Metadata = {
-  title: "Контакты веб-студии",
+  title: "Контакты",
   description:
-    "Свяжитесь с нами для бесплатной консультации и оценки вашего проекта. Напишите в мессенджеры или оставьте заявку на сайте.",
+    "Свяжитесь с WebStudio: обсудим структуру проекта, навигацию, light/dark-систему и оптимальный формат запуска.",
 };
+
+const contactItems = [
+  {
+    title: "Email для проектов",
+    value: "hello@webstudio.ru",
+    note: "Подходит для брифа, материалов и первого описания задачи.",
+    href: "mailto:hello@webstudio.ru",
+    icon: Mail,
+  },
+  {
+    title: "Telegram",
+    value: "@webstudio_dev",
+    note: "Ссылка будет добавлена позже. Пока используйте email для первого касания.",
+    icon: MessageCircle,
+  },
+  {
+    title: "Офис по записи",
+    value: "Москва, Пресненская наб. 12",
+    note: "Онлайн-созвон обычно быстрее и даёт тот же результат по уточнению задачи.",
+    icon: MapPin,
+  },
+];
 
 export default function ContactPage() {
   return (
-    <div className="flex flex-col items-center pb-32 mesh-bg min-h-screen">
-      <section className="w-full px-6 pt-32 pb-20 text-center relative z-10">
-        <FadeIn>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8">
-            Свяжитесь с нами
-          </h1>
-          <p className="text-xl md:text-2xl text-[color:var(--muted)] max-w-2xl mx-auto leading-relaxed">
-            Готовы начать проект или нужна консультация? Напишите нам, и мы
-            ответим в течение 15 минут.
-          </p>
+    <div className="page-shell mesh-bg">
+      <section className="page-section content-layer pt-4 md:pt-10">
+        <FadeIn className="grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-end">
+          <div className="space-y-5">
+            <p className="section-kicker">Контакты</p>
+            <h1 className="max-w-[10ch] text-[clamp(3rem,6vw,5.7rem)] font-semibold">
+              Соберём проект так, чтобы он ощущался как продукт.
+            </h1>
+            <p className="section-lead">
+              Опишите задачу, желаемый объём и ориентир по срокам. Мы ответим с
+              понятным next step: что стоит делать сейчас, а что можно отложить.
+            </p>
+          </div>
+
+          <div className="surface-card p-6 md:p-7">
+            <p className="section-kicker">Что подготовить</p>
+            <ul className="mt-5 space-y-3 text-[color:var(--muted)]">
+              <li>1. Кратко опишите продукт или бизнес.</li>
+              <li>2. Уточните, нужен сайт, интерфейс или мобильное приложение.</li>
+              <li>3. Если есть дедлайн, напишите его сразу.</li>
+            </ul>
+          </div>
         </FadeIn>
       </section>
 
-      <section className="w-full max-w-6xl px-6 py-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
-          <Reveal>
-            <h2 className="text-3xl font-bold mb-10 tracking-tight">
-              Контактная информация
-            </h2>
+      <section className="page-section content-layer">
+        <div className="grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
+          <div className="grid gap-4">
+            {contactItems.map((item, index) => {
+              const Icon = item.icon;
+              const cardContent = (
+                <>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[color:var(--background-muted)]">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <div className="mt-5">
+                    <p className="text-sm text-[color:var(--muted)]">
+                      {item.title}
+                    </p>
+                    <p className="mt-2 text-2xl font-semibold">{item.value}</p>
+                    <p className="mt-3 text-[color:var(--muted)]">{item.note}</p>
+                  </div>
+                </>
+              );
 
-            <div className="space-y-6">
-              <a
-                href="mailto:hello@webstudio.ru"
-                className="flex items-center gap-6 p-8 rounded-[2rem] glass-panel transition-all duration-500 group shadow-sm hover:shadow-xl hover:shadow-[color:var(--accent)]/10 hover:-translate-y-1"
-              >
-                <div className="w-16 h-16 rounded-2xl bg-[color:var(--background)] flex items-center justify-center group-hover:bg-[color:var(--accent)] group-hover:text-white transition-colors duration-500 border border-[color:var(--border)]">
-                  <Mail className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="text-base text-[color:var(--muted)] mb-1">
-                    Email для проектов
-                  </p>
-                  <p className="font-bold text-xl tracking-tight">
-                    hello@webstudio.ru
-                  </p>
-                </div>
-              </a>
+              return item.href ? (
+                <Reveal
+                  key={item.title}
+                  delay={index * 0.04}
+                  className="surface-card p-6 transition-transform duration-200 hover:-translate-y-1"
+                >
+                  <a href={item.href} className="block">
+                    {cardContent}
+                  </a>
+                </Reveal>
+              ) : (
+                <Reveal
+                  key={item.title}
+                  delay={index * 0.04}
+                  className="surface-card p-6"
+                >
+                  {cardContent}
+                </Reveal>
+              );
+            })}
+          </div>
 
-              <div className="flex items-center gap-6 p-8 rounded-[2rem] glass-panel shadow-sm opacity-90">
-                <div className="w-16 h-16 rounded-2xl bg-[color:var(--background)] flex items-center justify-center border border-[color:var(--border)]">
-                  <MessageCircle className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="text-base text-[color:var(--muted)] mb-1">
-                    Telegram
-                  </p>
-                  <p className="font-bold text-xl tracking-tight">
-                    @webstudio_dev
-                  </p>
-                  <p className="text-sm text-[color:var(--muted)] mt-1">
-                    Ссылка будет добавлена позже. Пока это placeholder-контакт.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-6 p-8 rounded-[2rem] glass-panel shadow-sm">
-                <div className="w-16 h-16 rounded-2xl bg-[color:var(--background)] flex items-center justify-center border border-[color:var(--border)]">
-                  <MapPin className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="text-base text-[color:var(--muted)] mb-1">
-                    Офис (по предварительной записи)
-                  </p>
-                  <p className="font-bold text-xl tracking-tight">
-                    Москва, Пресненская наб. 12
-                  </p>
-                </div>
-              </div>
+          <Reveal className="surface-card p-6 md:p-7">
+            <div className="space-y-3">
+              <p className="section-kicker">Бриф</p>
+              <h2 className="text-3xl">Оставить заявку на оценку</h2>
+              <p className="text-[color:var(--muted)]">
+                Нужны только базовые вводные. Если чего-то не хватает, соберём
+                остальное вместе уже на следующем шаге.
+              </p>
             </div>
-          </Reveal>
-
-          <Reveal delay={0.1}>
-            <h2 className="text-3xl font-bold mb-10 tracking-tight">
-              Оставить заявку на оценку
-            </h2>
-            <ContactForm />
+            <div className="mt-8">
+              <ContactForm />
+            </div>
           </Reveal>
         </div>
       </section>

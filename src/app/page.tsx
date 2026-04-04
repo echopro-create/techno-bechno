@@ -1,187 +1,300 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Code2, Monitor, Smartphone, Zap } from "lucide-react";
+import {
+  ArrowRight,
+  Code2,
+  Monitor,
+  ShieldCheck,
+  Smartphone,
+  Zap,
+} from "lucide-react";
 import { FadeIn, HoverLift, Reveal } from "@/components/Animated";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Создание сайтов и мобильных приложений | Заказать сайт под ключ",
+    absolute: "Премиальная разработка сайтов и приложений",
   },
   description:
-    "Разработка современных сайтов и мобильных приложений (iOS, Android) для малого бизнеса и частных лиц. Премиум-дизайн по доступной цене от 5000 руб.",
+    "WebStudio создаёт сайты и цифровые продукты с сильной архитектурой, продуманной навигацией и строгой светлой/тёмной системой.",
 };
 
-const reasons = [
+const serviceTracks = [
   {
-    icon: <Code2 className="w-6 h-6" />,
-    title: "Чистый код",
-    desc: "Используем современный стек для максимальной скорости.",
+    title: "Сайты для брендов",
+    description:
+      "Многостраничные сайты и лендинги с чистой структурой, сильной типографикой и понятным пользовательским маршрутом.",
+    price: "от 5 000 ₽",
+    icon: Monitor,
   },
   {
-    icon: <Zap className="w-6 h-6" />,
-    title: "Без скрытых цен",
-    desc: "Фиксированная стоимость до начала работы.",
+    title: "Мобильные продукты",
+    description:
+      "Проектирование и запуск iOS/Android-интерфейсов, которые ощущаются как законченное цифровое приложение, а не набор экранов.",
+    price: "от 80 000 ₽",
+    icon: Smartphone,
   },
   {
-    icon: <Monitor className="w-6 h-6" />,
-    title: "Pixel Perfect",
-    desc: "Идеальное отображение на всех устройствах.",
+    title: "Дизайн-система и сборка",
+    description:
+      "Единый язык компонентов, тем и состояний, чтобы проект выглядел цельно и масштабировался без визуального шума.",
+    price: "по оценке",
+    icon: Code2,
+  },
+];
+
+const principles = [
+  {
+    title: "Иерархия вместо декора",
+    description:
+      "Сначала строим структуру и сценарии, и только потом доводим поверхность до премиального уровня.",
+    icon: Zap,
   },
   {
-    icon: <Smartphone className="w-6 h-6" />,
-    title: "Под ключ",
-    desc: "От дизайна до релиза в App Store.",
+    title: "Навигация без трения",
+    description:
+      "Важные действия остаются на виду, вторичные не спорят за внимание, мобильный опыт не упрощён до компромисса.",
+    icon: ShieldCheck,
   },
+  {
+    title: "Сильная light/dark система",
+    description:
+      "Обе темы проектируются как самостоятельные состояния интерфейса, а не как механический инверт цвета.",
+    icon: Monitor,
+  },
+];
+
+const metrics = [
+  { value: "01", label: "дизайн-язык на весь сайт" },
+  { value: "44+", label: "pt hit-area для controls" },
+  { value: "2", label: "полноценные темы без компромиссов" },
 ];
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center mesh-bg min-h-screen">
-      <section className="w-full px-6 py-32 md:py-56 flex flex-col items-center text-center relative overflow-hidden">
-        <div className="z-10 flex flex-col items-center w-full relative">
-          <FadeIn className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[color:var(--card)] border border-[color:var(--border)] text-sm font-medium mb-10 shadow-sm glass-panel">
-            <span className="w-2 h-2 rounded-full bg-[color:var(--accent)] animate-pulse" />
-            Доступна разработка на май 2026
+    <div className="page-shell mesh-bg">
+      <section className="page-section content-layer pt-4 md:pt-10">
+        <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10">
+          <FadeIn className="flex flex-col gap-6 md:gap-8">
+            <div className="flex flex-wrap gap-3">
+              <span className="eyebrow">
+                <span className="h-2 w-2 rounded-full bg-[color:var(--accent)]" />
+                Слоты на май 2026
+              </span>
+            </div>
+
+            <div className="space-y-5">
+              <h1 className="max-w-[11ch] text-[clamp(3.2rem,7vw,6.4rem)] font-semibold">
+                Делаем сайты и продукты, которые выглядят как законченная
+                система.
+              </h1>
+              <p className="section-lead">
+                Не просто “красивый лендинг”, а собранный интерфейс с премиальной
+                навигацией, устойчивой light/dark-системой и читаемой
+                архитектурой контента.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Link href="/contact" className="action-primary">
+                Обсудить проект
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link href="/portfolio" className="action-secondary">
+                Смотреть кейсы
+              </Link>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-3">
+              {metrics.map((metric) => (
+                <div key={metric.label} className="stat-card">
+                  <p className="metric-value">{metric.value}</p>
+                  <p className="mt-3 text-sm text-[color:var(--muted)]">
+                    {metric.label}
+                  </p>
+                </div>
+              ))}
+            </div>
           </FadeIn>
 
-          <FadeIn delay={0.1} className="max-w-5xl mb-8">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.05]">
-              <span className="text-gradient">Создаем продукты,</span>
-              <br />
-              которые работают.
-            </h1>
-          </FadeIn>
+          <FadeIn delay={0.08} className="surface-card p-6 md:p-8">
+            <div className="flex items-start justify-between gap-4">
+              <div className="space-y-2">
+                <p className="section-kicker">Design Direction</p>
+                <h2 className="text-2xl md:text-3xl">
+                  Премиальный слой навигации поверх спокойного контента.
+                </h2>
+              </div>
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[color:var(--foreground)] text-[color:var(--background)]">
+                <Zap className="h-5 w-5" />
+              </div>
+            </div>
 
-          <FadeIn delay={0.2} className="max-w-2xl mb-12">
-            <p className="text-xl md:text-2xl text-[color:var(--muted)] font-medium leading-relaxed">
-              Премиальный дизайн и безупречный код по доступной цене. От
-              сайтов-визиток до сложных нативных iOS и Android приложений.
-            </p>
-          </FadeIn>
+            <div className="mt-8 grid gap-4">
+              <div className="surface-card-muted p-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--accent-strong)]">
+                  Navigation
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {["Главная", "Услуги", "Кейсы", "Контакт"].map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-[color:var(--border)] bg-[color:var(--background-strong)] px-3 py-2 text-sm font-medium"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
 
-          <FadeIn
-            delay={0.3}
-            className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto relative z-20"
-          >
-            <Link
-              href="/contact"
-              className="px-8 py-4 bg-[color:var(--foreground)] text-[color:var(--background)] rounded-full font-medium text-lg hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 shadow-xl shadow-black/10 dark:shadow-white/5"
-            >
-              Начать проект
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link
-              href="/portfolio"
-              className="px-8 py-4 glass-panel rounded-full font-medium text-lg hover:bg-[color:var(--foreground)] hover:text-[color:var(--background)] transition-all flex items-center justify-center duration-300"
-            >
-              Смотреть работы
-            </Link>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="surface-card-muted p-5">
+                  <p className="text-sm text-[color:var(--muted)]">Темы</p>
+                  <p className="mt-2 text-xl font-semibold">
+                    Light и Dark как отдельные состояния интерфейса
+                  </p>
+                </div>
+                <div className="surface-card-muted p-5">
+                  <p className="text-sm text-[color:var(--muted)]">Сценарии</p>
+                  <p className="mt-2 text-xl font-semibold">
+                    Контент не спорит с control layer за внимание
+                  </p>
+                </div>
+              </div>
+
+              <div className="rounded-[1.75rem] bg-[color:var(--foreground)] px-5 py-5 text-[color:var(--background)] shadow-[var(--shadow-strong)]">
+                <p className="text-sm uppercase tracking-[0.18em] text-white/70">
+                  Подход
+                </p>
+                <p className="mt-3 text-lg leading-relaxed text-white/88">
+                  Сначала выстраиваем rhythm, spacing и порядок действий. Только
+                  потом усиливаем атмосферу через material, tint и motion.
+                </p>
+              </div>
+            </div>
           </FadeIn>
         </div>
       </section>
 
-      <section className="w-full max-w-7xl px-6 py-32 z-10 relative">
-        <Reveal className="mb-20 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-            Наши услуги
-          </h2>
-          <p className="text-2xl text-[color:var(--muted)] max-w-2xl mx-auto">
-            Профессиональные решения для любых задач микробизнеса.
+      <section className="page-section content-layer section-divider">
+        <Reveal className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+          <div className="space-y-4">
+            <p className="section-kicker">Что мы проектируем</p>
+            <h2 className="section-title">
+              Три уровня продукта, а не только поверхность.
+            </h2>
+          </div>
+          <p className="section-lead">
+            Каждый проект собираем одновременно на уровне визуального языка,
+            пользовательского потока и технической устойчивости. За счёт этого
+            сайт ощущается дороже уже в первом экране и остаётся понятным дальше.
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <HoverLift className="group p-10 md:p-12 rounded-[2.5rem] glass-panel transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-white/5">
-            <Monitor className="w-14 h-14 mb-8 text-[color:var(--accent)]" />
-            <h3 className="text-3xl font-bold mb-4 tracking-tight">Веб-сайты</h3>
-            <p className="text-[color:var(--muted)] mb-10 leading-relaxed text-lg">
-              Быстрые, адаптивные и SEO-оптимизированные сайты-визитки и
-              лендинги, которые привлекают клиентов и формируют доверие.
-            </p>
-            <div className="flex items-center justify-between">
-              <span className="font-semibold text-xl">от 5 000 ₽</span>
-              <Link
-                href="/services"
-                className="w-12 h-12 rounded-full bg-[color:var(--foreground)] text-[color:var(--background)] flex items-center justify-center group-hover:scale-110 transition-transform"
-              >
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </div>
-          </HoverLift>
+        <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          {serviceTracks.map((service, index) => {
+            const Icon = service.icon;
 
-          <HoverLift
-            delay={0.1}
-            className="group p-10 md:p-12 rounded-[2.5rem] glass-panel transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-white/5"
-          >
-            <Smartphone className="w-14 h-14 mb-8 text-[color:var(--accent)]" />
-            <h3 className="text-3xl font-bold mb-4 tracking-tight">
-              Мобильные приложения
-            </h3>
-            <p className="text-[color:var(--muted)] mb-10 leading-relaxed text-lg">
-              Нативная и кроссплатформенная разработка для iOS и Android с
-              невероятно плавным и продуманным интерфейсом.
-            </p>
-            <div className="flex items-center justify-between">
-              <span className="font-semibold text-xl">от 80 000 ₽</span>
-              <Link
-                href="/services"
-                className="w-12 h-12 rounded-full bg-[color:var(--foreground)] text-[color:var(--background)] flex items-center justify-center group-hover:scale-110 transition-transform"
+            return (
+              <HoverLift
+                key={service.title}
+                delay={index * 0.04}
+                className="surface-card flex h-full flex-col p-6 md:p-7"
               >
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </div>
-          </HoverLift>
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[color:var(--background-muted)]">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <span className="text-sm font-semibold text-[color:var(--muted)]">
+                    {service.price}
+                  </span>
+                </div>
+                <h3 className="mt-8 text-2xl">{service.title}</h3>
+                <p className="mt-4 flex-1 text-[color:var(--muted)]">
+                  {service.description}
+                </p>
+                <Link
+                  href="/services"
+                  className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--accent-strong)]"
+                >
+                  Подробнее
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </HoverLift>
+            );
+          })}
         </div>
       </section>
 
-      <section className="w-full max-w-7xl px-6 py-32 border-t border-[color:var(--border)]/50">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
-          <Reveal>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-              Почему мы?
+      <section className="page-section content-layer section-divider">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <Reveal className="space-y-4">
+            <p className="section-kicker">Почему это ощущается дороже</p>
+            <h2 className="section-title">
+              Сильный интерфейс читается быстро и не шумит.
             </h2>
-            <p className="text-xl text-[color:var(--muted)] leading-relaxed mb-8">
-              Мы не используем шаблонные решения. Каждый проект создается с
-              нуля, с фокусом на типографику, анимации и конверсию. Мы делаем
-              премиальный уровень дизайна доступным.
+            <p className="section-lead">
+              Премиальность в 2026 определяется не количеством свечений, а тем,
+              насколько уверенно сайт ведёт пользователя через контент и
+              действия.
             </p>
           </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12">
-            {reasons.map((item, index) => (
-              <Reveal key={item.title} delay={index * 0.08}>
-                <div className="flex flex-col">
-                  <div className="w-12 h-12 rounded-xl bg-[color:var(--card)] border border-[color:var(--border)] flex items-center justify-center mb-5 text-[color:var(--foreground)] shadow-sm">
-                    {item.icon}
+          <div className="grid gap-4">
+            {principles.map((item, index) => {
+              const Icon = item.icon;
+
+              return (
+                <Reveal
+                  key={item.title}
+                  delay={index * 0.05}
+                  className="surface-card-muted flex flex-col gap-4 p-6 md:flex-row md:items-start md:justify-between"
+                >
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[color:var(--background-strong)]">
+                    <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2 tracking-tight">
-                    {item.title}
-                  </h3>
-                  <p className="text-[color:var(--muted)] leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
+                  <div className="flex-1 space-y-3">
+                    <h3 className="text-2xl">{item.title}</h3>
+                    <p className="text-[color:var(--muted)]">
+                      {item.description}
+                    </p>
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      <section className="w-full px-6 py-32 mt-16 text-center relative overflow-hidden">
-        <Reveal className="relative z-10 max-w-4xl mx-auto glass-panel p-16 rounded-[3rem] shadow-xl shadow-black/5 dark:shadow-white/5">
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-8">
-            Готовы обсудить проект?
-          </h2>
-          <p className="text-xl md:text-2xl text-[color:var(--muted)] max-w-2xl mx-auto mb-12">
-            Оставьте заявку, и мы бесплатно проконсультируем вас по архитектуре
-            и стоимости.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex px-10 py-5 bg-[color:var(--foreground)] text-[color:var(--background)] rounded-full font-medium text-xl hover:scale-105 active:scale-95 transition-all shadow-xl shadow-black/10 dark:shadow-white/5"
-          >
-            Написать нам
-          </Link>
+      <section className="page-section content-layer">
+        <Reveal className="rounded-[2rem] bg-[color:var(--foreground)] px-6 py-8 text-[color:var(--background)] shadow-[var(--shadow-strong)] md:px-10 md:py-10">
+          <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div className="space-y-4">
+              <p className="section-kicker text-white/70">Следующий шаг</p>
+              <h2 className="max-w-[14ch] text-[clamp(2rem,4vw,4rem)]">
+                Нужен сайт, который выглядит собранно и двигает пользователя
+                вперёд.
+              </h2>
+              <p className="max-w-2xl text-lg leading-relaxed text-white/78">
+                Подготовим структуру, визуальный язык и маршрут действий так,
+                чтобы light и dark темы ощущались как один продуманный продукт.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
+              <Link
+                href="/contact"
+                className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 font-semibold text-[color:var(--foreground)]"
+              >
+                Написать нам
+              </Link>
+              <Link
+                href="/portfolio"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/14 px-6 font-semibold text-white/88"
+              >
+                Посмотреть примеры
+              </Link>
+            </div>
+          </div>
         </Reveal>
       </section>
     </div>

@@ -6,44 +6,47 @@ import { FadeIn, HoverLift, Reveal } from "@/components/Animated";
 export const metadata: Metadata = {
   title: "Услуги и цены на создание сайтов и приложений",
   description:
-    "Узнайте стоимость разработки сайта или мобильного приложения. Прозрачные тарифы, создание сайтов-визиток от 5000 рублей. Без скрытых платежей.",
+    "Тарифы WebStudio: сайты, многостраничные проекты и мобильные приложения с премиальной навигацией и сильной дизайн-системой.",
 };
 
 const services = [
   {
     title: "Сайт-визитка",
     price: "от 5 000 ₽",
-    desc: "Идеальный старт для экспертов и микробизнеса. Одна страница, которая продает.",
+    description:
+      "Для экспертов, студий и локальных брендов, которым нужен аккуратный digital-first entry point без визуального шума.",
     features: [
-      "Индивидуальный премиум-дизайн",
-      "Адаптация под мобильные устройства",
-      "Базовая SEO-оптимизация",
-      "Форма обратной связи",
+      "Премиальный first screen и типографика",
+      "Адаптивная light/dark-подготовка",
+      "Базовая SEO-структура",
+      "Форма связи и маршрут CTA",
       "Срок: от 3 до 5 дней",
     ],
   },
   {
     title: "Корпоративный сайт",
     price: "от 25 000 ₽",
-    desc: "Полноценное представительство вашей компании в интернете. Многостраничный сайт.",
+    description:
+      "Для компаний, которым важны масштабируемая структура, доверие и ощущение цельного продукта на всех страницах.",
     features: [
-      "Сложная структура (до 10 страниц)",
-      "Продуманный UI/UX дизайн",
-      "Система управления контентом (CMS)",
-      "Интеграция с аналитикой и CRM",
+      "Архитектура до 10 экранов и разделов",
+      "Контентные и сервисные шаблоны",
+      "Навигационная система и CTA-иерархия",
+      "Подготовка к CMS, аналитике и CRM",
       "Срок: от 2 недель",
     ],
-    popular: true,
+    featured: true,
   },
   {
     title: "Мобильное приложение",
     price: "от 80 000 ₽",
-    desc: "Разработка нативных и кроссплатформенных приложений для iOS и Android.",
+    description:
+      "Для продуктов, которым нужна уже не просто витрина, а полноценный пользовательский сценарий внутри iOS/Android.",
     features: [
-      "Проектирование архитектуры и API",
-      "Дизайн интерфейсов (iOS/Android)",
-      "Разработка логики и базы данных",
-      "Публикация в App Store и Google Play",
+      "Архитектура и user flow",
+      "Система экранов и состояний",
+      "Подключение backend/API и данных",
+      "Подготовка к релизу в stores",
       "Срок: от 1.5 месяцев",
     ],
   },
@@ -51,89 +54,120 @@ const services = [
 
 const includedValues = [
   {
-    icon: "⚡️",
-    title: "Техническая SEO-оптимизация",
-    desc: "Правильные метатеги, микроразметка, быстрая загрузка и чистый код, который любят поисковые системы Google и Яндекс.",
+    title: "Читаемая структура",
+    description:
+      "Контент разбит на понятные блоки, первичные действия выделены, вторичные не спорят за внимание.",
   },
   {
-    icon: "📱",
-    title: "Адаптивный дизайн",
-    desc: "Ваш продукт будет идеально смотреться и функционировать на экранах любых размеров: от смартфона до 4K-монитора.",
+    title: "Сильная тема и контраст",
+    description:
+      "Светлая и тёмная темы собираются как самостоятельные состояния интерфейса с честной читаемостью.",
+  },
+  {
+    title: "Адаптивный ритм",
+    description:
+      "Композиция не разваливается между desktop и mobile, а масштабируется через общий анатомический каркас.",
   },
 ];
 
 export default function ServicesPage() {
   return (
-    <div className="flex flex-col items-center pb-32 mesh-bg min-h-screen">
-      <section className="w-full px-6 pt-32 pb-24 text-center">
-        <FadeIn>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8">
-            Прозрачные тарифы.
-            <br />
-            <span className="text-gradient">Никаких скрытых платежей.</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-[color:var(--muted)] max-w-3xl mx-auto leading-relaxed">
-            Мы создаем качественные IT-продукты, которые окупаются. Выберите
-            подходящий формат для вашей задачи.
-          </p>
-        </FadeIn>
+    <div className="page-shell mesh-bg">
+      <section className="page-section content-layer pt-4 md:pt-10">
+        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+          <FadeIn className="space-y-5">
+            <p className="section-kicker">Услуги</p>
+            <h1 className="max-w-[12ch] text-[clamp(3rem,6vw,5.7rem)] font-semibold">
+              Прозрачные форматы без шумных пакетов и случайных опций.
+            </h1>
+            <p className="section-lead">
+              Стоимость определяется не количеством украшений, а качеством
+              архитектуры, навигации и темизации. Поэтому в каждом тарифе есть
+              базовый premium-слой, а не только “дизайн сверху”.
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={0.08} className="surface-card p-6 md:p-7">
+            <p className="section-kicker">Pricing Logic</p>
+            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+              <div className="surface-card-muted p-5">
+                <p className="text-sm text-[color:var(--muted)]">Что влияет</p>
+                <p className="mt-2 text-lg font-semibold">
+                  глубина структуры, количество шаблонов, дизайн-система,
+                  интеграции
+                </p>
+              </div>
+              <div className="surface-card-muted p-5">
+                <p className="text-sm text-[color:var(--muted)]">Что не делаем</p>
+                <p className="mt-2 text-lg font-semibold">
+                  не продаём “премиум” только через blur, тени и большие заголовки
+                </p>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
       </section>
 
-      <section className="w-full max-w-7xl px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+      <section className="page-section content-layer">
+        <div className="grid gap-5 xl:grid-cols-3">
           {services.map((service, index) => (
             <HoverLift
               key={service.title}
-              delay={index * 0.1}
-              lift={-8}
-              className={`p-10 rounded-[2.5rem] flex flex-col relative transition-all duration-500 shadow-xl ${service.popular
-                ? "bg-[color:var(--foreground)] text-[color:var(--background)] shadow-2xl scale-100 lg:scale-105 z-10 py-12"
-                : "bg-[color:var(--card)]/50 backdrop-blur-xl border border-[color:var(--border)] shadow-black/5"
-                }`}
+              delay={index * 0.04}
+              className={
+                service.featured
+                  ? "rounded-[2rem] bg-[color:var(--foreground)] p-7 text-[color:var(--background)] shadow-[var(--shadow-strong)]"
+                  : "surface-card p-7"
+              }
             >
-              {service.popular ? (
-                <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-[color:var(--accent)] text-white px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest flex items-center gap-1 shadow-lg shadow-[color:var(--accent)]/30">
-                  <Star className="w-3 h-3 fill-current" />
+              {service.featured ? (
+                <div className="mb-6 inline-flex min-h-10 items-center gap-2 rounded-full bg-white/10 px-4 text-sm font-semibold text-white">
+                  <Star className="h-4 w-4 fill-current" />
                   Частый выбор
                 </div>
               ) : null}
 
-              <h3
-                className={`text-2xl font-bold mb-3 tracking-tight ${service.popular ? "text-[color:var(--background)]" : ""}`}
-              >
-                {service.title}
-              </h3>
-              <p
-                className={`text-base mb-8 leading-relaxed min-h-[60px] ${service.popular
-                  ? "text-[color:var(--background)]/80"
-                  : "text-[color:var(--muted)]"
-                  }`}
-              >
-                {service.desc}
-              </p>
+              <div className="space-y-4">
+                <div className="flex items-start justify-between gap-4">
+                  <h2 className="text-3xl">{service.title}</h2>
+                  <span
+                    className={`rounded-full px-3 py-2 text-sm font-semibold ${
+                      service.featured
+                        ? "bg-white/10 text-white"
+                        : "bg-[color:var(--background-muted)] text-[color:var(--muted-strong)]"
+                    }`}
+                  >
+                    {service.price}
+                  </span>
+                </div>
 
-              <div className="mb-10">
-                <span
-                  className={`text-5xl font-bold tracking-tight ${service.popular ? "text-[color:var(--background)]" : ""}`}
+                <p
+                  className={
+                    service.featured
+                      ? "text-white/76"
+                      : "text-[color:var(--muted)]"
+                  }
                 >
-                  {service.price}
-                </span>
+                  {service.description}
+                </p>
               </div>
 
-              <ul className="space-y-5 mb-10 flex-grow">
+              <ul className="mt-8 space-y-4">
                 {service.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
                     <Check
-                      className={`w-5 h-5 shrink-0 mt-0.5 ${service.popular
-                        ? "text-[color:var(--background)]/60"
-                        : "text-[color:var(--accent)]"
-                        }`}
+                      className={`mt-0.5 h-5 w-5 shrink-0 ${
+                        service.featured
+                          ? "text-white/72"
+                          : "text-[color:var(--accent-strong)]"
+                      }`}
                     />
                     <span
-                      className={`text-base leading-snug ${service.popular
-                        ? "text-[color:var(--background)]/90"
-                        : "opacity-90"
-                        }`}
+                      className={
+                        service.featured
+                          ? "text-white/88"
+                          : "text-[color:var(--muted-strong)]"
+                      }
                     >
                       {feature}
                     </span>
@@ -143,44 +177,46 @@ export default function ServicesPage() {
 
               <Link
                 href="/contact"
-                className={`w-full py-5 rounded-full font-medium text-lg text-center transition-all duration-300 flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] ${service.popular
-                  ? "bg-[color:var(--background)] text-[color:var(--foreground)] hover:shadow-lg hover:shadow-white/20"
-                  : "bg-[color:var(--foreground)] text-[color:var(--background)] hover:shadow-lg hover:shadow-[color:var(--foreground)]/20"
-                  }`}
+                className={`mt-8 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold ${
+                  service.featured
+                    ? "bg-white text-[color:var(--foreground)]"
+                    : "bg-[color:var(--foreground)] text-[color:var(--background)]"
+                }`}
               >
-                Выбрать тариф
-                <ArrowRight className="w-5 h-5" />
+                Выбрать формат
+                <ArrowRight className="h-4 w-4" />
               </Link>
             </HoverLift>
           ))}
         </div>
       </section>
 
-      <section className="w-full max-w-5xl px-6 mt-40">
-        <Reveal className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-            Что всегда входит в стоимость
-          </h2>
-          <p className="text-xl text-[color:var(--muted)]">
-            Стандарты качества, от которых мы не отступаем.
+      <section className="page-section content-layer section-divider">
+        <Reveal className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+          <div className="space-y-4">
+            <p className="section-kicker">Во всех проектах</p>
+            <h2 className="section-title">
+              Базовые стандарты, которые не продаются как допы.
+            </h2>
+          </div>
+          <p className="section-lead">
+            Если сайт должен выглядеть цельно и дорого, нельзя убирать в
+            дополнительные услуги читаемость, адаптивность и нормальный маршрут
+            действий. Это фундамент, а не апгрейд.
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+        <div className="mt-10 grid gap-4 lg:grid-cols-3">
           {includedValues.map((item, index) => (
             <Reveal
               key={item.title}
-              delay={index * 0.1}
-              className="p-10 rounded-[2rem] bg-[color:var(--card)]/50 backdrop-blur-xl border border-[color:var(--border)] hover:border-[color:var(--foreground)]/20 transition-colors"
+              delay={index * 0.05}
+              className="surface-card-muted p-6"
             >
-              <div className="w-12 h-12 rounded-full bg-[color:var(--border)]/50 flex items-center justify-center mb-6">
-                <span className="text-xl">{item.icon}</span>
-              </div>
-              <h3 className="font-bold text-2xl mb-4 tracking-tight">
-                {item.title}
-              </h3>
-              <p className="text-[color:var(--muted)] text-lg leading-relaxed">
-                {item.desc}
+              <p className="section-kicker">{`0${index + 1}`}</p>
+              <h3 className="mt-4 text-2xl">{item.title}</h3>
+              <p className="mt-3 text-[color:var(--muted)]">
+                {item.description}
               </p>
             </Reveal>
           ))}

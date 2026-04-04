@@ -1,123 +1,142 @@
 "use client";
 
 import Link from "next/link";
-import { ThemeToggle } from "./ThemeToggle";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
-    { href: "/", label: "Главная" },
-    { href: "/services", label: "Услуги" },
-    { href: "/portfolio", label: "Портфолио" },
-    { href: "/about", label: "О студии" },
+  { href: "/", label: "Главная" },
+  { href: "/services", label: "Услуги" },
+  { href: "/portfolio", label: "Портфолио" },
+  { href: "/about", label: "О студии" },
 ];
 
 export function Header() {
-    const pathname = usePathname();
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    return (
-        <header className="fixed top-6 left-0 right-0 z-50 flex justify-center px-6 pointer-events-none">
-            <div className="relative w-full max-w-2xl">
-                <motion.div
-                    initial={{ y: -50, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    className="pointer-events-auto flex items-center justify-between p-2 rounded-full glass-panel shadow-2xl shadow-black/5 dark:shadow-white/5 border border-[color:var(--border)]/80 w-full"
-                >
-                    <Link href="/" className="font-bold text-lg tracking-tight pl-6 pr-4 flex items-center gap-2">
-                        <div className="w-5 h-5 rounded-md bg-gradient-to-tr from-[color:var(--foreground)] to-[color:var(--muted)] flex items-center justify-center">
-                            <div className="w-2 h-2 bg-[color:var(--background)] rounded-sm" />
-                        </div>
-                        <span className="hidden sm:inline-block">WebStudio</span>
+  return (
+    <header className="fixed inset-x-0 top-4 z-50 px-4 md:top-6 md:px-6">
+      <div className="mx-auto max-w-6xl">
+        <motion.div
+          initial={{ y: -24, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          className="glass-panel flex min-h-[4.25rem] items-center gap-3 rounded-[1.75rem] px-3 py-3 md:min-h-[4.5rem] md:px-4"
+        >
+          <Link
+            href="/"
+            className="flex min-h-11 shrink-0 items-center gap-3 rounded-full px-3 text-[0.95rem] font-semibold"
+          >
+            <span className="flex h-8 w-8 items-center justify-center rounded-2xl bg-[color:var(--foreground)] text-[color:var(--background)] shadow-sm">
+              <span className="h-2.5 w-2.5 rounded-sm bg-[color:var(--accent)]" />
+            </span>
+            <span>WebStudio</span>
+          </Link>
+
+          <nav className="hidden flex-1 items-center justify-center md:flex">
+            <ul className="flex items-center gap-1 rounded-full bg-[color:var(--background-muted)]/70 p-1">
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+
+                return (
+                  <li key={link.href} className="relative">
+                    <Link
+                      href={link.href}
+                      aria-current={isActive ? "page" : undefined}
+                      className={`relative flex min-h-11 items-center rounded-full px-4 text-sm font-medium transition-colors ${
+                        isActive
+                          ? "text-[color:var(--foreground)]"
+                          : "text-[color:var(--muted)] hover:text-[color:var(--foreground)]"
+                      }`}
+                    >
+                      {isActive ? (
+                        <motion.span
+                          layoutId="header-active-link"
+                          className="absolute inset-0 rounded-full bg-[color:var(--background-strong)] shadow-sm"
+                          transition={{
+                            type: "spring",
+                            stiffness: 380,
+                            damping: 34,
+                          }}
+                        />
+                      ) : null}
+                      <span className="relative z-10">{link.label}</span>
                     </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
 
-                    <nav className="hidden md:flex items-center gap-1 px-4">
-                        {navLinks.map((link) => {
-                            const isActive = pathname === link.href;
-                            return (
-                                <Link
-                                    key={link.href}
-                                    href={link.href}
-                                    className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${isActive ? "text-[color:var(--foreground)]" : "text-[color:var(--muted)] hover:text-[color:var(--foreground)] hover:bg-[color:var(--foreground)]/5"
-                                        }`}
-                                >
-                                    {isActive && (
-                                        <motion.div
-                                            layoutId="active-pill"
-                                            className="absolute inset-0 bg-[color:var(--foreground)]/5 dark:bg-[color:var(--foreground)]/10 rounded-full"
-                                            transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                                        />
-                                    )}
-                                    <span className="relative z-10">{link.label}</span>
-                                </Link>
-                            );
-                        })}
-                    </nav>
+          <div className="ml-auto flex items-center gap-2">
+            <ThemeToggle />
+            <Link
+              href="/contact"
+              className="action-primary hidden min-h-11 px-5 text-sm md:inline-flex"
+            >
+              Обсудить проект
+            </Link>
+            <button
+              type="button"
+              className="surface-panel flex h-11 w-11 items-center justify-center rounded-full bg-[color:var(--background-strong)] md:hidden"
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-navigation"
+              aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
+              onClick={() => setIsMenuOpen((value) => !value)}
+            >
+              {isMenuOpen ? (
+                <X className="h-4 w-4" />
+              ) : (
+                <Menu className="h-4 w-4" />
+              )}
+            </button>
+          </div>
+        </motion.div>
 
-                    <div className="flex items-center gap-2 pr-2">
-                        <ThemeToggle />
-                        <button
-                            type="button"
-                            className="md:hidden p-2.5 rounded-full hover:bg-[color:var(--foreground)]/5 transition-colors"
-                            aria-expanded={isMenuOpen}
-                            aria-controls="mobile-navigation"
-                            aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
-                            onClick={() => setIsMenuOpen((open) => !open)}
-                        >
-                            {isMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
-                        </button>
-                        <Link
-                            href="/contact"
-                            className="hidden sm:inline-flex px-5 py-2.5 bg-[color:var(--foreground)] text-[color:var(--background)] rounded-full text-sm font-semibold hover:scale-105 active:scale-95 transition-all duration-300 shadow-sm"
-                        >
-                            Связаться
-                        </Link>
-                    </div>
-                </motion.div>
+        <AnimatePresence>
+          {isMenuOpen ? (
+            <motion.nav
+              id="mobile-navigation"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+              className="glass-panel mt-3 overflow-hidden rounded-[1.75rem] p-4 md:hidden"
+            >
+              <div className="flex flex-col gap-2">
+                {navLinks.map((link) => {
+                  const isActive = pathname === link.href;
 
-                <AnimatePresence>
-                    {isMenuOpen ? (
-                        <motion.nav
-                            id="mobile-navigation"
-                            initial={{ opacity: 0, y: -8 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -8 }}
-                            transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="pointer-events-auto md:hidden mt-3 glass-panel rounded-[2rem] p-4 shadow-2xl shadow-black/5 dark:shadow-white/5 border border-[color:var(--border)]/80"
-                        >
-                            <div className="flex flex-col gap-2">
-                                {navLinks.map((link) => {
-                                    const isActive = pathname === link.href;
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      aria-current={isActive ? "page" : undefined}
+                      className={`flex min-h-11 items-center rounded-[1.1rem] px-4 text-sm font-medium transition-colors ${
+                        isActive
+                          ? "bg-[color:var(--foreground)] text-[color:var(--background)]"
+                          : "bg-[color:var(--background-strong)] text-[color:var(--foreground)]"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
 
-                                    return (
-                                        <Link
-                                            key={link.href}
-                                            href={link.href}
-                                            onClick={() => setIsMenuOpen(false)}
-                                            className={`rounded-2xl px-4 py-3 text-sm font-medium transition-colors ${isActive
-                                                ? "bg-[color:var(--foreground)] text-[color:var(--background)]"
-                                                : "text-[color:var(--foreground)] hover:bg-[color:var(--foreground)]/5"
-                                                }`}
-                                        >
-                                            {link.label}
-                                        </Link>
-                                    );
-                                })}
-                                <Link
-                                    href="/contact"
-                                    onClick={() => setIsMenuOpen(false)}
-                                    className="mt-2 rounded-2xl px-4 py-3 text-sm font-semibold bg-[color:var(--foreground)] text-[color:var(--background)]"
-                                >
-                                    Связаться
-                                </Link>
-                            </div>
-                        </motion.nav>
-                    ) : null}
-                </AnimatePresence>
-            </div>
-        </header>
-    );
+                <div className="mt-2 grid grid-cols-1 gap-2">
+                  <Link href="/contact" className="action-primary min-h-11 text-sm">
+                    Обсудить проект
+                  </Link>
+                </div>
+              </div>
+            </motion.nav>
+          ) : null}
+        </AnimatePresence>
+      </div>
+    </header>
+  );
 }

@@ -2,34 +2,38 @@
 
 import { useTheme } from "next-themes";
 import { useSyncExternalStore } from "react";
-import { Sun, Moon } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 
 export function ThemeToggle() {
-    const { resolvedTheme, setTheme } = useTheme();
-    const mounted = useSyncExternalStore(
-        () => () => {},
-        () => true,
-        () => false,
-    );
+  const { resolvedTheme, setTheme } = useTheme();
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
 
-    if (!mounted) {
-        return <div className="w-9 h-9" aria-hidden="true" />;
-    }
+  if (!mounted) {
+    return <div className="h-11 w-11 rounded-full" aria-hidden="true" />;
+  }
 
-    const isDark = resolvedTheme === "dark";
+  const isDark = resolvedTheme === "dark";
 
-    return (
-        <button
-            onClick={() => setTheme(isDark ? "light" : "dark")}
-            className="p-2.5 rounded-full hover:bg-[color:var(--foreground)]/5 transition-colors duration-300 relative group"
-            aria-label={isDark ? "Включить светлую тему" : "Включить темную тему"}
-        >
-            <div className="absolute inset-0 rounded-full bg-[color:var(--foreground)]/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-            {isDark ? (
-                <Sun className="w-4 h-4 text-[color:var(--foreground)] relative z-10" />
-            ) : (
-                <Moon className="w-4 h-4 text-[color:var(--foreground)] relative z-10" />
-            )}
-        </button>
-    );
+  return (
+    <button
+      type="button"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className="surface-panel flex h-11 w-11 items-center justify-center rounded-full bg-[color:var(--background-strong)] text-[color:var(--foreground)] transition-transform duration-200 hover:-translate-y-0.5"
+      aria-label={isDark ? "Включить светлую тему" : "Включить тёмную тему"}
+      title={isDark ? "Светлая тема" : "Тёмная тема"}
+    >
+      <span className="sr-only">
+        {isDark ? "Включить светлую тему" : "Включить тёмную тему"}
+      </span>
+      {isDark ? (
+        <Sun className="h-[18px] w-[18px]" />
+      ) : (
+        <Moon className="h-[18px] w-[18px]" />
+      )}
+    </button>
+  );
 }

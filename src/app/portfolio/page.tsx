@@ -1,122 +1,179 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { FadeIn, HoverScale, Reveal } from "@/components/Animated";
 
 export const metadata: Metadata = {
-  title: "Портфолио: примеры созданных сайтов и мобильных приложений",
+  title: "Портфолио",
   description:
-    "Посмотрите примеры наших работ. Современные сайты и удобные мобильные приложения, разработанные для микробизнеса и частных экспертов.",
+    "Примеры направлений и форматов, в которых WebStudio собирает премиальный digital-опыт: сайты брендов, сервисные интерфейсы и мобильные продукты.",
 };
 
 const projects = [
   {
     title: "EcoStore App",
-    category: "Мобильные приложения",
-    desc: "iOS приложение для магазина экологичных товаров. Интеграция Apple Pay, удобная корзина и фильтрация.",
-    tags: ["Swift", "iOS", "E-commerce"],
-    color: "from-green-500/20 to-emerald-500/5",
+    category: "Мобильный продукт",
+    description:
+      "E-commerce интерфейс с быстрой навигацией по каталогу, мягкими переходами между разделами и сильной mobile-first иерархией.",
+    tags: ["Swift", "iOS", "Commerce"],
+    accent: "rgba(52, 211, 153, 0.22)",
+    surface: "rgba(14, 44, 36, 0.78)",
   },
   {
     title: "Lawyer Personal Brand",
-    category: "Веб-проекты (Сайты)",
-    desc: "Премиальный сайт-визитка для частного юриста. Строгий минимализм, акцент на типографике и экспертизе.",
-    tags: ["Next.js", "Tailwind CSS", "SEO"],
-    color: "from-blue-500/20 to-indigo-500/5",
+    category: "Премиальный сайт",
+    description:
+      "Редакционный сайт частного юриста, где доверие строится через контентный rhythm, контраст и спокойную navigation layer.",
+    tags: ["Next.js", "SEO", "Editorial"],
+    accent: "rgba(96, 165, 250, 0.22)",
+    surface: "rgba(13, 26, 46, 0.78)",
   },
   {
     title: "Local Coffee Shop",
-    category: "Веб-проекты (Сайты)",
-    desc: "Лендинг для локальной кофейни с интерактивным меню и формой предзаказа.",
-    tags: ["React", "Framer Motion"],
-    color: "from-orange-500/20 to-amber-500/5",
+    category: "Брендовый лендинг",
+    description:
+      "Локальный food-бренд с меню, предзаказом и акцентом на атмосферу без перегруженного визуального слоя.",
+    tags: ["Brand", "Menu", "Conversion"],
+    accent: "rgba(249, 115, 22, 0.22)",
+    surface: "rgba(53, 26, 10, 0.8)",
   },
   {
     title: "Fitness Tracker AI",
-    category: "Мобильные приложения",
-    desc: "Кроссплатформенное приложение (iOS/Android) с умным алгоритмом подбора тренировок.",
-    tags: ["React Native", "AI", "HealthKit"],
-    color: "from-purple-500/20 to-fuchsia-500/5",
+    category: "Сервисный интерфейс",
+    description:
+      "Приложение с тренировочными сценариями и data-heavy экранами, где важна ясная иерархия внутри плотного контента.",
+    tags: ["AI", "Health", "React Native"],
+    accent: "rgba(168, 85, 247, 0.24)",
+    surface: "rgba(36, 17, 63, 0.8)",
   },
 ];
 
 export default function PortfolioPage() {
   return (
-    <div className="flex flex-col items-center pb-24 mesh-bg min-h-screen">
-      <section className="w-full px-6 pt-32 pb-16 text-center">
-        <FadeIn>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-            Примеры наших работ
-          </h1>
-          <p className="text-xl md:text-2xl text-[color:var(--muted)] max-w-2xl mx-auto leading-relaxed">
-            Мы гордимся каждым проектом. Исследуйте наши кейсы по созданию
-            сайтов и мобильных приложений.
-          </p>
+    <div className="page-shell mesh-bg">
+      <section className="page-section content-layer pt-4 md:pt-10">
+        <FadeIn className="grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-end">
+          <div className="space-y-5">
+            <p className="section-kicker">Портфолио</p>
+            <h1 className="max-w-[11ch] text-[clamp(3rem,6vw,5.7rem)] font-semibold">
+              Кейсы, где важна не только картинка, но и то, как человек движется
+              внутри продукта.
+            </h1>
+            <p className="section-lead">
+              Ниже не галерея “декоративных экранов”, а направления, в которых мы
+              собираем продуктовую подачу: контент, сценарий, темизацию и
+              навигационный слой.
+            </p>
+          </div>
+
+          <div className="surface-card p-6 md:p-7">
+            <p className="section-kicker">Case Format</p>
+            <p className="mt-4 text-xl text-[color:var(--muted)]">
+              Даже на концептах показываем не абстрактный мокап, а порядок
+              уровней: primary action, supporting data, secondary navigation.
+            </p>
+          </div>
         </FadeIn>
       </section>
 
-      <section className="w-full max-w-7xl px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <section className="page-section content-layer">
+        <div className="grid gap-5 lg:grid-cols-2">
           {projects.map((project, index) => (
             <Reveal
               key={project.title}
-              delay={index * 0.08}
-              className="group rounded-[2.5rem] overflow-hidden bg-[color:var(--card)]/50 backdrop-blur-xl border border-[color:var(--border)] transition-all duration-500 hover:border-[color:var(--foreground)]/30 shadow-xl shadow-black/5"
+              delay={index * 0.04}
+              className="surface-card overflow-hidden"
             >
               <div
-                className={`w-full h-72 md:h-96 bg-gradient-to-br ${project.color} flex items-center justify-center p-8 relative overflow-hidden`}
+                className="relative p-6 md:p-7"
+                style={{
+                  background: `linear-gradient(180deg, ${project.accent} 0%, transparent 55%)`,
+                }}
               >
-                <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <HoverScale className="w-full h-full bg-[color:var(--background)]/80 backdrop-blur-sm rounded-3xl border border-[color:var(--border)] shadow-2xl flex items-center justify-center translate-y-8 group-hover:translate-y-4 transition-transform duration-700 ease-out">
-                  <span className="text-lg font-medium text-[color:var(--muted)]">
-                    App Interface Preview
-                  </span>
-                </HoverScale>
+                <div
+                  className="rounded-[1.75rem] border border-white/10 p-4 shadow-[var(--shadow-strong)]"
+                  style={{ backgroundColor: project.surface }}
+                >
+                  <HoverScale className="rounded-[1.35rem] border border-white/8 bg-white/6 p-4 text-white backdrop-blur-sm">
+                    <div className="flex items-center justify-between text-xs uppercase tracking-[0.18em] text-white/60">
+                      <span>{project.category}</span>
+                      <ExternalLink className="h-4 w-4" />
+                    </div>
+                    <div className="mt-5 rounded-[1.1rem] bg-white/8 p-4">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="text-sm text-white/60">Primary CTA</p>
+                          <p className="mt-1 text-lg font-semibold">
+                            {project.title}
+                          </p>
+                        </div>
+                        <div className="rounded-full bg-white/12 px-3 py-2 text-xs font-semibold">
+                          Active
+                        </div>
+                      </div>
+                      <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                        <div className="rounded-[1rem] bg-white/7 p-3">
+                          <p className="text-sm text-white/60">Navigation</p>
+                          <p className="mt-2 font-medium">
+                            Чистая иерархия действий
+                          </p>
+                        </div>
+                        <div className="rounded-[1rem] bg-white/7 p-3">
+                          <p className="text-sm text-white/60">Theme</p>
+                          <p className="mt-2 font-medium">
+                            Светлая и тёмная подача
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </HoverScale>
+                </div>
               </div>
 
-              <div className="p-10">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm font-medium text-[color:var(--accent)] tracking-wide uppercase">
-                    {project.category}
-                  </span>
-                  <ExternalLink className="w-5 h-5 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-[color:var(--foreground)]" />
-                </div>
-                <h3 className="text-3xl font-bold mb-4 tracking-tight">
-                  {project.title}
-                </h3>
-                <p className="text-[color:var(--muted)] mb-8 line-clamp-2 text-lg leading-relaxed">
-                  {project.desc}
-                </p>
-                <div className="flex flex-wrap gap-2">
+              <div className="p-6 md:p-7">
+                <div className="flex flex-wrap items-center gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-4 py-1.5 rounded-full bg-[color:var(--border)]/50 text-sm font-medium"
+                      className="rounded-full border border-[color:var(--border)] bg-[color:var(--background-muted)] px-3 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-[color:var(--muted-strong)]"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
+                <h2 className="mt-5 text-3xl">{project.title}</h2>
+                <p className="mt-4 text-[color:var(--muted)]">
+                  {project.description}
+                </p>
               </div>
             </Reveal>
           ))}
         </div>
       </section>
 
-      <section className="w-full max-w-4xl px-6 mt-32 text-center">
-        <Reveal>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-            Хотите такой же крутой результат?
-          </h2>
-          <p className="text-xl text-[color:var(--muted)] mb-10 leading-relaxed max-w-2xl mx-auto">
-            Давайте обсудим вашу идею и превратим ее в современный IT-продукт.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex px-10 py-5 bg-[color:var(--foreground)] text-[color:var(--background)] rounded-full font-medium text-xl hover:scale-105 active:scale-95 transition-all shadow-2xl"
-          >
-            Начать проект
-          </Link>
+      <section className="page-section content-layer section-divider">
+        <Reveal className="rounded-[2rem] bg-[color:var(--foreground)] px-6 py-8 text-[color:var(--background)] shadow-[var(--shadow-strong)] md:px-10 md:py-10">
+          <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div className="space-y-4">
+              <p className="section-kicker text-white/70">Новый кейс</p>
+              <h2 className="max-w-[13ch] text-[clamp(2rem,4vw,4rem)]">
+                Хотите такой же собранный результат для своего продукта?
+              </h2>
+              <p className="max-w-2xl text-lg leading-relaxed text-white/78">
+                Разберём задачу, определим нужный уровень глубины и предложим
+                формат, в котором визуал и навигация будут работать как одна
+                система.
+              </p>
+            </div>
+
+            <Link
+              href="/contact"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-6 font-semibold text-[color:var(--foreground)]"
+            >
+              Начать проект
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </Reveal>
       </section>
     </div>

@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 import { useFormStatus } from "react-dom";
-import { Send } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { submitContactForm } from "./actions";
 import {
   initialContactFormState,
@@ -21,7 +21,11 @@ function FieldError({
   }
 
   return (
-    <p id={errorId} role="alert" className="mt-3 text-sm text-red-500">
+    <p
+      id={errorId}
+      role="alert"
+      className="mt-3 text-sm text-[color:var(--danger)]"
+    >
       {message}
     </p>
   );
@@ -34,10 +38,10 @@ function SubmitButton() {
     <button
       type="submit"
       disabled={pending}
-      className="w-full py-5 mt-2 bg-[color:var(--foreground)] text-[color:var(--background)] rounded-2xl font-semibold text-lg hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 shadow-xl shadow-black/10 dark:shadow-white/5 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:scale-100"
+      className="action-primary mt-2 min-h-12 w-full disabled:cursor-not-allowed disabled:opacity-70"
     >
       {pending ? "Отправляем..." : "Отправить заявку"}
-      <Send className="w-5 h-5" />
+      <ArrowRight className="h-4 w-4" />
     </button>
   );
 }
@@ -50,19 +54,19 @@ export function ContactForm() {
 
   const isSuccess = state.status === "success";
   const isError = state.status === "error";
-  const statusTone = isSuccess ? "text-green-600" : isError ? "text-red-500" : "";
+  const statusTone = isSuccess
+    ? "text-[color:var(--success)]"
+    : isError
+      ? "text-[color:var(--danger)]"
+      : "";
 
   return (
-    <form
-      key={state.submissionId}
-      action={formAction}
-      className="space-y-6 glass-panel p-10 rounded-[2.5rem] shadow-xl shadow-black/5"
-    >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <form key={state.submissionId} action={formAction} className="space-y-6">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
         <div>
           <label
             htmlFor="name"
-            className="mb-3 block text-sm font-semibold tracking-wide text-[color:var(--foreground)]"
+            className="mb-3 block text-sm font-semibold text-[color:var(--foreground)]"
           >
             Имя
           </label>
@@ -75,7 +79,7 @@ export function ContactForm() {
             defaultValue={state.values.name}
             aria-invalid={Boolean(state.fieldErrors.name)}
             aria-describedby={state.fieldErrors.name ? "name-error" : undefined}
-            className="w-full px-5 py-5 rounded-2xl bg-[color:var(--background)] border border-[color:var(--border)] outline-none transition-all text-base focus:border-[color:var(--accent)]"
+            className="input-surface"
             placeholder="Иван Иванов"
           />
           <FieldError errorId="name-error" message={state.fieldErrors.name} />
@@ -84,7 +88,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="contact"
-            className="mb-3 block text-sm font-semibold tracking-wide text-[color:var(--foreground)]"
+            className="mb-3 block text-sm font-semibold text-[color:var(--foreground)]"
           >
             Email или телефон
           </label>
@@ -96,22 +100,27 @@ export function ContactForm() {
             required
             defaultValue={state.values.contact}
             aria-invalid={Boolean(state.fieldErrors.contact)}
-            aria-describedby={state.fieldErrors.contact ? "contact-error" : undefined}
-            className="w-full px-5 py-5 rounded-2xl bg-[color:var(--background)] border border-[color:var(--border)] outline-none transition-all text-base focus:border-[color:var(--accent)]"
+            aria-describedby={
+              state.fieldErrors.contact ? "contact-error" : undefined
+            }
+            className="input-surface"
             placeholder="hello@company.ru или +7 999 123-45-67"
           />
-          <FieldError errorId="contact-error" message={state.fieldErrors.contact} />
+          <FieldError
+            errorId="contact-error"
+            message={state.fieldErrors.contact}
+          />
         </div>
       </div>
 
       <div>
         <label
           htmlFor="projectType"
-          className="mb-3 block text-sm font-semibold tracking-wide text-[color:var(--foreground)]"
+          className="mb-3 block text-sm font-semibold text-[color:var(--foreground)]"
         >
           Тип задачи
         </label>
-        <div className="relative rounded-2xl">
+        <div className="relative">
           <select
             id="projectType"
             name="projectType"
@@ -121,7 +130,7 @@ export function ContactForm() {
             aria-describedby={
               state.fieldErrors.projectType ? "project-type-error" : undefined
             }
-            className="w-full px-5 py-5 rounded-2xl bg-[color:var(--background)] border border-[color:var(--border)] outline-none transition-all appearance-none text-base font-medium cursor-pointer focus:border-[color:var(--accent)]"
+            className="input-surface appearance-none pr-12"
           >
             {projectTypeOptions.map((option) => (
               <option key={option} value={option}>
@@ -129,9 +138,9 @@ export function ContactForm() {
               </option>
             ))}
           </select>
-          <div className="absolute inset-y-0 right-5 flex items-center pointer-events-none">
+          <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-[color:var(--muted)]">
             <svg
-              className="w-4 h-4 text-[color:var(--muted)]"
+              className="h-4 w-4"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -154,7 +163,7 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="message"
-          className="mb-3 block text-sm font-semibold tracking-wide text-[color:var(--foreground)]"
+          className="mb-3 block text-sm font-semibold text-[color:var(--foreground)]"
         >
           Краткое описание проекта
         </label>
@@ -167,17 +176,20 @@ export function ContactForm() {
           defaultValue={state.values.message}
           aria-invalid={Boolean(state.fieldErrors.message)}
           aria-describedby={state.fieldErrors.message ? "message-error" : undefined}
-          placeholder="Опишите цель проекта, желаемый объём и сроки."
-          className="w-full px-5 py-5 rounded-2xl bg-[color:var(--background)] border border-[color:var(--border)] outline-none transition-all resize-none text-base placeholder:text-[color:var(--muted)] focus:border-[color:var(--accent)]"
+          placeholder="Что нужно запустить, для кого и в какие сроки."
+          className="input-surface resize-none"
         />
-        <FieldError errorId="message-error" message={state.fieldErrors.message} />
+        <FieldError
+          errorId="message-error"
+          message={state.fieldErrors.message}
+        />
       </div>
 
       {state.message ? (
         <p
           role={isError ? "alert" : "status"}
           aria-live="polite"
-          className={`text-sm font-medium ${statusTone}`}
+          className={`text-sm font-semibold ${statusTone}`}
         >
           {state.message}
         </p>
@@ -185,8 +197,9 @@ export function ContactForm() {
 
       <SubmitButton />
 
-      <p className="text-xs font-medium text-[color:var(--muted)] text-center mt-6">
-        Ваши данные в безопасности. Мы не передаем их третьим лицам.
+      <p className="text-sm text-[color:var(--muted)]">
+        Данные используются только для связи по вашему запросу. Никаких
+        сторонних рассылок и перепродажи контактов.
       </p>
     </form>
   );

@@ -1,84 +1,103 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
-const socialPlaceholders = ["Behance", "Dribbble", "Twitter", "LinkedIn"];
+const serviceLinks = [
+  "Сайт-визитка",
+  "Корпоративный сайт",
+  "Продуктовый интерфейс",
+  "Мобильное приложение",
+];
+
+const socialPlaceholders = ["Behance", "Dribbble", "LinkedIn"];
 
 export function Footer() {
-    return (
-        <footer className="border-t border-[color:var(--border)] pt-20 pb-10 bg-[color:var(--card)]/30 backdrop-blur-3xl">
-            <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-20">
-                <div className="col-span-1 md:col-span-12 lg:col-span-5">
-                    <Link href="/" className="font-bold text-2xl tracking-tight mb-6 inline-flex items-center gap-2">
-                        <div className="w-6 h-6 rounded-md bg-gradient-to-tr from-[color:var(--foreground)] to-[color:var(--muted)] flex items-center justify-center">
-                            <div className="w-2.5 h-2.5 bg-[color:var(--background)] rounded-sm" />
-                        </div>
-                        WebStudio
-                    </Link>
-                    <p className="text-base text-[color:var(--muted)] max-w-sm leading-relaxed mb-8">
-                        Проектируем и разрабатываем цифровые продукты мирового уровня для тех, кто ценит эстетику и скорость.
-                    </p>
-                    <div className="flex items-center gap-4">
-                        <a href="mailto:hello@webstudio.ru" className="text-sm font-medium hover:text-[color:var(--accent)] transition-colors flex items-center gap-1">
-                            hello@webstudio.ru <ArrowUpRight className="w-3 h-3 opacity-50" />
-                        </a>
-                        <span className="text-[color:var(--border)]">|</span>
-                        <span
-                            aria-disabled="true"
-                            className="text-sm font-medium text-[color:var(--muted)] flex items-center gap-2 opacity-80"
-                        >
-                            Telegram
-                            <span className="text-xs uppercase tracking-[0.2em]">Скоро</span>
-                        </span>
-                    </div>
-                </div>
+  return (
+    <footer className="border-t border-[color:var(--border)] bg-[color:var(--background)]/86 pb-8 pt-20">
+      <div className="page-section">
+        <div className="grid gap-12 lg:grid-cols-[1.2fr_0.7fr_0.7fr_0.6fr]">
+          <div className="space-y-6">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-3 rounded-full px-1 py-1 text-xl font-semibold"
+            >
+              <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[color:var(--foreground)] text-[color:var(--background)]">
+                <span className="h-2.5 w-2.5 rounded-sm bg-[color:var(--accent)]" />
+              </span>
+              WebStudio
+            </Link>
+            <p className="max-w-md text-[color:var(--muted)]">
+              Проектируем digital-опыт, в котором navigation layer, контентный
+              ритм и темы работают как одна система.
+            </p>
+            <a
+              href="mailto:hello@webstudio.ru"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--foreground)]"
+            >
+              hello@webstudio.ru
+              <ArrowUpRight className="h-4 w-4 text-[color:var(--muted)]" />
+            </a>
+          </div>
 
-                <div className="col-span-1 md:col-span-4 lg:col-span-2 lg:col-start-7">
-                    <h3 className="font-bold text-sm tracking-widest uppercase mb-6 text-[color:var(--foreground)]">Услуги</h3>
-                    <ul className="space-y-4 text-sm font-medium text-[color:var(--muted)]">
-                        <li><Link href="/services" className="hover:text-[color:var(--foreground)] transition-colors">Сайт-визитка</Link></li>
-                        <li><Link href="/services" className="hover:text-[color:var(--foreground)] transition-colors">Корпоративный сайт</Link></li>
-                        <li><Link href="/services" className="hover:text-[color:var(--foreground)] transition-colors">Интернет-магазин</Link></li>
-                        <li><Link href="/services" className="hover:text-[color:var(--foreground)] transition-colors">Мобильные приложения</Link></li>
-                    </ul>
-                </div>
+          <div className="space-y-5">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">
+              Услуги
+            </p>
+            <ul className="space-y-3 text-sm text-[color:var(--muted)]">
+              {serviceLinks.map((item) => (
+                <li key={item}>
+                  <Link
+                    href="/services"
+                    className="transition-colors hover:text-[color:var(--foreground)]"
+                  >
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-                <div className="col-span-1 md:col-span-4 lg:col-span-2">
-                    <h3 className="font-bold text-sm tracking-widest uppercase mb-6 text-[color:var(--foreground)]">Компания</h3>
-                    <ul className="space-y-4 text-sm font-medium text-[color:var(--muted)]">
-                        <li><Link href="/portfolio" className="hover:text-[color:var(--foreground)] transition-colors">Кейсы</Link></li>
-                        <li><Link href="/about" className="hover:text-[color:var(--foreground)] transition-colors">О студии</Link></li>
-                        <li><Link href="/about" className="hover:text-[color:var(--foreground)] transition-colors">Подход к работе</Link></li>
-                        <li><Link href="/contact" className="hover:text-[color:var(--foreground)] transition-colors">Контакты</Link></li>
-                    </ul>
-                </div>
+          <div className="space-y-5">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">
+              Навигация
+            </p>
+            <ul className="space-y-3 text-sm text-[color:var(--muted)]">
+              <li>
+                <Link href="/portfolio">Портфолио</Link>
+              </li>
+              <li>
+                <Link href="/about">О студии</Link>
+              </li>
+              <li>
+                <Link href="/contact">Контакты</Link>
+              </li>
+            </ul>
+          </div>
 
-                <div className="col-span-1 md:col-span-4 lg:col-span-2">
-                    <h3 className="font-bold text-sm tracking-widest uppercase mb-6 text-[color:var(--foreground)]">Соцсети</h3>
-                    <ul className="space-y-4 text-sm font-medium text-[color:var(--muted)]">
-                        {socialPlaceholders.map((item) => (
-                            <li key={item}>
-                                <span
-                                    aria-disabled="true"
-                                    className="flex items-center gap-1 justify-between opacity-70"
-                                >
-                                    {item}
-                                    <span className="text-[10px] uppercase tracking-[0.2em]">
-                                        Скоро
-                                    </span>
-                                </span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </div>
+          <div className="space-y-5">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">
+              Соцсети
+            </p>
+            <ul className="space-y-3 text-sm text-[color:var(--muted)]">
+              {socialPlaceholders.map((item) => (
+                <li key={item} className="flex items-center justify-between gap-3">
+                  <span>{item}</span>
+                  <span className="text-xs uppercase tracking-[0.16em] text-[color:var(--muted)]/80">
+                    soon
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
-            <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-[color:var(--border)] flex flex-col md:flex-row items-center justify-between gap-4">
-                <p className="text-xs font-medium text-[color:var(--muted)]">© {new Date().getFullYear()} WebStudio Inc. Все права защищены.</p>
-                <div className="flex gap-6 text-xs font-medium text-[color:var(--muted)]">
-                    <Link href="/privacy" className="hover:text-[color:var(--foreground)] transition-colors">Политика конфиденциальности</Link>
-                    <Link href="/terms" className="hover:text-[color:var(--foreground)] transition-colors">Условия использования</Link>
-                </div>
-            </div>
-        </footer>
-    );
+        <div className="mt-16 flex flex-col gap-4 border-t border-[color:var(--border)] pt-6 text-sm text-[color:var(--muted)] md:flex-row md:items-center md:justify-between">
+          <p>© {new Date().getFullYear()} WebStudio. Все права защищены.</p>
+          <div className="flex flex-wrap gap-5">
+            <Link href="/privacy">Политика конфиденциальности</Link>
+            <Link href="/terms">Условия использования</Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 }

@@ -3,21 +3,25 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Условия использования",
   description:
-    "Временная placeholder-страница условий использования для сайта веб-студии.",
+    "Служебная страница WebStudio с placeholder-версией условий использования.",
 };
 
 export default function TermsPage() {
   return (
-    <div className="mesh-bg min-h-screen px-6 pt-36 pb-24">
-      <div className="max-w-3xl mx-auto glass-panel rounded-[2.5rem] p-10 md:p-14">
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-          Условия использования
-        </h1>
-        <p className="text-lg text-[color:var(--muted)] leading-relaxed">
-          Это временная placeholder-страница. Финальная версия условий
-          использования будет подготовлена отдельно.
-        </p>
-      </div>
+    <div className="page-shell mesh-bg">
+      <section className="page-section content-layer pt-8 md:pt-14">
+        <div className="surface-card max-w-3xl p-8 md:p-10">
+          <p className="section-kicker">Legal</p>
+          <h1 className="mt-4 text-[clamp(2.4rem,5vw,4.4rem)] font-semibold">
+            Условия использования
+          </h1>
+          <p className="mt-5 text-lg text-[color:var(--muted)]">
+            Это временная placeholder-страница. Финальная версия условий
+            использования будет подготовлена после отдельной юридической
+            вычитки.
+          </p>
+        </div>
+      </section>
     </div>
   );
 }
