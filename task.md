@@ -8,4 +8,4 @@
 - [x] Привести `/services`, `/about`, `/portfolio`, `/contact` к единому visual language
 - [x] Обновить footer и surface/input систему формы контактов
 - [x] Прогнать `npm run lint`, `npm run test`, `npm run build`
-- [ ] Сделать git commit и попытаться выполнить `git push`
+- [x] Сделать git commit и попытаться выполнить `git push`
