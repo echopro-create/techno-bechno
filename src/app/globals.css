@@ -1,47 +1,47 @@
 :root {
-  --page-background: #f2f0ea;
-  --page-background-rgb: 242 240 234;
-  --surface: rgba(255, 255, 255, 0.7);
-  --surface-strong: rgba(255, 255, 255, 0.84);
-  --surface-muted: rgba(255, 255, 255, 0.52);
-  --surface-border: rgba(17, 24, 39, 0.08);
-  --surface-shadow: 0 22px 70px rgba(17, 24, 39, 0.08);
-  --text-primary: #11141b;
-  --text-secondary: #495566;
-  --text-tertiary: #6f7b8d;
-  --accent: #10131a;
-  --accent-contrast: #f7f8fb;
-  --accent-soft: rgba(16, 19, 26, 0.08);
-  --divider: rgba(17, 24, 39, 0.1);
-  --chip-background: rgba(16, 19, 26, 0.05);
-  --chip-border: rgba(16, 19, 26, 0.1);
-  --glow-primary: rgba(83, 129, 255, 0.24);
-  --glow-secondary: rgba(255, 149, 94, 0.18);
-  --glow-tertiary: rgba(126, 224, 208, 0.16);
-  --selection: rgba(83, 129, 255, 0.18);
+  --page-background: #f3f0e9;
+  --page-background-rgb: 243 240 233;
+  --surface: rgba(255, 255, 255, 0.64);
+  --surface-strong: rgba(255, 255, 255, 0.82);
+  --surface-muted: rgba(255, 255, 255, 0.48);
+  --surface-border: rgba(12, 16, 24, 0.08);
+  --surface-shadow: 0 22px 56px rgba(12, 16, 24, 0.07);
+  --text-primary: #101319;
+  --text-secondary: #454f5d;
+  --text-tertiary: #717987;
+  --accent: #0e1218;
+  --accent-contrast: #f7f7f4;
+  --accent-soft: rgba(14, 18, 24, 0.08);
+  --divider: rgba(12, 16, 24, 0.1);
+  --chip-background: rgba(14, 18, 24, 0.04);
+  --chip-border: rgba(14, 18, 24, 0.08);
+  --glow-primary: rgba(122, 145, 214, 0.18);
+  --glow-secondary: rgba(112, 198, 185, 0.1);
+  --glow-tertiary: rgba(245, 176, 134, 0.1);
+  --selection: rgba(93, 125, 202, 0.16);
 }
 
 html[data-theme="dark"] {
-  --page-background: #090b12;
-  --page-background-rgb: 9 11 18;
-  --surface: rgba(11, 16, 27, 0.74);
-  --surface-strong: rgba(12, 18, 31, 0.9);
-  --surface-muted: rgba(17, 24, 40, 0.54);
-  --surface-border: rgba(160, 184, 255, 0.14);
-  --surface-shadow: 0 24px 90px rgba(0, 0, 0, 0.38);
-  --text-primary: #f1f5fb;
-  --text-secondary: #b7c2d2;
-  --text-tertiary: #8c98ab;
-  --accent: #f6f8ff;
-  --accent-contrast: #0a0f1d;
-  --accent-soft: rgba(160, 184, 255, 0.12);
-  --divider: rgba(160, 184, 255, 0.14);
-  --chip-background: rgba(160, 184, 255, 0.08);
-  --chip-border: rgba(160, 184, 255, 0.14);
-  --glow-primary: rgba(88, 121, 255, 0.34);
-  --glow-secondary: rgba(68, 217, 196, 0.16);
-  --glow-tertiary: rgba(255, 175, 123, 0.16);
-  --selection: rgba(106, 138, 255, 0.24);
+  --page-background: #0a0d11;
+  --page-background-rgb: 10 13 17;
+  --surface: rgba(17, 20, 26, 0.74);
+  --surface-strong: rgba(20, 24, 31, 0.88);
+  --surface-muted: rgba(19, 24, 34, 0.5);
+  --surface-border: rgba(194, 210, 255, 0.12);
+  --surface-shadow: 0 28px 88px rgba(0, 0, 0, 0.34);
+  --text-primary: #f3f5f8;
+  --text-secondary: #bac2ce;
+  --text-tertiary: #8f98a5;
+  --accent: #f1f3f4;
+  --accent-contrast: #0c1016;
+  --accent-soft: rgba(241, 243, 244, 0.08);
+  --divider: rgba(194, 210, 255, 0.12);
+  --chip-background: rgba(241, 243, 244, 0.05);
+  --chip-border: rgba(241, 243, 244, 0.1);
+  --glow-primary: rgba(92, 109, 168, 0.22);
+  --glow-secondary: rgba(101, 173, 163, 0.12);
+  --glow-tertiary: rgba(214, 154, 116, 0.1);
+  --selection: rgba(116, 140, 220, 0.24);
 }
 
 html {
@@ -67,9 +67,9 @@ body {
   flex-direction: column;
   color: var(--text-primary);
   background:
-    radial-gradient(circle at top left, var(--glow-primary) 0, transparent 28%),
-    radial-gradient(circle at right 15%, var(--glow-secondary) 0, transparent 22%),
-    radial-gradient(circle at bottom left, var(--glow-tertiary) 0, transparent 20%),
+    radial-gradient(circle at top left, var(--glow-primary) 0, transparent 32%),
+    radial-gradient(circle at right 18%, var(--glow-secondary) 0, transparent 24%),
+    radial-gradient(circle at bottom left, var(--glow-tertiary) 0, transparent 22%),
     var(--page-background);
   font-family: var(--font-sans), sans-serif;
   text-rendering: optimizeLegibility;
@@ -109,6 +109,14 @@ svg {
 
 section[id] {
   scroll-margin-top: 120px;
+}
+
+details > summary {
+  list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
 }
 
 :focus-visible {

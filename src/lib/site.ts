@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "Mr.Hide",
-  title: "Mr.Hide — строгие сайты и приложения для частных клиентов",
+  title: "Mr.Hide — сайты и приложения для частных клиентов",
   description:
-    "Частный разработчик качественных сайтов и приложений для iOS и Android. Лендинги, сайты-визитки, многостраничные сайты и MVP с акцентом на Краснодарский край.",
+    "Частный разработчик сайтов и приложений для iOS и Android. Лендинги, сайты услуг и MVP с акцентом на Краснодарский край.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com",
   telegramUrl: "https://t.me/your_telegram",
   telegramLabel: "@your_telegram",
@@ -18,5 +18,6 @@ export const siteConfig = {
     "разработка мобильных приложений краснодар",
     "приложение ios android краснодар",
     "сайт для специалиста",
+    "сайт для частной практики",
   ],
 } as const;
