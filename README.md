@@ -34,6 +34,7 @@ npm start
 ## Проверки
 
 ```bash
+npm run test:run
 npm run lint
 npm run build
 ```

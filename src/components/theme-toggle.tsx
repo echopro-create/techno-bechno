@@ -14,13 +14,13 @@ const options: Array<{ label: string; value: ThemePreference }> = [
 ];
 
 function readPreference(): ThemePreference {
-  if (typeof document === "undefined") {
+  if (typeof window === "undefined") {
     return "system";
   }
 
   return (
     (document.documentElement.dataset.themePreference as ThemePreference | undefined) ??
-    (localStorage.getItem(STORAGE_KEY) as ThemePreference | null) ??
+    (window.localStorage.getItem(STORAGE_KEY) as ThemePreference | null) ??
     "system"
   );
 }
@@ -45,7 +45,8 @@ export function ThemeToggle() {
   useEffect(() => {
     const media = window.matchMedia("(prefers-color-scheme: dark)");
     const handleChange = () => {
-      const current = (localStorage.getItem(STORAGE_KEY) as ThemePreference | null) ?? "system";
+      const current =
+        (window.localStorage.getItem(STORAGE_KEY) as ThemePreference | null) ?? "system";
       if (current === "system") {
         applyTheme("system");
         setPreference("system");
@@ -58,7 +59,7 @@ export function ThemeToggle() {
   }, []);
 
   const handleSelect = (nextPreference: ThemePreference) => {
-    localStorage.setItem(STORAGE_KEY, nextPreference);
+    window.localStorage.setItem(STORAGE_KEY, nextPreference);
     applyTheme(nextPreference);
     setPreference(nextPreference);
   };
