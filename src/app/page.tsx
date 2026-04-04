@@ -4,115 +4,100 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { siteConfig } from "@/lib/site";
 import styles from "./page.module.css";
 
-const principles = [
+const manifestoItems = [
   {
-    title: "Тихая подача",
-    text: "Без баннерной суеты, перегруза и ощущения дешевого шаблона.",
+    title: "Не студия на словах",
+    text: "Один исполнитель, прямая коммуникация и решение без искусственного слоя менеджмента.",
   },
   {
-    title: "Ясная структура",
-    text: "Сначала смысл и маршрут заявки. Потом типографика, свет и темп страницы.",
+    title: "Не шаблон по сетке",
+    text: "Сначала смысл, затем маршрут заявки, потом интерфейс. Не наоборот.",
   },
   {
-    title: "Личный контакт",
-    text: "Вы общаетесь напрямую с разработчиком, а не проходите через цепочку менеджеров.",
+    title: "Не дешевый premium",
+    text: "Минимальная цена есть, но подача и оценка остаются честными по объему задачи.",
   },
 ] as const;
 
-const serviceBands = [
+const services = [
   {
     index: "01",
     title: "Лендинги и сайты услуг",
-    description:
-      "Для частной практики, локального бренда, специалиста, сервиса записи или точечного рекламного оффера.",
-    bullets: [
-      "Сильный первый экран",
-      "Коммерческий маршрут до заявки",
-      "Мобильная версия без деградации",
-    ],
+    text: "Для частной практики, локального бренда, рекламы услуги, записи, консультаций и личного бренда.",
+    tags: ["Первый экран", "Маршрут до заявки", "Мобильная версия"],
   },
   {
     index: "02",
-    title: "Сайты с более длинной логикой",
-    description:
-      "Когда одной страницы мало и нужно разложить услуги, навигацию, контент, FAQ и локальную SEO-структуру.",
-    bullets: [
-      "Многостраничная архитектура",
-      "Тон и ритм контента",
-      "Основа для дальнейшего роста",
-    ],
+    title: "Сайты с длинной логикой",
+    text: "Когда одной страницы мало и нужно разложить услуги, разделы, FAQ, структуру контента и SEO-подачу по региону.",
+    tags: ["Навигация", "Контент", "Локальная структура"],
   },
   {
     index: "03",
     title: "iOS / Android / MVP",
-    description:
-      "Для тех случаев, когда нужен уже не только сайт, а рабочий мобильный сценарий: запись, кабинет, каталог или сервис.",
-    bullets: [
-      "Разбор объема до старта",
-      "Нативный или кроссплатформенный маршрут",
-      "Оценка без искусственного демпинга",
-    ],
+    text: "Для сервисов, кабинетов, каталогов, записи и ранних продуктовых сценариев, где уже нужен мобильный слой.",
+    tags: ["Разбор объема", "Маршрут разработки", "Оценка после брифа"],
   },
 ] as const;
 
 const processSteps = [
   {
-    title: "Фиксируем задачу",
-    text: "Что продаем, кому, через какой сценарий и какое решение действительно нужно: лендинг, сайт или приложение.",
+    title: "Фиксация задачи",
+    text: "Разбираем, что именно нужно: лендинг, сайт с более длинной логикой или приложение.",
   },
   {
-    title: "Собираем форму смысла",
-    text: "Структура, заголовки, порядок блоков, темп чтения и точки перехода к заявке.",
+    title: "Структура и текст",
+    text: "Собираем порядок блоков, заголовки, подачу и переходы к целевому действию.",
   },
   {
-    title: "Строим визуальную систему",
-    text: "Типографика, материалы, темная и светлая темы, собственные графические элементы и состояния интерфейса.",
+    title: "Визуальная система",
+    text: "Типографика, свет, ритм, темы, собственные графические элементы и интерфейсные состояния.",
   },
   {
-    title: "Проверяем и запускаем",
-    text: "Адаптивность, SEO-метаданные, скорость, доступность, после чего сайт или MVP можно спокойно выпускать.",
+    title: "Сборка и запуск",
+    text: "SEO-метаданные, адаптивность, тесты, сборка и выпуск без мусора в финальном результате.",
   },
 ] as const;
 
 const pricingRows = [
   {
-    label: "Старт для простого сайта",
+    label: "Простой старт для сайта",
     value: "от 5 000 ₽",
     text: "Подходит для узкой задачи, одного экрана, базового промо или точечной доработки, когда объем заранее понятен.",
   },
   {
-    label: "Сайт с более длинной структурой",
+    label: "Сайт под конкретную задачу",
     value: "по смете",
-    text: "Когда нужны несколько сценариев, глубже контент, больше секций, формы, анимация и аккуратная локальная SEO-логика.",
+    text: "Когда нужны несколько сценариев, больше контента, формы, анимация, интеграции и внятная локальная структура.",
   },
   {
     label: "Приложение или MVP",
     value: "после брифа",
-    text: "Для мобильных продуктов обещать цену без сценариев и объема нечестно. Сначала раскладываем первую версию, затем оцениваем.",
+    text: "Для мобильного продукта цена без сценариев и границ первой версии всегда будет выдумкой. Так я не работаю.",
   },
 ] as const;
 
 const faqItems = [
   {
-    question: "Можно начать с сайта, а к приложению вернуться позже?",
+    question: "Можно начать с сайта, а приложение сделать позже?",
     answer:
-      "Да. Для частных клиентов это обычно самый разумный маршрут: сначала проверить спрос через сайт или лендинг, потом решать, нужен ли мобильный продукт.",
+      "Да. Для частных клиентов это обычно правильнее: сначала проверить спрос и подачу через сайт, а потом решать, нужен ли мобильный продукт.",
   },
   {
     question: "Почему здесь нет кейсов и отзывов?",
     answer:
-      "Потому что я не подменяю доверие выдумкой. В этой версии лендинга упор сделан на уровень интерфейса, структуру и честную логику работы.",
+      "Потому что я не закрываю отсутствие доказательств фальшивыми блоками. Здесь доверие строится через уровень интерфейса, ясность процесса и честную подачу.",
   },
   {
     question: "Работаете только по Краснодарскому краю?",
     answer:
-      "Формат работы удаленный, но подача и SEO этой версии собраны именно под Краснодарский край и локальный коммерческий спрос.",
+      "Работа удаленная, но версия сайта и SEO-подача собраны под Краснодарский край и локальный коммерческий спрос.",
   },
 ] as const;
 
-const messageChecklist = [
-  "Кто вы и какой у вас продукт или услуга.",
-  "Что нужно сейчас: лендинг, сайт, редизайн или приложение.",
+const contactChecklist = [
+  "Кто вы и какой продукт или услуга у вас сейчас.",
+  "Что нужно: лендинг, сайт, редизайн или приложение.",
   "Есть ли сроки, референсы и желаемый сценарий заявки.",
   "Какой трафик планируете использовать после запуска.",
 ] as const;
@@ -151,129 +136,128 @@ export default function Home() {
 
           <main className={styles.main}>
             <section className={styles.hero} id="top">
-              <div className={styles.heroGrid}>
-                <div className={styles.heroCopy}>
-                  <span className={styles.eyebrow}>
-                    Mr.Hide · частная разработка · Краснодарский край
-                  </span>
-                  <h1 className={styles.heroTitle}>
-                    Сайты и приложения, которые говорят тихо, но выглядят дорого.
-                  </h1>
-                  <p className={styles.heroLead}>
-                    Я проектирую лендинги, сайты услуг и мобильные MVP для частных
-                    клиентов. Без агентского шума, без дешевого визуального шума,
-                    с акцентом на ритм, структуру и ясную коммерческую подачу.
-                  </p>
+              <div className={styles.heroCopy}>
+                <span className={styles.eyebrow}>
+                  Mr.Hide · сайты и приложения · Краснодарский край
+                </span>
+                <h1 className={styles.heroTitle}>
+                  Сайты и приложения для частных клиентов.
+                </h1>
+                <p className={styles.heroLead}>
+                  Спокойный premium без студийной мишуры: лендинги, сайты услуг и
+                  мобильные MVP, собранные вокруг смысла, а не вокруг визуального
+                  шума.
+                </p>
 
-                  <div className={styles.heroActions}>
-                    <a className={styles.primaryAction} href="#contact">
-                      Написать в Telegram
-                    </a>
-                    <a className={styles.secondaryAction} href="#services">
-                      Посмотреть направления
-                    </a>
-                  </div>
-
-                  <p className={styles.heroMeta}>
-                    Краснодар · Сочи · Новороссийск · Анапа · Геленджик
-                  </p>
+                <div className={styles.heroActions}>
+                  <a className={styles.primaryAction} href="#contact">
+                    Написать в Telegram
+                  </a>
+                  <a className={styles.secondaryAction} href="#services">
+                    Смотреть направления
+                  </a>
                 </div>
 
-                <div className={styles.heroStage}>
-                  <div className={styles.stageVisual}>
-                    <Image
-                      src="/arts/hero-lens.svg"
-                      alt="Абстрактная премиальная композиция из стеклянных форм и направленного света"
-                      width={900}
-                      height={1080}
-                      priority
-                      sizes="(max-width: 960px) 100vw, 42vw"
-                    />
-                  </div>
-                  <div className={styles.stageNote}>
-                    <span className={styles.eyebrow}>Ось проекта</span>
-                    <strong>Один исполнитель. Одна система. Один маршрут решения.</strong>
-                    <p>
-                      Если задача небольшая, не нужно строить вокруг нее видимость
-                      большой студии. Нужен точный результат.
-                    </p>
-                  </div>
+                <div className={styles.heroFacts}>
+                  <span>от 5 000 ₽</span>
+                  <span>iOS / Android</span>
+                  <span>Прямая связь</span>
                 </div>
               </div>
 
-              <div className={styles.principles}>
-                {principles.map((item) => (
-                  <article key={item.title} className={styles.principle}>
-                    <span className={styles.principleIndex}>{item.title}</span>
+              <div className={styles.heroStage}>
+                <div className={styles.heroArt}>
+                  <Image
+                    src="/arts/hero-lens.svg"
+                    alt="Абстрактная световая композиция в строгом премиальном стиле"
+                    width={900}
+                    height={1080}
+                    priority
+                    sizes="(max-width: 960px) 100vw, 42vw"
+                  />
+                </div>
+                <div className={styles.heroNote}>
+                  <span className={styles.eyebrow}>Формула</span>
+                  <strong>Один человек. Одна система. Один ясный результат.</strong>
+                </div>
+              </div>
+            </section>
+
+            <section className={styles.manifesto}>
+              <div className={styles.manifestoIntro}>
+                <span className={styles.eyebrow}>Подход</span>
+                <h2 className={styles.sectionTitle}>
+                  Дорогой интерфейс начинается не с эффектов, а с дисциплины.
+                </h2>
+              </div>
+
+              <div className={styles.manifestoGrid}>
+                {manifestoItems.map((item) => (
+                  <article key={item.title} className={styles.manifestoItem}>
+                    <h3>{item.title}</h3>
                     <p>{item.text}</p>
                   </article>
                 ))}
               </div>
             </section>
 
-            <section className={styles.servicesSection} id="services">
-              <div className={styles.sectionIntro}>
+            <section className={styles.services} id="services">
+              <div className={styles.servicesIntro}>
                 <span className={styles.eyebrow}>Направления</span>
                 <h2 className={styles.sectionTitle}>
-                  Не все для всех. Только те форматы, которые действительно нужны
-                  частному заказчику.
+                  Не все подряд. Только то, что действительно нужно частному
+                  заказчику.
                 </h2>
               </div>
 
               <div className={styles.servicesLayout}>
-                <div className={styles.serviceBands}>
-                  {serviceBands.map((band) => (
-                    <article key={band.index} className={styles.serviceBand}>
-                      <span className={styles.serviceIndex}>{band.index}</span>
-                      <div className={styles.serviceBody}>
-                        <h3>{band.title}</h3>
-                        <p>{band.description}</p>
+                <div className={styles.servicesList}>
+                  {services.map((service) => (
+                    <article key={service.index} className={styles.serviceRow}>
+                      <span className={styles.serviceIndex}>{service.index}</span>
+                      <div className={styles.serviceContent}>
+                        <h3>{service.title}</h3>
+                        <p>{service.text}</p>
                       </div>
-                      <ul className={styles.serviceList}>
-                        {band.bullets.map((bullet) => (
-                          <li key={bullet}>{bullet}</li>
+                      <ul className={styles.serviceTags}>
+                        {service.tags.map((tag) => (
+                          <li key={tag}>{tag}</li>
                         ))}
                       </ul>
                     </article>
                   ))}
                 </div>
 
-                <aside className={styles.servicesAside}>
+                <aside className={styles.servicesVisual}>
                   <Image
                     src="/arts/services-grid.svg"
-                    alt="Сдержанная композиция из интерфейсных панелей и световых плоскостей"
+                    alt="Сдержанная композиция из интерфейсных плоскостей"
                     width={960}
                     height={760}
                     sizes="(max-width: 960px) 100vw, 32vw"
                   />
                   <p>
-                    Такой подход лучше всего работает там, где важно не выглядеть
-                    шумно: частная практика, локальная услуга, личный бренд,
-                    эстетический сервис, консультации, ранний MVP.
+                    Лучше всего такой подход работает там, где важны доверие,
+                    тишина и взрослый визуальный язык: частная практика, локальные
+                    услуги, личный бренд, консультации и ранние продукты.
                   </p>
                 </aside>
               </div>
             </section>
 
-            <section className={styles.processSection} id="process">
-              <div className={styles.processLead}>
+            <section className={styles.process} id="process">
+              <div className={styles.processIntro}>
                 <span className={styles.eyebrow}>Процесс</span>
                 <h2 className={styles.sectionTitle}>
-                  Если у проекта еще нет формы смысла, его не спасет даже дорогой
-                  интерфейс.
+                  Сначала задача, затем структура, потом интерфейс.
                 </h2>
-                <p className={styles.sectionText}>
-                  Поэтому работа идет не от декоративных эффектов, а от правильного
-                  порядка: задача, структура, визуальная система, затем сборка и
-                  запуск.
-                </p>
               </div>
 
               <div className={styles.processLayout}>
                 <div className={styles.processVisual}>
                   <Image
                     src="/arts/process-orbit.svg"
-                    alt="Абстрактная орбитальная схема процесса разработки"
+                    alt="Орбитальная схема процесса разработки"
                     width={840}
                     height={940}
                     sizes="(max-width: 960px) 100vw, 34vw"
@@ -291,25 +275,20 @@ export default function Home() {
               </div>
             </section>
 
-            <section className={styles.pricingSection} id="pricing">
+            <section className={styles.pricing} id="pricing">
               <div className={styles.pricingIntro}>
-                <span className={styles.eyebrowAlt}>Стоимость</span>
+                <span className={styles.eyebrowInverse}>Стоимость</span>
                 <h2 className={styles.pricingTitle}>
-                  Сайт может стартовать от 5 000 ₽. Приложение не должно
+                  5 000 ₽ это старт простой страницы. Приложение не должно
                   притворяться дешевым.
                 </h2>
-                <p className={styles.pricingLead}>
-                  Здесь честно разведены два разных продукта: сайт как быстрый
-                  коммерческий инструмент и мобильное приложение как более длинная
-                  продуктовая задача.
-                </p>
               </div>
 
-              <div className={styles.pricingMatrix}>
-                <div className={styles.priceAnchor}>
-                  <span>от</span>
+              <div className={styles.pricingLayout}>
+                <div className={styles.priceHero}>
+                  <span>Старт</span>
                   <strong>5 000 ₽</strong>
-                  <p>минимальный вход для простой посадочной страницы или узкой задачи</p>
+                  <p>Минимальный вход для простой посадочной страницы или узкой задачи.</p>
                 </div>
 
                 <div className={styles.priceRows}>
@@ -325,7 +304,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className={styles.faqList}>
+              <div className={styles.faqGrid}>
                 {faqItems.map((item) => (
                   <details key={item.question} className={styles.faqItem}>
                     <summary>{item.question}</summary>
@@ -335,16 +314,16 @@ export default function Home() {
               </div>
             </section>
 
-            <section className={styles.contactSection} id="contact">
-              <div className={styles.contactPanel}>
+            <section className={styles.contact} id="contact">
+              <div className={styles.contactLead}>
                 <span className={styles.eyebrow}>Контакт</span>
                 <h2 className={styles.sectionTitle}>
-                  Если нужен спокойный, взрослый интерфейс без студийной мишуры,
-                  пишите напрямую.
+                  Если нужен сайт или продукт без визуального мусора, пишите
+                  напрямую.
                 </h2>
                 <p className={styles.sectionText}>
-                  На этой версии контакты пока оставлены как заглушки. Перед
-                  публикацией их нужно заменить на реальные Telegram и email.
+                  В этой версии контакты еще оставлены как заглушки. Перед
+                  публикацией замените Telegram и email на реальные.
                 </p>
 
                 <div className={styles.contactActions}>
@@ -362,15 +341,15 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className={styles.contactAside}>
-                <span className={styles.eyebrow}>Что написать в первом сообщении</span>
+              <div className={styles.contactChecklist}>
+                <span className={styles.eyebrow}>Что прислать в первом сообщении</span>
                 <ol>
-                  {messageChecklist.map((item) => (
+                  {contactChecklist.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ol>
                 <p className={styles.contactMeta}>
-                  Региональная логика сайта собрана под {siteConfig.region}.
+                  Географическая подача сайта собрана под {siteConfig.region}.
                 </p>
               </div>
             </section>
@@ -379,11 +358,10 @@ export default function Home() {
           <footer className={styles.footer}>
             <p>
               © {currentYear} {siteConfig.name}. Частный разработчик сайтов и
-              приложений для частных клиентов.
+              приложений.
             </p>
             <p>
-              Светлая и темная темы, SEO-структура и локальная подача под{" "}
-              {siteConfig.region}.
+              Краснодарский край · светлая и темная темы · SEO-first структура
             </p>
           </footer>
         </div>

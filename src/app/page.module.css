@@ -4,17 +4,6 @@
   padding: 18px;
 }
 
-.page::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.05), transparent 22%),
-    radial-gradient(circle at top center, rgba(255, 255, 255, 0.08), transparent 34%);
-  opacity: 0.5;
-}
-
 .frame {
   width: min(1480px, 100%);
   margin: 0 auto;
@@ -22,16 +11,16 @@
 
 .header {
   position: sticky;
-  top: 14px;
+  top: 12px;
   z-index: 20;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 24px;
-  min-height: 74px;
-  padding: 12px 4px 18px;
+  min-height: 78px;
+  padding: 10px 0 18px;
   border-bottom: 1px solid var(--divider);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(10px);
 }
 
 .brand {
@@ -47,12 +36,12 @@
   height: 40px;
   border-radius: 14px;
   background:
-    radial-gradient(circle at 25% 20%, rgba(255, 255, 255, 0.46), transparent 52%),
-    linear-gradient(145deg, color-mix(in srgb, var(--accent) 82%, #3c517d) 0%, var(--accent) 100%);
+    radial-gradient(circle at 25% 20%, rgba(255, 255, 255, 0.42), transparent 52%),
+    linear-gradient(145deg, color-mix(in srgb, var(--accent) 84%, #51658f) 0%, var(--accent) 100%);
   color: var(--accent-contrast);
   font-family: var(--font-mono), monospace;
   letter-spacing: 0.08em;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
 .brandText {
@@ -68,9 +57,9 @@
 
 .brandText span {
   color: var(--text-tertiary);
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
 }
 
 .nav {
@@ -101,68 +90,56 @@
 .main {
   display: flex;
   flex-direction: column;
-  gap: clamp(72px, 9vw, 132px);
-  padding: 36px 0 72px;
+  gap: clamp(84px, 9vw, 144px);
+  padding: 38px 0 84px;
 }
 
-.hero,
-.servicesSection,
-.processSection,
-.contactSection {
-  position: relative;
-}
-
-.heroGrid,
-.servicesLayout,
-.processLayout,
-.contactSection {
+.hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
-  gap: 34px;
-  align-items: start;
+  grid-template-columns: minmax(0, 1.04fr) minmax(340px, 0.96fr);
+  gap: 42px;
+  min-height: calc(100vh - 140px);
+  align-items: end;
 }
 
 .eyebrow,
-.eyebrowAlt,
-.principleIndex,
+.eyebrowInverse,
 .priceLabel {
   display: inline-flex;
   align-items: center;
   font-family: var(--font-mono), monospace;
   font-size: 0.76rem;
   line-height: 1;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
 .eyebrow,
-.principleIndex,
 .priceLabel {
   color: var(--text-tertiary);
 }
 
-.eyebrowAlt {
-  color: color-mix(in srgb, var(--accent-contrast) 72%, transparent);
+.eyebrowInverse {
+  color: rgba(255, 255, 255, 0.64);
 }
 
 .heroTitle,
 .sectionTitle,
 .pricingTitle {
-  margin-top: 18px;
-  letter-spacing: -0.08em;
+  margin-top: 16px;
+  letter-spacing: -0.085em;
   text-wrap: balance;
 }
 
 .heroTitle {
-  max-width: 10ch;
-  font-size: clamp(4rem, 9vw, 8.6rem);
-  line-height: 0.92;
+  max-width: 8.8ch;
+  font-size: clamp(4.4rem, 10vw, 9.6rem);
+  line-height: 0.9;
 }
 
 .heroLead,
-.sectionText,
-.pricingLead {
-  max-width: 58ch;
+.sectionText {
+  max-width: 54ch;
   margin-top: 22px;
   color: var(--text-secondary);
   font-size: 1.08rem;
@@ -186,7 +163,7 @@
   padding: 0 22px;
   border-radius: 999px;
   border: 1px solid transparent;
-  font-size: 0.96rem;
+  font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: -0.02em;
   transition:
@@ -203,7 +180,7 @@
 
 .secondaryAction {
   border-color: var(--surface-border);
-  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  background: color-mix(in srgb, var(--surface) 86%, transparent);
   color: var(--text-primary);
 }
 
@@ -212,12 +189,25 @@
   transform: translateY(-1px);
 }
 
-.heroMeta,
-.contactMeta {
-  margin-top: 26px;
-  color: var(--text-tertiary);
-  font-size: 0.92rem;
-  line-height: 1.7;
+.heroFacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-top: 30px;
+  border-top: 1px solid var(--divider);
+  padding-top: 18px;
+}
+
+.heroFacts span {
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+.heroFacts span + span {
+  margin-left: 14px;
+  padding-left: 14px;
+  border-left: 1px solid var(--divider);
 }
 
 .heroStage {
@@ -225,160 +215,161 @@
   min-height: 780px;
 }
 
-.stageVisual {
+.heroArt,
+.servicesVisual,
+.processVisual {
   overflow: hidden;
-  min-height: 100%;
-  border-radius: 36px;
+  border-radius: 38px;
   border: 1px solid var(--surface-border);
-  background: color-mix(in srgb, var(--surface-strong) 90%, transparent);
+  background: color-mix(in srgb, var(--surface-strong) 88%, transparent);
   box-shadow: var(--surface-shadow);
 }
 
-.stageVisual img {
+.heroArt {
+  min-height: 100%;
+}
+
+.heroArt img,
+.servicesVisual img,
+.processVisual img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.stageNote {
+.heroNote {
   position: absolute;
   right: 18px;
   bottom: 18px;
   width: min(320px, calc(100% - 36px));
-  padding: 20px 22px;
+  padding: 18px 20px;
+  border-radius: 24px;
   border: 1px solid var(--surface-border);
-  border-radius: 26px;
-  background: color-mix(in srgb, var(--surface-strong) 88%, transparent);
-  box-shadow: var(--surface-shadow);
-  backdrop-filter: blur(18px);
+  background: color-mix(in srgb, var(--surface-strong) 90%, transparent);
+  backdrop-filter: blur(14px);
 }
 
-.stageNote strong {
+.heroNote strong {
   display: block;
-  margin-top: 12px;
-  font-size: 1.08rem;
-  line-height: 1.3;
+  margin-top: 10px;
+  font-size: 1.06rem;
+  line-height: 1.34;
   letter-spacing: -0.03em;
 }
 
-.stageNote p,
-.principle p,
-.servicesAside p,
-.timelineItem p,
-.priceRow p,
-.faqItem p,
-.contactAside li {
-  margin-top: 10px;
-  color: var(--text-secondary);
-  line-height: 1.72;
-}
-
-.principles {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 34px;
-  padding-top: 20px;
+.manifesto,
+.services,
+.process,
+.contact {
   border-top: 1px solid var(--divider);
+  padding-top: 26px;
 }
 
-.principle {
-  padding-top: 8px;
-}
-
-.sectionIntro,
-.processLead,
-.pricingIntro,
-.contactPanel {
-  max-width: 960px;
+.manifestoIntro,
+.servicesIntro,
+.processIntro,
+.contactLead,
+.pricingIntro {
+  max-width: 980px;
 }
 
 .sectionTitle {
-  max-width: 13ch;
-  font-size: clamp(2.6rem, 5.8vw, 5.2rem);
+  max-width: 12.8ch;
+  font-size: clamp(2.7rem, 5.8vw, 5.2rem);
   line-height: 0.98;
 }
 
-.servicesLayout {
+.manifestoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
   margin-top: 30px;
 }
 
-.serviceBands {
+.manifestoItem {
+  padding-top: 10px;
+}
+
+.manifestoItem h3,
+.serviceContent h3,
+.timelineItem h3 {
+  font-size: 1.52rem;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.manifestoItem p,
+.serviceContent p,
+.servicesVisual p,
+.timelineItem p,
+.priceRow p,
+.faqItem p,
+.contactChecklist li {
+  margin-top: 12px;
+  color: var(--text-secondary);
+  line-height: 1.76;
+}
+
+.servicesLayout,
+.processLayout,
+.contact {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+  gap: 34px;
+  margin-top: 30px;
+}
+
+.servicesList {
   display: grid;
 }
 
-.serviceBand {
+.serviceRow {
   display: grid;
-  grid-template-columns: 94px minmax(0, 1fr) minmax(220px, 0.78fr);
+  grid-template-columns: 88px minmax(0, 1fr) minmax(220px, 0.74fr);
   gap: 24px;
   padding: 28px 0;
   border-top: 1px solid var(--divider);
 }
 
-.serviceBand:last-child {
+.serviceRow:last-child {
   border-bottom: 1px solid var(--divider);
 }
 
 .serviceIndex {
   color: var(--text-tertiary);
   font-family: var(--font-mono), monospace;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
-.serviceBody h3,
-.timelineItem h3,
-.contactAside ol {
-  letter-spacing: -0.04em;
-}
-
-.serviceBody h3,
-.timelineItem h3 {
-  font-size: 1.7rem;
-  line-height: 1.06;
-}
-
-.serviceBody p {
-  margin-top: 12px;
-  max-width: 42ch;
-  color: var(--text-secondary);
-  line-height: 1.76;
-}
-
-.serviceList {
-  display: grid;
+.serviceTags {
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   align-content: start;
-  padding-left: 18px;
+  list-style: none;
+}
+
+.serviceTags li {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid var(--chip-border);
+  background: var(--chip-background);
   color: var(--text-secondary);
-  line-height: 1.7;
+  font-size: 0.88rem;
 }
 
-.servicesAside {
-  overflow: hidden;
-  align-self: stretch;
+.servicesVisual {
+  align-self: start;
   padding: 18px;
-  border: 1px solid var(--surface-border);
-  border-radius: 32px;
-  background: color-mix(in srgb, var(--surface-strong) 90%, transparent);
-  box-shadow: var(--surface-shadow);
-}
-
-.servicesAside img {
-  border-radius: 24px;
-}
-
-.processLayout {
-  margin-top: 30px;
 }
 
 .processVisual {
-  overflow: hidden;
-  border: 1px solid var(--surface-border);
-  border-radius: 36px;
-  background: color-mix(in srgb, var(--surface-strong) 90%, transparent);
-  box-shadow: var(--surface-shadow);
+  min-height: 680px;
 }
 
 .timeline {
@@ -407,7 +398,7 @@
   padding-top: 28px;
 }
 
-.pricingSection {
+.pricing {
   padding: 42px;
   border-radius: 42px;
   background: var(--accent);
@@ -415,47 +406,43 @@
 }
 
 .pricingTitle {
-  max-width: 11ch;
-  font-size: clamp(2.8rem, 5.8vw, 5.4rem);
+  max-width: 11.4ch;
+  font-size: clamp(2.9rem, 6vw, 5.7rem);
   line-height: 0.96;
 }
 
-.pricingLead {
-  color: color-mix(in srgb, var(--accent-contrast) 76%, transparent);
-}
-
-.pricingMatrix {
+.pricingLayout {
   display: grid;
-  grid-template-columns: minmax(260px, 0.62fr) minmax(0, 1fr);
-  gap: 24px;
-  margin-top: 32px;
+  grid-template-columns: minmax(260px, 0.58fr) minmax(0, 1fr);
+  gap: 26px;
+  margin-top: 34px;
 }
 
-.priceAnchor {
-  padding: 24px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
+.priceHero {
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
 
-.priceAnchor span {
+.priceHero span {
   display: block;
-  color: color-mix(in srgb, var(--accent-contrast) 62%, transparent);
+  color: rgba(255, 255, 255, 0.62);
   font-family: var(--font-mono), monospace;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
   font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
-.priceAnchor strong {
+.priceHero strong {
   display: block;
   margin-top: 12px;
-  font-size: clamp(3.2rem, 6vw, 5.8rem);
-  line-height: 0.96;
+  font-size: clamp(3.6rem, 7vw, 6.4rem);
+  line-height: 0.94;
   letter-spacing: -0.08em;
 }
 
-.priceAnchor p,
+.priceHero p,
 .priceRow p {
-  color: color-mix(in srgb, var(--accent-contrast) 74%, transparent);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .priceRows {
@@ -464,21 +451,21 @@
 
 .priceRow {
   display: grid;
-  grid-template-columns: minmax(220px, 0.7fr) 1fr;
+  grid-template-columns: minmax(220px, 0.72fr) 1fr;
   gap: 22px;
   padding: 24px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .priceRow strong {
   display: block;
-  margin-top: 12px;
-  font-size: 1.42rem;
-  line-height: 1.06;
+  margin-top: 10px;
+  font-size: 1.4rem;
+  line-height: 1.08;
   letter-spacing: -0.04em;
 }
 
-.faqList {
+.faqGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
@@ -495,23 +482,24 @@
 .faqItem summary {
   cursor: pointer;
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 1.42;
   letter-spacing: -0.02em;
 }
 
-.contactSection {
-  padding-top: 10px;
-  border-top: 1px solid var(--divider);
-}
-
-.contactAside {
-  padding: 8px 0 0 22px;
+.contactChecklist {
+  padding-left: 22px;
   border-left: 1px solid var(--divider);
 }
 
-.contactAside ol {
+.contactChecklist ol {
   margin-top: 16px;
   padding-left: 18px;
+}
+
+.contactMeta {
+  margin-top: 18px;
+  color: var(--text-tertiary);
+  font-size: 0.92rem;
 }
 
 .footer {
@@ -526,11 +514,11 @@
 }
 
 @media (max-width: 1180px) {
-  .heroGrid,
+  .hero,
   .servicesLayout,
   .processLayout,
-  .contactSection,
-  .pricingMatrix {
+  .contact,
+  .pricingLayout {
     grid-template-columns: 1fr;
   }
 
@@ -544,7 +532,8 @@
     min-height: 560px;
   }
 
-  .faqList {
+  .manifestoGrid,
+  .faqGrid {
     grid-template-columns: 1fr;
   }
 
@@ -557,7 +546,6 @@
   .header {
     grid-template-columns: 1fr;
     justify-items: center;
-    padding-bottom: 14px;
   }
 
   .nav {
@@ -570,22 +558,18 @@
     justify-content: center;
   }
 
-  .principles {
-    grid-template-columns: 1fr;
-  }
-
-  .serviceBand,
+  .serviceRow,
   .priceRow {
     grid-template-columns: 1fr;
     gap: 14px;
   }
 
-  .pricingSection {
+  .pricing {
     padding: 28px;
     border-radius: 32px;
   }
 
-  .contactAside {
+  .contactChecklist {
     padding-left: 0;
     border-left: 0;
   }
@@ -606,18 +590,29 @@
     width: 100%;
   }
 
-  .heroStage {
-    min-height: 440px;
+  .heroFacts {
+    flex-direction: column;
+    gap: 8px;
   }
 
-  .stageNote {
+  .heroFacts span + span {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .heroStage {
+    min-height: 460px;
+  }
+
+  .heroNote {
     left: 14px;
     right: 14px;
     width: auto;
     bottom: 14px;
   }
 
-  .pricingSection {
+  .pricing {
     padding: 24px;
   }
 }

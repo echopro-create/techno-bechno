@@ -8,7 +8,7 @@ describe("Home landing", () => {
     expect(
       screen.getByRole("heading", {
         level: 1,
-        name: /сайты и приложения, которые говорят тихо, но выглядят дорого/i,
+        name: /сайты и приложения для частных клиентов/i,
       }),
     ).toBeTruthy();
 
@@ -25,12 +25,12 @@ describe("Home landing", () => {
     expect(
       screen.getByRole("heading", {
         level: 2,
-        name: /сайт может стартовать от 5 000 ₽. приложение не должно притворяться дешевым/i,
+        name: /5 000 ₽ это старт простой страницы. приложение не должно притворяться дешевым/i,
       }),
     ).toBeTruthy();
 
     expect(
-      screen.getByText(/можно начать с сайта, а к приложению вернуться позже/i),
+      screen.getByText(/можно начать с сайта, а приложение сделать позже/i),
     ).toBeTruthy();
   });
 });
