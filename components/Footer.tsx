@@ -67,7 +67,7 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-zinc-500">
-          <p>© {new Date().getFullYear()} Техно-Бэхно. Все права защищены. Сделано с любовью к минимализму</p>
+          <p>© {new Date().getFullYear()} Техно-Бэхно. Все права защищены. Сделано с любовью к минимализму.</p>
           <div className="flex gap-6">
             <a href="#privacy" className="hover:text-white transition-colors">Политика конфиденциальности</a>
             <a href="#terms" className="hover:text-white transition-colors">Условия использования</a>
