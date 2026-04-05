@@ -1,0 +1,33 @@
+import type {Metadata} from 'next';
+import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
+import './globals.css'; // Global styles
+
+const inter = Inter({
+  subsets: ['latin', 'cyrillic'],
+  variable: '--font-sans',
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-display',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin', 'cyrillic'],
+  variable: '--font-mono',
+});
+
+export const metadata: Metadata = {
+  title: 'Разработка сайтов и мобильных приложений',
+  description: 'Создаем премиальные веб-сайты и приложения для iOS и Android.',
+};
+
+export default function RootLayout({children}: {children: React.ReactNode}) {
+  return (
+    <html lang="ru" className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} dark`}>
+      <body className="bg-black text-white font-sans antialiased selection:bg-white/30" suppressHydrationWarning>
+        {children}
+      </body>
+    </html>
+  );
+}
