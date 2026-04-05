@@ -16,7 +16,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 text-white mb-6">
               <Code2 className="size-8" />
-              <span className="font-semibold tracking-tight text-2xl font-display">Studio</span>
+              <span className="font-semibold tracking-tight text-2xl font-display whitespace-nowrap">Техно-Бэхно</span>
             </div>
             <p className="text-zinc-400 max-w-sm text-lg">
               Создаем цифровые продукты премиум-класса, которые помогают бизнесу расти и выделяться.
@@ -67,7 +67,7 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-zinc-500">
-          <p>© {new Date().getFullYear()} Studio. Все права защищены.</p>
+          <p>© {new Date().getFullYear()} Техно-Бэхно. Все права защищены.</p>
           <div className="flex gap-6">
             <a href="#privacy" className="hover:text-white transition-colors">Политика конфиденциальности</a>
             <a href="#terms" className="hover:text-white transition-colors">Условия использования</a>

@@ -28,9 +28,9 @@ export function Navbar() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-2xl border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between text-sm font-medium text-white/80">
           {/* Logo */}
-          <div className="flex items-center gap-2 text-white w-32 relative z-50">
+          <div className="flex items-center gap-2 text-white relative z-50 shrink-0">
             <Code2 className="size-6" />
-            <span className="font-semibold tracking-tight text-lg font-display">Studio</span>
+            <span className="font-semibold tracking-tight text-base sm:text-lg font-display whitespace-nowrap">Техно-Бэхно</span>
           </div>
 
           {/* Desktop Menu */}
