@@ -5,3 +5,13 @@
   --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
+
+@media (min-width: 1280px) {
+  h1.font-display {
+    font-size: clamp(6rem, 6.8vw, 7.5rem);
+  }
+
+  h1.font-display > .bg-clip-text {
+    padding-inline-end: 0.08em;
+  }
+}

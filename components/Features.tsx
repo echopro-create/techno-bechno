@@ -76,7 +76,7 @@ export function Features() {
             {/* Card 2: Square */}
             <SpotlightCard delay={0.1} className="md:col-span-1 md:row-span-1 p-8 flex flex-col justify-between">
               <div className="relative z-10 h-full flex flex-col justify-between">
-                <Zap className="size-10 text-yellow-500/80" />
+                <Zap className="size-10 text-zinc-100/90" />
                 <div>
                   <h3 className="text-xl font-semibold mb-2 font-display">60 FPS</h3>
                   <p className="text-zinc-400 text-sm">Идеально плавные анимации и мгновенный отклик интерфейса.</p>
@@ -87,7 +87,7 @@ export function Features() {
             {/* Card 3: Square */}
             <SpotlightCard delay={0.2} className="md:col-span-1 md:row-span-1 p-8 flex flex-col justify-between">
               <div className="relative z-10 h-full flex flex-col justify-between">
-                <Shield className="size-10 text-green-500/80" />
+                <Shield className="size-10 text-zinc-100/90" />
                 <div>
                   <h3 className="text-xl font-semibold mb-2 font-display">Безопасность</h3>
                   <p className="text-zinc-400 text-sm">Шифрование данных и соответствие строгим стандартам.</p>
@@ -97,9 +97,9 @@ export function Features() {
 
             {/* Card 4: Wide */}
             <SpotlightCard delay={0.3} className="md:col-span-2 md:row-span-1 p-8">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,_var(--tw-gradient-stops))] from-purple-500/20 via-transparent to-transparent opacity-50 z-0"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent opacity-35 z-0"></div>
               <div className="relative z-10 flex flex-col justify-center h-full">
-                <Sparkles className="size-8 text-purple-400 mb-4" />
+                <Sparkles className="size-8 text-zinc-100/90 mb-4" />
                 <h3 className="text-2xl font-semibold mb-2 font-display">Glassmorphism & Mesh</h3>
                 <p className="text-zinc-400">Используем трендовые визуальные эффекты для создания глубины.</p>
               </div>
