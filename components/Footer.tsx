@@ -1,5 +1,12 @@
 import { Code2, Twitter, Instagram, Linkedin, Github } from 'lucide-react';
-import { CONTACT_EMAIL } from '@/lib/constants';
+import { CONTACT_EMAIL, NAV_LINKS, SOCIAL_LINKS } from '@/lib/constants';
+
+const ICON_MAP: Record<string, any> = {
+  Twitter: Twitter,
+  Instagram: Instagram,
+  Linkedin: Linkedin,
+  Github: Github,
+};
 
 export function Footer() {
   return (
@@ -19,10 +26,13 @@ export function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-6">Навигация</h4>
             <ul className="space-y-4 text-zinc-400">
-              <li><a href="#services" className="hover:text-white transition-colors">Услуги</a></li>
-              <li><a href="#features" className="hover:text-white transition-colors">Преимущества</a></li>
-              <li><a href="#process" className="hover:text-white transition-colors">Процесс</a></li>
-              <li><a href="#portfolio" className="hover:text-white transition-colors">Портфолио</a></li>
+              {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className="hover:text-white transition-colors">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -36,10 +46,21 @@ export function Footer() {
               </li>
               <li>г. Москва, Пресненская наб., 12</li>
               <li className="pt-4 flex gap-4">
-                <a href="#" aria-label="Twitter" className="hover:text-white transition-colors"><Twitter className="size-5" /></a>
-                <a href="#" aria-label="Instagram" className="hover:text-white transition-colors"><Instagram className="size-5" /></a>
-                <a href="#" aria-label="LinkedIn" className="hover:text-white transition-colors"><Linkedin className="size-5" /></a>
-                <a href="#" aria-label="GitHub" className="hover:text-white transition-colors"><Github className="size-5" /></a>
+                {SOCIAL_LINKS.map((social) => {
+                  const Icon = ICON_MAP[social.icon];
+                  return (
+                    <a 
+                      key={social.label}
+                      href={social.href} 
+                      aria-label={social.label} 
+                      className="hover:text-white transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {Icon && <Icon className="size-5" />}
+                    </a>
+                  );
+                })}
               </li>
             </ul>
           </div>
@@ -48,8 +69,8 @@ export function Footer() {
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-zinc-500">
           <p>© {new Date().getFullYear()} Studio. Все права защищены.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">Политика конфиденциальности</a>
-            <a href="#" className="hover:text-white transition-colors">Условия использования</a>
+            <a href="#privacy" className="hover:text-white transition-colors">Политика конфиденциальности</a>
+            <a href="#terms" className="hover:text-white transition-colors">Условия использования</a>
           </div>
         </div>
       </div>

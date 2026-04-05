@@ -23,4 +23,18 @@ export const PROCESS_STEPS = [
   { num: "04", title: "Тестирование и Релиз", desc: "Тщательно проверяем продукт на всех устройствах. Помогаем с публикацией в App Store и Google Play, настраиваем серверы." }
 ];
 
+export const NAV_LINKS = [
+  { label: 'Услуги', href: '#services' },
+  { label: 'Преимущества', href: '#features' },
+  { label: 'Процесс', href: '#process' },
+  { label: 'Портфолио', href: '#portfolio' },
+];
+
+export const SOCIAL_LINKS = [
+  { label: 'Twitter', href: 'https://twitter.com/studio', icon: 'Twitter' },
+  { label: 'Instagram', href: 'https://instagram.com/studio', icon: 'Instagram' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/company/studio', icon: 'Linkedin' },
+  { label: 'GitHub', href: 'https://github.com/studio', icon: 'Github' },
+];
+
 export const CONTACT_EMAIL = "hello@studio.com";

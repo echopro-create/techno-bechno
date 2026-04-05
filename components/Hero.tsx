@@ -66,7 +66,7 @@ export function Hero() {
           </a>
           <a 
             href="#portfolio"
-            className="bg-white/10 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white/20 transition-colors backdrop-blur-md"
+            className="bg-white/20 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white/30 transition-colors backdrop-blur-xl border border-white/10"
             aria-label="Смотреть работы"
           >
             Смотреть работы

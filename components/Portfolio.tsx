@@ -37,6 +37,7 @@ export function Portfolio() {
               src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=1000&auto=format&fit=crop" 
               alt="iOS App Mockup" 
               fill 
+              priority
               sizes="(max-width: 768px) 100vw, 300px"
               className="object-cover opacity-80"
               referrerPolicy="no-referrer"
@@ -58,7 +59,8 @@ export function Portfolio() {
                   src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" 
                   alt="Web App Mockup" 
                   fill 
-                  sizes="(max-width: 768px) 100vw, 800px"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
                   className="object-cover opacity-80"
                   referrerPolicy="no-referrer"
                 />

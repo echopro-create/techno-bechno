@@ -65,7 +65,7 @@ export function Features() {
                     src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?q=80&w=2070&auto=format&fit=crop" 
                     alt="Ecosystem" 
                     fill 
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" 
                     referrerPolicy="no-referrer" 
                   />
