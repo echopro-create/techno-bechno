@@ -7,7 +7,7 @@ function EcosystemBlueprint() {
   return (
     <div
       aria-hidden="true"
-      className="mt-auto relative h-64 w-full overflow-hidden rounded-2xl border border-white/10"
+      className="mt-8 md:mt-10 relative h-64 w-full overflow-hidden rounded-2xl border border-white/10"
       style={{
         backgroundImage:
           'radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 34%), linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))',
