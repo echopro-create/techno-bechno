@@ -29,12 +29,3 @@ export const NAV_LINKS = [
   { label: 'Процесс', href: '#process' },
   { label: 'Портфолио', href: '#portfolio' },
 ];
-
-export const SOCIAL_LINKS = [
-  { label: 'Twitter', href: 'https://twitter.com/studio', icon: 'Twitter' },
-  { label: 'Instagram', href: 'https://instagram.com/studio', icon: 'Instagram' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/company/studio', icon: 'Linkedin' },
-  { label: 'GitHub', href: 'https://github.com/studio', icon: 'Github' },
-];
-
-export const CONTACT_EMAIL = "hello@studio.com";

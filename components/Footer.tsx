@@ -1,5 +1,14 @@
+import Link from 'next/link';
 import { Code2, Twitter, Instagram, Linkedin, Github } from 'lucide-react';
-import { CONTACT_EMAIL, NAV_LINKS, SOCIAL_LINKS } from '@/lib/constants';
+import { NAV_LINKS } from '@/lib/constants';
+import {
+  CONTACT_CTA,
+  CONTACT_DISCLOSURE,
+  PUBLIC_CONTACTS,
+  PUBLIC_SOCIAL_LINKS,
+  SERVICE_AREAS,
+} from '@/lib/company-profile';
+import { SEO_LANDING_LINKS } from '@/lib/seo-nav';
 
 const ICON_MAP: Record<string, any> = {
   Twitter: Twitter,
@@ -12,7 +21,7 @@ export function Footer() {
   return (
     <footer className="border-t border-white/10 bg-black pt-20 pb-10 px-6 relative z-10">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-16">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 text-white mb-6">
               <Code2 className="size-8" />
@@ -37,16 +46,34 @@ export function Footer() {
           </div>
 
           <div>
+            <h4 className="text-white font-semibold mb-6">Направления</h4>
+            <ul className="space-y-4 text-zinc-400">
+              {SEO_LANDING_LINKS.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className="hover:text-white transition-colors">
+                    {link.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
             <h4 className="text-white font-semibold mb-6">Контакты</h4>
             <ul className="space-y-4 text-zinc-400">
-              <li>
-                <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white transition-colors">
-                  {CONTACT_EMAIL}
-                </a>
-              </li>
-              <li>г. Москва, Пресненская наб., 12</li>
-              <li className="pt-4 flex gap-4">
-                {SOCIAL_LINKS.map((social) => {
+              {PUBLIC_CONTACTS.email ? (
+                <li>
+                  <a href={`mailto:${PUBLIC_CONTACTS.email}`} className="hover:text-white transition-colors">
+                    {PUBLIC_CONTACTS.email}
+                  </a>
+                </li>
+              ) : (
+                <li>{CONTACT_DISCLOSURE}</li>
+              )}
+              <li>География: {SERVICE_AREAS.join(', ')}</li>
+              {PUBLIC_SOCIAL_LINKS.length > 0 ? (
+                <li className="pt-4 flex gap-4">
+                  {PUBLIC_SOCIAL_LINKS.map((social) => {
                   const Icon = ICON_MAP[social.icon];
                   return (
                     <a 
@@ -60,7 +87,13 @@ export function Footer() {
                       {Icon && <Icon className="size-5" />}
                     </a>
                   );
-                })}
+                  })}
+                </li>
+              ) : null}
+              <li>
+                <a href={CONTACT_CTA.href} className="hover:text-white transition-colors">
+                  {CONTACT_CTA.primaryLabel}
+                </a>
               </li>
             </ul>
           </div>
@@ -69,8 +102,9 @@ export function Footer() {
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-zinc-500">
           <p>© {new Date().getFullYear()} Техно-Бэхно. Все права защищены. Сделано с любовью к минимализму.</p>
           <div className="flex gap-6">
-            <a href="#privacy" className="hover:text-white transition-colors">Политика конфиденциальности</a>
-            <a href="#terms" className="hover:text-white transition-colors">Условия использования</a>
+            <Link href="/privacy" className="hover:text-white transition-colors">Политика конфиденциальности</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Условия использования</Link>
+            <Link href="/contacts" className="hover:text-white transition-colors">Контакты</Link>
           </div>
         </div>
       </div>

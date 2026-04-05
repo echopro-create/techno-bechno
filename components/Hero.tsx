@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, Variants } from 'motion/react';
 import { ChevronRight } from 'lucide-react';
-import { CONTACT_EMAIL } from '@/lib/constants';
+import { CONTACT_CTA } from '@/lib/company-profile';
 
 export function Hero() {
   const heroRef = useRef(null);
@@ -58,11 +58,11 @@ export function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a 
-            href={`mailto:${CONTACT_EMAIL}`}
+            href={CONTACT_CTA.href}
             className="bg-white text-black px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition-transform flex items-center gap-2"
             aria-label="Начать проект"
           >
-            Начать проект <ChevronRight className="size-5" />
+            {CONTACT_CTA.primaryLabel} <ChevronRight className="size-5" />
           </a>
           <a 
             href="#portfolio"

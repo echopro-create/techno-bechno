@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import { Code2, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { CONTACT_EMAIL, NAV_LINKS } from '@/lib/constants';
+import { NAV_LINKS } from '@/lib/constants';
+import { CONTACT_CTA } from '@/lib/company-profile';
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,11 +51,11 @@ export function Navbar() {
           {/* Action Button & Mobile Toggle */}
           <div className="flex items-center justify-end w-32 gap-4 relative z-50">
             <a 
-              href={`mailto:${CONTACT_EMAIL}`}
+              href={CONTACT_CTA.href}
               className="hidden sm:block bg-white text-black px-5 py-2 rounded-full text-sm font-semibold hover:bg-zinc-200 transition-colors"
               aria-label="Связаться с нами"
             >
-              Связаться
+              {CONTACT_CTA.shortLabel}
             </a>
             
             <button 
@@ -99,11 +100,11 @@ export function Navbar() {
                 className="pt-4"
               >
                 <a 
-                  href={`mailto:${CONTACT_EMAIL}`}
+                  href={CONTACT_CTA.href}
                   className="flex items-center justify-center bg-white text-black px-8 py-5 rounded-full text-xl font-bold w-full hover:bg-zinc-200 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
-                  Начать проект
+                  {CONTACT_CTA.primaryLabel}
                 </a>
               </motion.div>
             </div>
