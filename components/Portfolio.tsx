@@ -55,13 +55,12 @@ export function Portfolio() {
               {/* Screen */}
               <div className="relative w-full aspect-[16/10] bg-black overflow-hidden rounded-sm border border-zinc-900">
                 <Image 
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" 
+                  src="/dabat-site.png" 
                   alt="Web App Mockup" 
                   fill 
                   priority
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
-                  className="object-cover opacity-80"
-                  referrerPolicy="no-referrer"
+                  className="object-cover"
                 />
               </div>
             </div>
