@@ -20,6 +20,10 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: 'Разработка сайтов и мобильных приложений',
   description: 'Создаем премиальные веб-сайты и приложения для iOS и Android.',
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
