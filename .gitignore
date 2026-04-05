@@ -32,3 +32,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# cache and corrupted builds
+/.next_corrupted*/
+/.playwright-cli/
+
+# local artifacts
+/implementation_plan.md
