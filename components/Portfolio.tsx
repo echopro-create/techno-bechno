@@ -34,13 +34,12 @@ export function Portfolio() {
             {/* Dynamic Island / Notch */}
             <div className="absolute top-2 inset-x-0 h-7 bg-zinc-900 rounded-full w-24 mx-auto z-20"></div>
             <Image 
-              src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=1000&auto=format&fit=crop" 
+              src="/echo-ios-app.png" 
               alt="iOS App Mockup" 
               fill 
               priority
               sizes="(max-width: 768px) 100vw, 300px"
-              className="object-cover opacity-80"
-              referrerPolicy="no-referrer"
+              className="object-cover object-top"
             />
           </motion.div>
 
