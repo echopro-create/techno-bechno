@@ -18,10 +18,10 @@ export function Portfolio() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 md:mb-20">
           <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 font-display text-balance">
-            Наши работы.
+            Наши работы
           </h2>
           <p className="text-xl text-zinc-400 text-pretty">
-            Проекты, которыми мы гордимся.
+            Проекты, за которые нам не стыдно
           </p>
         </div>
 

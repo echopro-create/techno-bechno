@@ -95,17 +95,17 @@ export function Features() {
             {[
               {
                 icon: <Monitor className="size-10 mb-8 text-white" />,
-                title: "Web Разработка",
+                title: "Веб-разработка",
                 desc: "Современные веб-приложения на React и Next.js с невероятной производительностью и SEO."
               },
               {
                 icon: <Apple className="size-10 mb-8 text-white" />,
-                title: "iOS Разработка",
+                title: "iOS-разработка",
                 desc: "Нативные приложения для iPhone и iPad с идеальным UI/UX и использованием последних API Apple."
               },
               {
                 icon: <Smartphone className="size-10 mb-8 text-white" />,
-                title: "Android Разработка",
+                title: "Android-разработка",
                 desc: "Kotlin-приложения, которые идеально работают на тысячах различных устройств."
               }
             ].map((service, i) => (
@@ -128,7 +128,7 @@ export function Features() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 md:mb-14 lg:mb-16 text-center">
             <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 font-display text-balance">
-              Продумано до мелочей.
+              Продумано до мелочей
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto text-pretty">
               Мы объединяем передовые технологии с безупречным дизайном, чтобы создавать продукты, которые хочется использовать каждый день.
