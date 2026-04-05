@@ -18,11 +18,34 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Разработка сайтов и мобильных приложений',
-  description: 'Создаем премиальные веб-сайты и приложения для iOS и Android.',
+  metadataBase: new URL('https://tehnobehno.site'),
+  title: 'Техно-Бэхно — Разработка сайтов и мобильных приложений',
+  description: 'Создаем премиальные веб-сайты и приложения для iOS и Android с акцентом на качество и минимализм.',
   robots: {
     index: false,
     follow: false,
+  },
+  openGraph: {
+    title: 'Техно-Бэхно — Разработка сайтов и мобильных приложений',
+    description: 'Создаем премиальные веб-сайты и приложения для iOS и Android.',
+    url: 'https://tehnobehno.site',
+    siteName: 'Техно-Бэхно',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Техно-Бэхно — Digital Agency',
+      },
+    ],
+    locale: 'ru_RU',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Техно-Бэхно — Разработка сайтов и мобильных приложений',
+    description: 'Создаем премиальные веб-сайты и приложения для iOS и Android.',
+    images: ['/og-image.png'],
   },
 };
 
