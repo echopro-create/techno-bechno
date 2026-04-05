@@ -47,7 +47,7 @@ export default function Home() {
         <Portfolio />
 
         {/* CTA Section */}
-        <section className="py-40 px-6 relative z-10">
+        <section className="py-24 md:py-28 lg:py-32 px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

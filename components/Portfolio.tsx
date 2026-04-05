@@ -14,9 +14,9 @@ export function Portfolio() {
   const yMac = useTransform(showcaseScroll, [0, 1], [-50, 50]);
 
   return (
-    <section id="portfolio" ref={showcaseRef} className="py-32 px-6 relative z-10 overflow-hidden">
+    <section id="portfolio" ref={showcaseRef} className="py-24 md:py-28 lg:py-32 px-6 relative z-10 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-24">
+        <div className="text-center mb-16 md:mb-20">
           <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 font-display text-balance">
             Наши работы.
           </h2>

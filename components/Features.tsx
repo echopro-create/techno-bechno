@@ -89,7 +89,7 @@ export function Features() {
   return (
     <>
       {/* Services Section */}
-      <section id="services" className="py-32 px-6 relative z-10">
+      <section id="services" className="pt-24 md:pt-28 lg:pt-32 pb-12 md:pb-16 lg:pb-20 px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
@@ -124,9 +124,9 @@ export function Features() {
       </section>
 
       {/* Bento Grid Section */}
-      <section id="features" className="py-32 px-6 relative z-10">
+      <section id="features" className="pt-12 md:pt-16 lg:pt-20 pb-24 md:pb-28 lg:pb-32 px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-16 text-center">
+          <div className="mb-12 md:mb-14 lg:mb-16 text-center">
             <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 font-display text-balance">
               Продумано до мелочей.
             </h2>
