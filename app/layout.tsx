@@ -1,5 +1,6 @@
 import type {Metadata} from 'next';
 import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css'; // Global styles
 
 const inter = Inter({
@@ -65,6 +66,18 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="ru" className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} dark`}>
       <body className="bg-black text-white font-sans antialiased selection:bg-white/30" suppressHydrationWarning>
+        <Script id="org-schema" type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Техно-Бэхно",
+            "url": "https://tehnobehno.site",
+            "logo": "https://tehnobehno.site/icon.svg",
+            "sameAs": [
+              "https://t.me/tehnobehno"
+            ]
+          })
+        }} />
         {children}
       </body>
     </html>

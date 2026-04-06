@@ -91,7 +91,25 @@ export async function generateMetadata({
               text: item.a,
             },
           })),
-        } : null
+        } : null,
+        {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Главная',
+              item: 'https://tehnobehno.site',
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: page.heading || page.title,
+              item: `https://tehnobehno.site/${page.slug}`,
+            },
+          ],
+        }
       ].filter(Boolean)),
     },
   };

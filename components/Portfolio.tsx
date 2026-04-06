@@ -35,7 +35,7 @@ export function Portfolio() {
             <div className="absolute top-2 inset-x-0 h-7 bg-zinc-900 rounded-full w-24 mx-auto z-20"></div>
             <Image 
               src="/echo-ios-app.png" 
-              alt="iOS App Mockup" 
+              alt="Кейс: разработка мобильного приложения для iOS на заказ" 
               fill 
               priority
               sizes="(max-width: 768px) 100vw, 300px"
@@ -56,7 +56,7 @@ export function Portfolio() {
               <div className="relative w-full aspect-[16/10] bg-black overflow-hidden rounded-sm border border-zinc-900">
                 <Image 
                   src="/dabat-site.png" 
-                  alt="Web App Mockup" 
+                  alt="Кейс: создание сложного B2B портала и корпоративного сайта" 
                   fill 
                   priority
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
