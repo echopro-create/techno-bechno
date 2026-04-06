@@ -7,7 +7,7 @@ function EcosystemBlueprint() {
   return (
     <div
       aria-hidden="true"
-      className="mt-8 md:mt-10 relative h-64 w-full overflow-hidden rounded-2xl border border-white/10"
+      className="mt-8 md:mt-10 relative h-48 md:h-64 w-full overflow-hidden rounded-2xl border border-white/10"
       style={{
         backgroundImage:
           'radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 34%), linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))',
@@ -109,10 +109,10 @@ export function Features() {
                 desc: "Kotlin-приложения, которые идеально работают на тысячах различных устройств."
               }
             ].map((service, i) => (
-              <SpotlightCard key={service.title} delay={i * 0.1} className="p-6 sm:p-8 md:p-10 lg:p-12 h-full">
-                <div className="relative z-10 h-full flex flex-col justify-between">
+              <SpotlightCard key={service.title} delay={i * 0.1} className="p-6 sm:p-8 md:p-10 lg:p-12 h-full text-center md:text-left">
+                <div className="relative z-10 h-full flex flex-col justify-between items-center md:items-start">
                   <div>
-                    <div className="transform group-hover:scale-110 group-hover:-translate-y-2 transition-transform duration-500">
+                    <div className="transform group-hover:scale-110 group-hover:-translate-y-2 transition-transform duration-500 flex justify-center md:block">
                       {service.icon}
                     </div>
                     <h3 className="text-xl sm:text-2xl font-semibold mb-3 md:mb-4 font-display">{service.title}</h3>
@@ -129,27 +129,27 @@ export function Features() {
       <section id="features" className="pt-12 md:pt-16 lg:pt-20 pb-24 md:pb-28 lg:pb-32 px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 md:mb-14 lg:mb-16 text-center">
-            <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 font-display text-balance">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-semibold tracking-tight mb-6 font-display text-balance text-center">
               Продумано до мелочей
             </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto text-pretty">
+            <p className="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto text-pretty text-center">
               Мы объединяем передовые технологии с безупречным дизайном, чтобы создавать продукты, которые хочется использовать каждый день.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[minmax(240px,auto)] md:auto-rows-[280px]">
             {/* Card 1: Large */}
-            <SpotlightCard delay={0} className="md:col-span-2 md:row-span-2 p-10 flex flex-col">
+            <SpotlightCard delay={0} className="md:col-span-2 md:row-span-2 p-6 sm:p-8 md:p-10 flex flex-col text-center md:text-left">
               <div className="relative z-10 h-full flex flex-col">
-                <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-white font-display">Нативный опыт</h3>
-                <p className="text-zinc-400 text-base md:text-lg max-w-sm">Пользователи чувствуют себя как дома. Интерфейсы, которые понятны интуитивно и работают без сбоев.</p>
+              <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-white font-display">Нативный опыт</h3>
+              <p className="text-zinc-400 text-base md:text-lg max-w-sm mx-auto md:mx-0">Пользователи чувствуют себя как дома. Интерфейсы, которые понятны интуитивно и работают без сбоев.</p>
                 <EcosystemBlueprint />
               </div>
             </SpotlightCard>
 
             {/* Card 2: Square */}
-            <SpotlightCard delay={0.1} className="md:col-span-1 md:row-span-1 p-8 flex flex-col justify-between">
-              <div className="relative z-10 h-full flex flex-col justify-between">
+            <SpotlightCard delay={0.1} className="md:col-span-1 md:row-span-1 p-6 sm:p-8 flex flex-col justify-between text-center md:text-left">
+              <div className="relative z-10 h-full flex flex-col justify-between items-center md:items-start">
                 <Zap className="size-10 text-zinc-100/90" />
                 <div>
                   <h3 className="text-xl font-semibold mb-2 font-display">Мгновенная работа</h3>
@@ -159,8 +159,8 @@ export function Features() {
             </SpotlightCard>
 
             {/* Card 3: Square */}
-            <SpotlightCard delay={0.2} className="md:col-span-1 md:row-span-1 p-8 flex flex-col justify-between">
-              <div className="relative z-10 h-full flex flex-col justify-between">
+            <SpotlightCard delay={0.2} className="md:col-span-1 md:row-span-1 p-6 sm:p-8 flex flex-col justify-between text-center md:text-left">
+              <div className="relative z-10 h-full flex flex-col justify-between items-center md:items-start">
                 <Shield className="size-10 text-zinc-100/90" />
                 <div>
                   <h3 className="text-xl font-semibold mb-2 font-display">Безопасность</h3>
@@ -170,9 +170,9 @@ export function Features() {
             </SpotlightCard>
 
             {/* Card 4: Wide */}
-            <SpotlightCard delay={0.3} className="md:col-span-2 md:row-span-1 p-8">
+            <SpotlightCard delay={0.3} className="md:col-span-2 md:row-span-1 p-6 sm:p-8 text-center md:text-left">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent opacity-35 z-0"></div>
-              <div className="relative z-10 h-full flex flex-col justify-between">
+              <div className="relative z-10 h-full flex flex-col justify-between items-center md:items-start">
                 <Sparkles className="size-10 text-zinc-100/90" />
                 <div>
                   <h3 className="text-2xl font-semibold mb-2 font-display">Премиальный дизайн</h3>

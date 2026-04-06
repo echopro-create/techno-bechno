@@ -64,7 +64,7 @@ export default function Home() {
               <p className="text-sm uppercase tracking-[0.22em] text-zinc-500 mb-4">
                 Приоритетные направления
               </p>
-              <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 font-display text-balance">
+              <h2 className="text-3xl sm:text-4xl md:text-6xl font-semibold tracking-tight mb-6 font-display text-balance text-center">
                 Решения для вашего бизнеса
               </h2>
               <p className="text-xl text-zinc-400 text-pretty max-w-2xl mx-auto">
@@ -74,10 +74,10 @@ export default function Home() {
 
             <div className="flex flex-wrap justify-center gap-6">
               {SEO_LANDING_LINKS.map((item, index) => (
-                <SpotlightCard key={item.href} delay={index * 0.1} className="w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)] p-6 sm:p-8 md:p-10 lg:p-12 h-full">
-                  <div className="relative z-10 h-full flex flex-col justify-between">
+                <SpotlightCard key={item.href} delay={index * 0.1} className="w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)] p-6 sm:p-8 md:p-10 lg:p-12 h-full text-center md:text-left">
+                  <div className="relative z-10 h-full flex flex-col justify-between items-center md:items-start">
                     <div>
-                      <div className="transform group-hover:scale-110 group-hover:-translate-y-2 transition-transform duration-500">
+                      <div className="transform group-hover:scale-110 group-hover:-translate-y-2 transition-transform duration-500 flex justify-center md:block">
                         {SEO_ICONS[index]}
                       </div>
                       <h3 className="text-xl sm:text-2xl font-semibold mb-3 md:mb-4 font-display">{item.title}</h3>
@@ -102,10 +102,10 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-5xl md:text-7xl font-semibold tracking-tight mb-8 font-display text-balance">
+              <h2 className="text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tight mb-8 font-display text-balance text-center">
                 Обсудим проект?
               </h2>
-              <p className="text-xl md:text-2xl text-zinc-400 mb-12 max-w-2xl mx-auto">
+              <p className="text-lg sm:text-xl md:text-2xl text-zinc-400 mb-12 max-w-2xl mx-auto text-center">
                 Напишите нам, и мы подготовим оценку стоимости и сроков в течение 24 часов.
               </p>
               <a

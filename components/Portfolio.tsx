@@ -17,10 +17,10 @@ export function Portfolio() {
     <section id="portfolio" ref={showcaseRef} className="py-24 md:py-28 lg:py-32 px-6 relative z-10 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 md:mb-20">
-          <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 font-display text-balance">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-semibold tracking-tight mb-6 font-display text-balance text-center">
             Наши работы
           </h2>
-          <p className="text-xl text-zinc-400 text-pretty">
+          <p className="text-lg sm:text-xl text-zinc-400 text-pretty text-center">
             Кейсы с реальным результатом
           </p>
         </div>

@@ -38,7 +38,7 @@ export function Hero() {
           variants={textContainer}
           initial="hidden"
           animate="show"
-          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tighter leading-[1.05] mb-8 flex flex-row justify-center gap-2 md:gap-4 whitespace-nowrap font-display"
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tighter leading-[1.05] mb-8 flex flex-row justify-center gap-2 md:gap-4 font-display text-center"
         >
           <motion.span variants={textItem} className="inline-block">Создаем</motion.span>
           <motion.span variants={textItem} className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 via-zinc-400 to-zinc-600">будущее</motion.span>
@@ -47,7 +47,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-xl md:text-3xl text-zinc-400 font-medium max-w-3xl mx-auto mb-12 tracking-tight text-pretty"
+          className="text-lg sm:text-xl md:text-3xl text-zinc-400 font-medium max-w-3xl mx-auto mb-12 tracking-tight text-pretty text-center"
         >
           Премиальные веб-сайты и мобильные приложения. Искусство кода и дизайна.
         </motion.p>
