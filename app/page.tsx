@@ -89,32 +89,32 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 auto-rows-fr">
               {SEO_LANDING_LINKS.map((item, index) => (
-                <SpotlightCard key={item.href} delay={index * 0.08} className="h-full min-h-[280px] p-8 md:p-10">
-                  <Link href={item.href} className="relative z-10 flex h-full flex-col">
+                <SpotlightCard key={item.href} delay={index * 0.08} className="h-full min-h-[280px] p-12">
+                  <Link href={item.href} className="relative z-10 grid h-full grid-rows-[auto_minmax(0,1fr)_auto]">
                     <div
                       aria-hidden="true"
                       className={`absolute inset-0 opacity-60 transition-opacity duration-500 group-hover:opacity-90 ${SEO_CARD_META[index]?.accentClass ?? SEO_CARD_META[0].accentClass}`}
                     />
 
-                    <div className="relative z-10 mb-10 flex items-center justify-between gap-4">
-                      <p className="text-xs uppercase tracking-[0.22em] text-zinc-500">
+                    <div className="relative z-10 mb-8 flex items-center justify-between gap-4 transition-transform duration-500 group-hover:-translate-y-2">
+                      <span className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-zinc-200">
                         {SEO_CARD_META[index]?.eyebrow ?? 'Направление'}
-                      </p>
-                      <span className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-zinc-400">
+                      </span>
+                      <span className="text-xs uppercase tracking-[0.22em] text-zinc-500">
                         {String(index + 1).padStart(2, '0')}
                       </span>
                     </div>
 
-                    <div className="relative z-10 max-w-sm">
-                      <h3 className="mb-4 text-2xl font-semibold tracking-tight font-display text-white text-balance md:text-3xl">
+                    <div className="relative z-10 flex max-w-[15.5rem] flex-col">
+                      <h3 className="mb-4 min-h-[4.625rem] text-2xl font-semibold leading-[1.02] tracking-tight font-display text-balance text-white">
                         {item.title}
                       </h3>
-                      <p className="text-base leading-relaxed text-zinc-400 md:text-lg">
+                      <p className="min-h-[5.5rem] text-lg leading-[1.65] text-zinc-400 text-pretty">
                         {item.description}
                       </p>
                     </div>
 
-                    <div className="relative z-10 mt-auto flex items-center justify-between gap-4 pt-10">
+                    <div className="relative z-10 flex items-center justify-between gap-4 pt-8">
                       <span className="text-sm font-medium text-zinc-200 transition-colors group-hover:text-white">
                         Открыть страницу
                       </span>
