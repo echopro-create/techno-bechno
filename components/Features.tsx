@@ -3,6 +3,55 @@
 import { Monitor, Apple, Smartphone, Zap, Shield, Sparkles } from 'lucide-react';
 import { SpotlightCard } from './SpotlightCard';
 
+function NativeExperienceGraphic() {
+  return (
+    <div className="mt-8 md:mt-10 relative h-48 md:h-64 w-full overflow-hidden rounded-2xl border border-white/10 flex items-center justify-center bg-black/20 group">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zinc-500/10 via-transparent to-transparent opacity-100"></div>
+      
+      {/* Background Grid */}
+      <div
+        className="absolute inset-0 opacity-[0.06]"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+        }}
+      />
+
+      {/* Abstract Phone Frame */}
+      <div className="relative z-10 w-28 md:w-36 h-56 md:h-72 rounded-[2rem] border-[4px] border-zinc-700/50 bg-black/80 shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col p-2 transform rotate-[-12deg] translate-y-12 md:translate-y-16 transition-all duration-700 ease-out group-hover:rotate-0 group-hover:translate-y-4">
+        {/* Dynamic Island Mock */}
+        <div className="absolute top-0 inset-x-0 h-4 flex justify-center">
+          <div className="w-10 h-2 rounded-b-xl bg-zinc-700/50 absolute top-0"></div>
+        </div>
+        
+        {/* Mock App Content */}
+        <div className="flex-1 mt-4 rounded-[1rem] border border-white/5 bg-white/[0.02] p-2 flex flex-col gap-2 relative overflow-hidden">
+           <div className="absolute -top-10 -right-10 w-24 h-24 bg-white/10 blur-2xl rounded-full"></div>
+           
+           <div className="h-4 w-1/2 rounded-full bg-white/10 relative z-10"></div>
+           <div className="h-3 w-1/4 rounded-full bg-white/5 relative z-10 mb-2"></div>
+
+           <div className="h-12 rounded-lg bg-gradient-to-r from-white/10 to-transparent relative z-10"></div>
+           <div className="flex gap-2 relative z-10">
+             <div className="flex-1 h-12 rounded-lg bg-white/5"></div>
+             <div className="flex-1 h-12 rounded-lg bg-white/5"></div>
+           </div>
+           <div className="h-8 rounded-lg bg-white/5 relative z-10"></div>
+        </div>
+      </div>
+
+      {/* Floating Elements */}
+      <div className="absolute top-[20%] right-[15%] w-12 h-12 md:w-14 md:h-14 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md shadow-2xl flex items-center justify-center transform rotate-12 transition-transform duration-700 group-hover:rotate-[-5deg] group-hover:-translate-y-2">
+        <Apple className="size-5 md:size-6 text-zinc-300" />
+      </div>
+      <div className="absolute bottom-[25%] left-[10%] md:left-[15%] w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md shadow-2xl flex items-center justify-center transform -rotate-12 transition-transform duration-700 group-hover:rotate-12 group-hover:-translate-y-4">
+        <Smartphone className="size-4 md:size-5 text-zinc-300" />
+      </div>
+    </div>
+  );
+}
+
 export function Features() {
   return (
     <>
@@ -61,15 +110,7 @@ export function Features() {
               <div className="relative z-10 h-full flex flex-col">
               <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-white font-display">Нативный опыт</h3>
               <p className="text-zinc-400 text-base md:text-lg max-w-sm mx-auto md:mx-0 mb-6 md:mb-10">Пользователи чувствуют себя как дома. Интерфейсы, которые понятны интуитивно и работают без сбоев.</p>
-                <div className="mt-auto relative w-full aspect-[16/9] md:aspect-auto md:h-64 rounded-2xl overflow-hidden border border-white/10">
-                  <img 
-                    src="/images/native-experience.png" 
-                    alt="Нативный опыт и интеграции" 
-                    className="w-full h-full object-cover object-center opacity-80 mix-blend-screen"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 border border-white/5 rounded-2xl mix-blend-overlay"></div>
-                </div>
+                <NativeExperienceGraphic />
               </div>
             </SpotlightCard>
 
