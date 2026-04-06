@@ -13,7 +13,7 @@ function NativeExperienceGraphic() {
       <div className="absolute inset-x-0 bottom-[-5%] md:bottom-[-10%] top-24 md:top-32 w-full flex flex-col items-center justify-center transform-style-preserve-3d transition-all duration-700 ease-out group-hover:scale-[1.03]">
         
         {/* MACBOOK (Left/Back) */}
-        <div className="absolute z-10 left-[2%] md:left-[8%] top-[55%] md:top-[52%] w-[140px] md:w-[260px] h-[90px] md:h-[160px] rounded-t-lg md:rounded-t-2xl border-[2px] md:border-[3px] border-zinc-700/40 bg-zinc-950/95 shadow-2xl flex flex-col p-1.5 md:p-2 transform -rotate-[15deg] transition-all duration-700 group-hover:-rotate-[-5deg] group-hover:-translate-y-4 backdrop-blur-xl border-b-0">
+        <div className="absolute z-10 left-[2%] md:left-[8%] top-[49%] md:top-[46%] w-[140px] md:w-[260px] h-[90px] md:h-[160px] rounded-t-lg md:rounded-t-2xl border-[2px] md:border-[3px] border-zinc-700/40 bg-zinc-950/95 shadow-2xl flex flex-col p-1.5 md:p-2 transform -rotate-[15deg] transition-all duration-700 group-hover:-rotate-[-5deg] group-hover:-translate-y-4 backdrop-blur-xl border-b-0">
           <div className="flex-1 rounded-sm md:rounded-md border border-white/5 bg-gradient-to-b from-white/[0.03] to-transparent p-1.5 md:p-2 flex flex-col gap-1.5 md:gap-2 relative overflow-hidden group-hover:bg-white/[0.05] transition-colors">
              
              <div className="flex items-center gap-1.5 mb-1 md:mb-2 text-white/40">
@@ -36,7 +36,7 @@ function NativeExperienceGraphic() {
         </div>
 
         {/* IPAD/TABLET (Center) */}
-        <div className="absolute z-20 left-1/2 -translate-x-1/2 top-[25%] md:top-[24%] w-[130px] md:w-[200px] h-[180px] md:h-[280px] rounded-[1.2rem] md:rounded-[1.8rem] border-[3px] md:border-[4px] border-zinc-700/60 bg-black shadow-[0_30px_60px_rgba(0,0,0,0.9)] flex flex-col p-1.5 md:p-2.5 transition-transform duration-700 group-hover:-translate-y-8">
+        <div className="absolute z-20 left-1/2 -translate-x-1/2 top-[19%] md:top-[18%] w-[130px] md:w-[200px] h-[180px] md:h-[280px] rounded-[1.2rem] md:rounded-[1.8rem] border-[3px] md:border-[4px] border-zinc-700/60 bg-black shadow-[0_30px_60px_rgba(0,0,0,0.9)] flex flex-col p-1.5 md:p-2.5 transition-transform duration-700 group-hover:-translate-y-8">
           <div className="flex-1 rounded-[0.9rem] md:rounded-xl border border-white/5 bg-gradient-to-br from-white/[0.04] to-transparent p-2 md:p-3 flex flex-col gap-2 md:gap-4 relative overflow-hidden">
             <div className="absolute -top-10 -right-10 w-24 h-24 bg-white/10 blur-[30px] rounded-full mix-blend-screen"></div>
             
@@ -68,7 +68,7 @@ function NativeExperienceGraphic() {
         </div>
 
         {/* IPHONE (Right/Front) */}
-        <div className="absolute z-30 right-[5%] md:right-[15%] top-[55%] md:top-[49%] w-[80px] md:w-[120px] h-[160px] md:h-[240px] rounded-[1.5rem] md:rounded-[2.2rem] border-[3px] md:border-[4px] border-zinc-500/30 bg-zinc-950/80 backdrop-blur-xl shadow-[0_40px_80px_rgba(0,0,0,0.95)] flex flex-col p-1.5 md:p-2 transform rotate-[15deg] transition-all duration-700 group-hover:rotate-[8deg] group-hover:-translate-y-10">
+        <div className="absolute z-30 right-[5%] md:right-[15%] top-[49%] md:top-[43%] w-[80px] md:w-[120px] h-[160px] md:h-[240px] rounded-[1.5rem] md:rounded-[2.2rem] border-[3px] md:border-[4px] border-zinc-500/30 bg-zinc-950/80 backdrop-blur-xl shadow-[0_40px_80px_rgba(0,0,0,0.95)] flex flex-col p-1.5 md:p-2 transform rotate-[15deg] transition-all duration-700 group-hover:rotate-[8deg] group-hover:-translate-y-10">
           <div className="absolute top-0 inset-x-0 h-3 md:h-5 flex justify-center z-10">
             <div className="w-8 md:w-12 h-1.5 md:h-2.5 rounded-b-xl bg-zinc-800/90 absolute top-0"></div>
           </div>
@@ -88,7 +88,7 @@ function NativeExperienceGraphic() {
         </div>
 
         {/* Floating Code Snippet Card */}
-        <div className="absolute z-40 left-[20%] md:left-[25%] bottom-[10%] md:bottom-[15%] w-32 md:w-48 rounded-[0.8rem] md:rounded-xl border border-white/10 bg-black/70 backdrop-blur-xl shadow-2xl p-2.5 md:p-3.5 transform -rotate-6 transition-all duration-700 group-hover:-rotate-12 group-hover:-translate-y-6 opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100">
+        <div className="absolute z-40 left-[20%] md:left-[25%] bottom-[16%] md:bottom-[21%] w-32 md:w-48 rounded-[0.8rem] md:rounded-xl border border-white/10 bg-black/70 backdrop-blur-xl shadow-2xl p-2.5 md:p-3.5 transform -rotate-6 transition-all duration-700 group-hover:-rotate-12 group-hover:-translate-y-6 opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100">
            <div className="flex items-center gap-1.5 md:gap-2 mb-2 md:mb-3">
              <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-red-400"></div>
              <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-yellow-400"></div>
