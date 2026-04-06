@@ -109,7 +109,7 @@ export function Features() {
                 desc: "Kotlin-приложения, которые идеально работают на тысячах различных устройств."
               }
             ].map((service, i) => (
-              <SpotlightCard key={i} delay={i * 0.1} className="p-12">
+              <SpotlightCard key={service.title} delay={i * 0.1} className="p-12">
                 <div className="relative z-10">
                   <div className="transform group-hover:scale-110 group-hover:-translate-y-2 transition-transform duration-500">
                     {service.icon}

@@ -1,3 +1,4 @@
+import type { ComponentType, SVGProps } from 'react';
 import Link from 'next/link';
 import { Code2, Twitter, Instagram, Linkedin, Github } from 'lucide-react';
 import { NAV_LINKS } from '@/lib/constants';
@@ -10,7 +11,7 @@ import {
 } from '@/lib/company-profile';
 import { SEO_LANDING_LINKS } from '@/lib/seo-nav';
 
-const ICON_MAP: Record<string, any> = {
+const ICON_MAP: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
   Twitter: Twitter,
   Instagram: Instagram,
   Linkedin: Linkedin,

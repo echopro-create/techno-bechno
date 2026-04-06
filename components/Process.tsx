@@ -14,7 +14,7 @@ export function Process() {
         <div className="md:w-2/3 flex flex-col gap-24 pt-16 md:pt-0">
           {PROCESS_STEPS.map((step, i) => (
             <motion.div 
-              key={i}
+              key={step.num}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20%" }}

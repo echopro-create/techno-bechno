@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect } from 'react';
 import Lenis from 'lenis';
-import { ArrowUpRight, Globe, Key, Smartphone, Apple, Monitor } from 'lucide-react';
+import { Globe, Key, Smartphone, Apple, Monitor } from 'lucide-react';
 import { BackgroundEffects } from '@/components/BackgroundEffects';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
@@ -17,11 +17,11 @@ import { SEO_LANDING_LINKS } from '@/lib/seo-nav';
 import { motion } from 'motion/react';
 
 const SEO_ICONS = [
-  <Globe className="size-10 mb-8 text-white" />,
-  <Key className="size-10 mb-8 text-white" />,
-  <Smartphone className="size-10 mb-8 text-white" />,
-  <Apple className="size-10 mb-8 text-white" />,
-  <Monitor className="size-10 mb-8 text-white" />,
+  <Globe key="globe" className="size-10 mb-8 text-white" />,
+  <Key key="key" className="size-10 mb-8 text-white" />,
+  <Smartphone key="smartphone" className="size-10 mb-8 text-white" />,
+  <Apple key="apple" className="size-10 mb-8 text-white" />,
+  <Monitor key="monitor" className="size-10 mb-8 text-white" />,
 ];
 
 export default function Home() {
