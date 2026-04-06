@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect } from 'react';
 import Lenis from 'lenis';
-import { Globe, Key, Smartphone, Apple, Monitor } from 'lucide-react';
+import { Globe, Key, Smartphone, Apple, Monitor, ArrowRight } from 'lucide-react';
 import { BackgroundEffects } from '@/components/BackgroundEffects';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
@@ -65,23 +65,26 @@ export default function Home() {
                 Приоритетные направления
               </p>
               <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 font-display text-balance">
-                Готовые страницы под ключевые услуги
+                Решения для вашего бизнеса
               </h2>
               <p className="text-xl text-zinc-400 text-pretty max-w-2xl mx-auto">
-                Если вам нужен конкретный формат проекта, можно сразу перейти на профильную страницу по услуге и быстрее понять подход, объём работ и сценарий запуска.
+                Выберите направление, чтобы узнать подробнее о подходах, сроках и стоимости разработки.
               </p>
             </div>
 
             <div className="flex flex-wrap justify-center gap-6">
               {SEO_LANDING_LINKS.map((item, index) => (
                 <SpotlightCard key={item.href} delay={index * 0.1} className="w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)] p-12">
-                  <Link href={item.href} className="relative z-10 group">
+                  <div className="relative z-10">
                     <div className="transform group-hover:scale-110 group-hover:-translate-y-2 transition-transform duration-500">
                       {SEO_ICONS[index]}
                     </div>
                     <h3 className="text-2xl font-semibold mb-4 font-display">{item.title}</h3>
                     <p className="text-zinc-400 leading-relaxed text-lg">{item.description}</p>
-                  </Link>
+                    <Link href={item.href} className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-zinc-300 transition-colors hover:text-white">
+                      Подробнее <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </div>
                 </SpotlightCard>
               ))}
             </div>
@@ -98,10 +101,10 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-5xl md:text-7xl font-semibold tracking-tight mb-8 font-display text-balance">
-                Готовы начать?
+                Обсудим проект?
               </h2>
               <p className="text-xl md:text-2xl text-zinc-400 mb-12 text-pretty">
-                Давайте обсудим вашу идею и превратим ее в выдающийся продукт.
+                Напишите нам, и мы подготовим оценку стоимости и сроков в течение 24 часов.
               </p>
               <a
                 href={CONTACT_CTA.href}

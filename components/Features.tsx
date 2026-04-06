@@ -139,8 +139,8 @@ export function Features() {
             {/* Card 1: Large */}
             <SpotlightCard delay={0} className="md:col-span-2 md:row-span-2 p-10 flex flex-col">
               <div className="relative z-10 h-full flex flex-col">
-                <h3 className="text-3xl font-semibold mb-4 text-white font-display">Экосистема Apple</h3>
-                <p className="text-zinc-400 text-lg max-w-sm">Бесшовная интеграция между iOS, iPadOS и macOS. Ваши пользователи получат нативный опыт на любом устройстве.</p>
+                <h3 className="text-3xl font-semibold mb-4 text-white font-display">Нативный опыт</h3>
+                <p className="text-zinc-400 text-lg max-w-sm">Пользователи чувствуют себя как дома. Интерфейсы, которые понятны интуитивно и работают без сбоев.</p>
                 <EcosystemBlueprint />
               </div>
             </SpotlightCard>
@@ -150,8 +150,8 @@ export function Features() {
               <div className="relative z-10 h-full flex flex-col justify-between">
                 <Zap className="size-10 text-zinc-100/90" />
                 <div>
-                  <h3 className="text-xl font-semibold mb-2 font-display">60 FPS</h3>
-                  <p className="text-zinc-400 text-sm">Идеально плавные анимации и мгновенный отклик интерфейса.</p>
+                  <h3 className="text-xl font-semibold mb-2 font-display">Мгновенная работа</h3>
+                  <p className="text-zinc-400 text-sm">Никаких задержек. Интерфейс реагирует сразу, клиенты не уходят из-за «тормозов».</p>
                 </div>
               </div>
             </SpotlightCard>
@@ -173,8 +173,8 @@ export function Features() {
               <div className="relative z-10 h-full flex flex-col justify-between">
                 <Sparkles className="size-10 text-zinc-100/90" />
                 <div>
-                  <h3 className="text-2xl font-semibold mb-2 font-display">Glassmorphism & Mesh</h3>
-                  <p className="text-zinc-400">Используем трендовые визуальные эффекты для создания глубины.</p>
+                  <h3 className="text-2xl font-semibold mb-2 font-display">Премиальный дизайн</h3>
+                  <p className="text-zinc-400">Выделяемся среди конкурентов. Современный визуал, который вызывает доверие с первого взгляда.</p>
                 </div>
               </div>
             </SpotlightCard>

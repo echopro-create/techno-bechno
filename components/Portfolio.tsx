@@ -21,7 +21,7 @@ export function Portfolio() {
             Наши работы
           </h2>
           <p className="text-xl text-zinc-400 text-pretty">
-            Проекты, за которые нам не стыдно
+            Кейсы с реальным результатом
           </p>
         </div>
 
