@@ -166,7 +166,9 @@ export function Features() {
                 <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-white font-display pointer-events-auto drop-shadow-md">Нативный опыт</h3>
                 <p className="text-zinc-400 text-base md:text-lg max-w-sm mx-auto md:mx-0 mb-6 pointer-events-auto drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)] mix-blend-plus-lighter">Пользователи чувствуют себя как дома. Интерфейсы, которые понятны интуитивно и работают без сбоев.</p>
               </div>
-              <NativeExperienceGraphic />
+              <div className="hidden md:block">
+                <NativeExperienceGraphic />
+              </div>
             </SpotlightCard>
 
             {/* Card 2: Square */}

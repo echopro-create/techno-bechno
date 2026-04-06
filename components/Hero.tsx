@@ -42,7 +42,7 @@ export function Hero() {
         >
           <span className="sr-only">Создаем сайты</span>
           <motion.span variants={textItem} className="inline-block" aria-hidden="true">Создаем&nbsp;</motion.span>
-          <motion.span variants={textItem} className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-500" aria-hidden="true">сайты</motion.span>
+          <motion.span variants={textItem} className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-300 to-zinc-400" aria-hidden="true">сайты</motion.span>
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}

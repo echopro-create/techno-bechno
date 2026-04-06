@@ -102,12 +102,12 @@ export function Footer() {
         {/* SEO Спам-Матрица (Все кластеры) */}
         <div className="pt-10 mb-10 border-t border-white/10">
           <h4 className="text-zinc-500 font-medium mb-6 text-sm uppercase tracking-wider">Все услуги и гео-направления</h4>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-4 gap-y-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-3">
             {seoPages.map(page => (
               <Link 
                 key={page.slug} 
                 href={`/${page.slug}`} 
-                className="text-xs text-zinc-600 hover:text-zinc-300 transition-colors truncate"
+                className="text-xs text-zinc-600 hover:text-zinc-300 transition-colors leading-relaxed"
                 title={page.heading || page.title.split('|')[0]}
               >
                 {page.heading || page.title.split('|')[0]}
@@ -117,10 +117,10 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-zinc-500">
-          <p>© <CopyrightYear /> Техно-Бэхно. Все права защищены. Сделано с любовью к минимализму.</p>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-white transition-colors">Политика конфиденциальности</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Условия использования</Link>
+          <p className="text-center md:text-left">© <CopyrightYear /> Техно-Бэхно. Все права защищены.</p>
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+            <Link href="/privacy" className="hover:text-white transition-colors">Конфиденциальность</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Условия</Link>
             <Link href="/contacts" className="hover:text-white transition-colors">Контакты</Link>
           </div>
         </div>
