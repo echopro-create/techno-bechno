@@ -68,7 +68,7 @@ function NativeExperienceGraphic() {
         </div>
 
         {/* IPHONE (Right/Front) */}
-        <div className="absolute z-30 right-[5%] md:right-[15%] top-[49%] md:top-[43%] w-[80px] md:w-[120px] h-[160px] md:h-[240px] rounded-[1.5rem] md:rounded-[2.2rem] border-[3px] md:border-[4px] border-zinc-500/30 bg-zinc-950/80 backdrop-blur-xl shadow-[0_40px_80px_rgba(0,0,0,0.95)] flex flex-col p-1.5 md:p-2 transform rotate-[15deg] transition-all duration-700 group-hover:rotate-[8deg] group-hover:-translate-y-10">
+        <div className="absolute z-30 right-[5%] md:right-[15%] top-[39%] md:top-[33%] w-[80px] md:w-[120px] h-[160px] md:h-[240px] rounded-[1.5rem] md:rounded-[2.2rem] border-[3px] md:border-[4px] border-zinc-500/30 bg-zinc-950/80 backdrop-blur-xl shadow-[0_40px_80px_rgba(0,0,0,0.95)] flex flex-col p-1.5 md:p-2 transform rotate-[15deg] transition-all duration-700 group-hover:rotate-[8deg] group-hover:-translate-y-10">
           <div className="absolute top-0 inset-x-0 h-3 md:h-5 flex justify-center z-10">
             <div className="w-8 md:w-12 h-1.5 md:h-2.5 rounded-b-xl bg-zinc-800/90 absolute top-0"></div>
           </div>
