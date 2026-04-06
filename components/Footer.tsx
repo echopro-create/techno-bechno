@@ -10,6 +10,7 @@ import {
   SERVICE_AREAS,
 } from '@/lib/company-profile';
 import { SEO_LANDING_LINKS } from '@/lib/seo-nav';
+import { seoPages } from '@/lib/seo-pages';
 import { CopyrightYear } from './CopyrightYear';
 
 const ICON_MAP: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
@@ -98,6 +99,23 @@ export function Footer() {
                 </a>
               </li>
             </ul>
+          </div>
+        </div>
+
+        {/* SEO Спам-Матрица (Все кластеры) */}
+        <div className="pt-10 mb-10 border-t border-white/10">
+          <h4 className="text-zinc-500 font-medium mb-6 text-sm uppercase tracking-wider">Все услуги и гео-направления</h4>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-4 gap-y-3">
+            {seoPages.map(page => (
+              <Link 
+                key={page.slug} 
+                href={`/${page.slug}`} 
+                className="text-xs text-zinc-600 hover:text-zinc-300 transition-colors truncate"
+                title={page.heading || page.title.split('|')[0]}
+              >
+                {page.heading || page.title.split('|')[0]}
+              </Link>
+            ))}
           </div>
         </div>
 
