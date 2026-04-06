@@ -38,11 +38,12 @@ export function Hero() {
           variants={textContainer}
           initial="hidden"
           animate="show"
-          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tighter leading-[1.05] mb-8 flex flex-row justify-center gap-2 md:gap-4 font-display text-center"
+          className="text-[3.8vw] sm:text-[3vw] md:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tighter leading-[1.05] mb-8 flex flex-row items-center justify-center gap-1 sm:gap-2 font-display whitespace-nowrap"
         >
-          <span className="sr-only">Разработка премиальных сайтов и мобильных приложений</span>
-          <motion.span variants={textItem} className="inline-block" aria-hidden="true">Создаем</motion.span>
-          <motion.span variants={textItem} className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 via-zinc-400 to-zinc-600" aria-hidden="true">будущее</motion.span>
+          <span className="sr-only">Разработка сайтов и мобильных приложений</span>
+          <motion.span variants={textItem} className="inline-block" aria-hidden="true">Разработка сайтов</motion.span>
+          <motion.span variants={textItem} className="inline-block" aria-hidden="true">и мобильных</motion.span>
+          <motion.span variants={textItem} className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 via-zinc-400 to-zinc-600" aria-hidden="true">приложений</motion.span>
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}

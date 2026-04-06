@@ -28,5 +28,4 @@ export const PUBLIC_SOCIAL_LINKS: Array<{
   icon: 'Twitter' | 'Instagram' | 'Linkedin' | 'Github';
 }> = [];
 
-export const CONTACT_DISCLOSURE =
-  'Публичные телефон, мессенджеры, email и юридические реквизиты будут опубликованы после подтверждения командой. Сейчас мы не показываем шаблонные данные и не подставляем вымышленные контакты.';
+

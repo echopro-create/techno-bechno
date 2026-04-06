@@ -4,7 +4,6 @@ import { Code2, Twitter, Instagram, Linkedin, Github } from 'lucide-react';
 import { NAV_LINKS } from '@/lib/constants';
 import {
   CONTACT_CTA,
-  CONTACT_DISCLOSURE,
   PUBLIC_CONTACTS,
   PUBLIC_SOCIAL_LINKS,
   SERVICE_AREAS,
@@ -64,14 +63,12 @@ export function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-6">Контакты</h4>
             <ul className="space-y-4 text-zinc-400">
-              {PUBLIC_CONTACTS.email ? (
+              {PUBLIC_CONTACTS.email && (
                 <li>
                   <a href={`mailto:${PUBLIC_CONTACTS.email}`} className="hover:text-white transition-colors">
                     {PUBLIC_CONTACTS.email}
                   </a>
                 </li>
-              ) : (
-                <li>{CONTACT_DISCLOSURE}</li>
               )}
               <li>География: {SERVICE_AREAS.join(', ')}</li>
               {PUBLIC_SOCIAL_LINKS.length > 0 ? (

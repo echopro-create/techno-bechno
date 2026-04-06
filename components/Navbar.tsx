@@ -3,11 +3,14 @@
 import { useState, useEffect } from 'react';
 import { Code2, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { NAV_LINKS } from '@/lib/constants';
 import { CONTACT_CTA } from '@/lib/company-profile';
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   // Block scroll when menu is open
   useEffect(() => {
@@ -29,10 +32,19 @@ export function Navbar() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-2xl border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between text-sm font-medium text-white/80">
           {/* Logo */}
-          <div className="flex items-center gap-2 text-white relative z-50 shrink-0">
+          <Link 
+            href="/"
+            onClick={(e) => {
+              if (pathname === '/') {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
+            className="flex items-center gap-2 text-white relative z-50 shrink-0 hover:opacity-80 transition-opacity"
+          >
             <Code2 className="size-6" />
             <span className="font-semibold tracking-tight text-base sm:text-lg font-display whitespace-nowrap">Техно-Бэхно</span>
-          </div>
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center justify-center gap-10 absolute left-1/2 -translate-x-1/2">

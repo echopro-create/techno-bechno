@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { COMPANY_NAME, CONTACT_DISCLOSURE } from '@/lib/company-profile';
+import { COMPANY_NAME } from '@/lib/company-profile';
 
 export const metadata: Metadata = {
   title: 'Политика конфиденциальности | Техно-Бэхно',
@@ -20,39 +20,45 @@ export default function PrivacyPage() {
         <h1 className="mt-6 text-4xl font-semibold tracking-tight md:text-5xl">
           Политика конфиденциальности
         </h1>
-        <div className="mt-10 space-y-8 text-zinc-300">
+        <div className="mt-10 space-y-8 text-zinc-300 font-light text-base md:text-lg">
           <section>
-            <h2 className="text-2xl font-semibold text-white">1. Общие положения</h2>
-            <p className="mt-3 leading-8">
-              Эта политика описывает общий подход {COMPANY_NAME} к обработке информации, которую пользователь
-              может передавать через сайт, формы связи, почту и иные каналы взаимодействия.
+            <h2 className="text-2xl font-semibold text-white tracking-tight">1. Общие положения и статус оператора</h2>
+            <p className="mt-3 leading-8 text-zinc-400">
+              Настоящая Политика регламентирует порядок обработки персональных данных и меры по обеспечению безопасности данных, применяемые корпоративным подразделением {COMPANY_NAME}. Мы неукоснительно соблюдаем требования Общего регламента по защите данных (GDPR) и профильного законодательства (ФЗ-152), гарантируя полную конфиденциальность коммерческой информации (NDA) и персональных данных наших корпоративных клиентов.
             </p>
           </section>
           <section>
-            <h2 className="text-2xl font-semibold text-white">2. Какие данные могут обрабатываться</h2>
-            <p className="mt-3 leading-8">
-              Имя, email, телефон, текст обращения, сведения о компании, технические данные о посещении сайта и
-              иная информация, необходимая для ответа на запрос или подготовки предложения по проекту.
+            <h2 className="text-2xl font-semibold text-white tracking-tight">2. Категории обрабатываемых данных (B2B сегмент)</h2>
+            <p className="mt-3 leading-8 text-zinc-400">
+              В рамках предпроектной аналитики и тендерных процедур мы можем обрабатывать:
+            </p>
+            <ul className="mt-4 list-disc pl-6 space-y-2 text-zinc-400">
+              <li>Корпоративные контактные данные лиц, принимающих решения (ЛПР) и технических специалистов;</li>
+              <li>Спецификации проектов, технические задания и архитектурные схемы, переданные через формы обратной связи;</li>
+              <li>Техническую телеметрию (IP-адреса, User-Agent) для обеспечения безопасности нашей IT-инфраструктуры от DDoS и Brute-force атак.</li>
+            </ul>
+          </section>
+          <section>
+            <h2 className="text-2xl font-semibold text-white tracking-tight">3. Детерминированные цели обработки</h2>
+            <p className="mt-3 leading-8 text-zinc-400">
+              Сбор данных производится исключительно в прагматичных целях:
+            </p>
+            <ul className="mt-4 list-disc pl-6 space-y-2 text-zinc-400">
+              <li>Проведение первичного IT-аудита и формирование персонализированного коммерческого предложения (Estimate);</li>
+              <li>Организация защищенных сеансов видеосвязи для обсуждения архитектуры проекта;</li>
+              <li>Подписание соглашений о неразглашении (NDA) и договоров на разработку цифровых продуктов.</li>
+            </ul>
+          </section>
+          <section>
+            <h2 className="text-2xl font-semibold text-white tracking-tight">4. Инфраструктурная безопасность и шифрование</h2>
+            <p className="mt-3 leading-8 text-zinc-400">
+              Вся собираемая информация хешируется и хранится в изолированных базах данных с использованием стандарта шифрования AES-256. Внутренний доступ сотрудников {COMPANY_NAME} к проектным данным регулируется строгой ролевой моделью (RBAC) и системой Audit Trail (логирование доступов). Мы исключаем передачу данных сторонним маркетинговым или рекламным агентствам.
             </p>
           </section>
           <section>
-            <h2 className="text-2xl font-semibold text-white">3. Для чего используются данные</h2>
-            <p className="mt-3 leading-8">
-              Для обратной связи, оценки проекта, подготовки коммерческого предложения, улучшения структуры сайта,
-              аналитики взаимодействия и обеспечения стабильной работы сервиса.
-            </p>
-          </section>
-          <section>
-            <h2 className="text-2xl font-semibold text-white">4. Передача третьим лицам</h2>
-            <p className="mt-3 leading-8">
-              Данные не передаются третьим лицам без законного основания или необходимости, связанной с
-              обслуживанием сайта, аналитикой и выполнением запроса пользователя.
-            </p>
-          </section>
-          <section>
-            <h2 className="text-2xl font-semibold text-white">5. Актуализация реквизитов</h2>
-            <p className="mt-3 leading-8">
-              Публичные контакты и реквизиты компании обновляются после внутреннего подтверждения. {CONTACT_DISCLOSURE}
+            <h2 className="text-2xl font-semibold text-white tracking-tight">5. Права субъектов данных и Data Portability</h2>
+            <p className="mt-3 leading-8 text-zinc-400">
+              Как субъект данных, вы или ваша организация имеете полное право в любой момент запросить полный дамп обрабатываемых метрик, потребовать их немедленного уничтожения с наших серверов или отозвать согласие. Для реализации этих прав направьте официальный запрос выделенному проектному менеджеру или через форму связи на странице Контактов.
             </p>
           </section>
         </div>
