@@ -38,11 +38,13 @@ export function Hero() {
           variants={textContainer}
           initial="hidden"
           animate="show"
-          className="text-[clamp(0.8rem,3.2vw,2rem)] sm:text-[clamp(1.2rem,3vw,3rem)] md:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tighter leading-[1.05] mb-8 flex flex-row items-center justify-center gap-1 sm:gap-1.5 md:gap-2 font-display whitespace-nowrap"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tighter leading-[1.05] mb-8 flex flex-wrap items-center justify-center gap-x-[0.27em] gap-y-[0.1em] font-display text-center max-w-5xl mx-auto"
         >
           <span className="sr-only">Разработка сайтов и мобильных приложений</span>
-          <motion.span variants={textItem} className="inline-block" aria-hidden="true">Разработка сайтов</motion.span>
-          <motion.span variants={textItem} className="inline-block" aria-hidden="true">и мобильных</motion.span>
+          <motion.span variants={textItem} className="inline-block" aria-hidden="true">Разработка</motion.span>
+          <motion.span variants={textItem} className="inline-block" aria-hidden="true">сайтов</motion.span>
+          <motion.span variants={textItem} className="inline-block" aria-hidden="true">и</motion.span>
+          <motion.span variants={textItem} className="inline-block" aria-hidden="true">мобильных</motion.span>
           <motion.span variants={textItem} className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 via-zinc-400 to-zinc-600" aria-hidden="true">приложений</motion.span>
         </motion.h1>
         <motion.p 
