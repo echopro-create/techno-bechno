@@ -38,7 +38,7 @@ export function Hero() {
           variants={textContainer}
           initial="hidden"
           animate="show"
-          className="text-[3.8vw] sm:text-[3vw] md:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tighter leading-[1.05] mb-8 flex flex-row items-center justify-center gap-1 sm:gap-2 font-display whitespace-nowrap"
+          className="text-[clamp(0.8rem,3.2vw,2rem)] sm:text-[clamp(1.2rem,3vw,3rem)] md:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tighter leading-[1.05] mb-8 flex flex-row items-center justify-center gap-1 sm:gap-1.5 md:gap-2 font-display whitespace-nowrap"
         >
           <span className="sr-only">Разработка сайтов и мобильных приложений</span>
           <motion.span variants={textItem} className="inline-block" aria-hidden="true">Разработка сайтов</motion.span>
