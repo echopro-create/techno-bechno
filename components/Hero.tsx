@@ -38,12 +38,11 @@ export function Hero() {
           variants={textContainer}
           initial="hidden"
           animate="show"
-          className="text-[2.5rem] leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-8 font-display text-center text-balance max-w-5xl mx-auto"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] xl:text-[6rem] font-semibold tracking-tight mb-8 font-display text-center whitespace-nowrap"
         >
-          <span className="sr-only">Создаем сайты и мобильные приложения</span>
-          <motion.span variants={textItem} className="inline-block" aria-hidden="true">Создаем сайты&nbsp;</motion.span>
-          <motion.span variants={textItem} className="inline-block" aria-hidden="true">и мобильные&nbsp;</motion.span>
-          <motion.span variants={textItem} className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-300 to-zinc-600" aria-hidden="true">приложения</motion.span>
+          <span className="sr-only">Создаем сайты</span>
+          <motion.span variants={textItem} className="inline-block" aria-hidden="true">Создаем&nbsp;</motion.span>
+          <motion.span variants={textItem} className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-500" aria-hidden="true">сайты</motion.span>
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
