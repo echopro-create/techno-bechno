@@ -5,48 +5,111 @@ import { SpotlightCard } from './SpotlightCard';
 
 function NativeExperienceGraphic() {
   return (
-    <div className="mt-8 md:mt-10 relative h-48 md:h-64 w-full overflow-hidden rounded-2xl border border-white/10 flex items-center justify-center bg-black/20 group">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zinc-500/10 via-transparent to-transparent opacity-100"></div>
+    <div className="mt-8 md:mt-12 relative h-64 md:h-[22rem] w-full overflow-hidden rounded-2xl border border-white/10 flex items-center justify-center bg-[#0a0a0a] group perspective-[1000px]">
+      {/* Background Glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zinc-500/10 via-transparent to-transparent opacity-100 transition-opacity duration-1000 group-hover:from-zinc-400/15"></div>
       
       {/* Background Grid */}
       <div
-        className="absolute inset-0 opacity-[0.06]"
+        className="absolute inset-0 opacity-[0.04]"
         style={{
-          backgroundImage:
-            'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)',
           backgroundSize: '24px 24px',
         }}
       />
 
-      {/* Abstract Phone Frame */}
-      <div className="relative z-10 w-28 md:w-36 h-56 md:h-72 rounded-[2rem] border-[4px] border-zinc-700/50 bg-black/80 shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col p-2 transform rotate-[-12deg] translate-y-12 md:translate-y-16 transition-all duration-700 ease-out group-hover:rotate-0 group-hover:translate-y-4">
-        {/* Dynamic Island Mock */}
-        <div className="absolute top-0 inset-x-0 h-4 flex justify-center">
-          <div className="w-10 h-2 rounded-b-xl bg-zinc-700/50 absolute top-0"></div>
-        </div>
+      <div className="relative w-full h-full flex flex-col items-center justify-center transform-style-preserve-3d transition-all duration-700 ease-out group-hover:scale-[1.03]">
         
-        {/* Mock App Content */}
-        <div className="flex-1 mt-4 rounded-[1rem] border border-white/5 bg-white/[0.02] p-2 flex flex-col gap-2 relative overflow-hidden">
-           <div className="absolute -top-10 -right-10 w-24 h-24 bg-white/10 blur-2xl rounded-full"></div>
-           
-           <div className="h-4 w-1/2 rounded-full bg-white/10 relative z-10"></div>
-           <div className="h-3 w-1/4 rounded-full bg-white/5 relative z-10 mb-2"></div>
-
-           <div className="h-12 rounded-lg bg-gradient-to-r from-white/10 to-transparent relative z-10"></div>
-           <div className="flex gap-2 relative z-10">
-             <div className="flex-1 h-12 rounded-lg bg-white/5"></div>
-             <div className="flex-1 h-12 rounded-lg bg-white/5"></div>
-           </div>
-           <div className="h-8 rounded-lg bg-white/5 relative z-10"></div>
+        {/* MACBOOK (Left/Back) */}
+        <div className="absolute z-10 left-[8%] md:left-[10%] top-[40%] md:top-[35%] w-[130px] md:w-[220px] h-[80px] md:h-[135px] rounded-t-lg md:rounded-t-xl border-[2px] md:border-[3px] border-zinc-700/40 bg-zinc-950/90 shadow-2xl flex flex-col p-1 md:p-1.5 transform -rotate-12 transition-all duration-700 group-hover:-rotate-6 group-hover:-translate-y-3 backdrop-blur-md">
+          <div className="flex-1 rounded-sm border border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent p-1.5 flex flex-col gap-1 md:gap-1.5 relative overflow-hidden">
+             
+             <div className="flex items-center gap-1.5 mb-1">
+                <Monitor className="size-2 md:size-3 text-white/30" />
+                <div className="h-1 md:h-1.5 w-1/3 rounded-full bg-white/10"></div>
+             </div>
+             <div className="flex gap-1 md:gap-1.5 h-full">
+               <div className="w-1/4 h-full bg-white/5 rounded-sm"></div>
+               <div className="flex-1 flex flex-col gap-1 md:gap-1.5">
+                 <div className="h-1.5 md:h-2 w-full bg-white/5 rounded-sm"></div>
+                 <div className="h-1.5 md:h-2 w-full bg-white/5 rounded-sm"></div>
+                 <div className="h-1.5 md:h-2 w-2/3 bg-white/5 rounded-sm"></div>
+               </div>
+             </div>
+          </div>
+          {/* Keyboard base */}
+          <div className="h-1.5 md:h-2.5 mt-0.5 bg-zinc-600 rounded-b-sm md:rounded-b-md relative">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-6 md:w-10 h-[1px] md:h-0.5 bg-zinc-800 rounded-b-sm"></div>
+          </div>
         </div>
-      </div>
 
-      {/* Floating Elements */}
-      <div className="absolute top-[20%] right-[15%] w-12 h-12 md:w-14 md:h-14 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md shadow-2xl flex items-center justify-center transform rotate-12 transition-transform duration-700 group-hover:rotate-[-5deg] group-hover:-translate-y-2">
-        <Apple className="size-5 md:size-6 text-zinc-300" />
-      </div>
-      <div className="absolute bottom-[25%] left-[10%] md:left-[15%] w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md shadow-2xl flex items-center justify-center transform -rotate-12 transition-transform duration-700 group-hover:rotate-12 group-hover:-translate-y-4">
-        <Smartphone className="size-4 md:size-5 text-zinc-300" />
+        {/* IPAD/TABLET (Center) */}
+        <div className="absolute z-20 left-1/2 -translate-x-1/2 top-[10%] md:top-[8%] w-[120px] md:w-[180px] h-[170px] md:h-[250px] rounded-[1rem] md:rounded-[1.5rem] border-[3px] md:border-[4px] border-zinc-700/60 bg-black shadow-[0_20px_50px_rgba(0,0,0,0.8)] flex flex-col p-1.5 md:p-2.5 transition-transform duration-700 group-hover:-translate-y-6">
+          <div className="flex-1 rounded-lg md:rounded-xl border border-white/5 bg-gradient-to-br from-white/[0.04] to-transparent p-2 md:p-3 flex flex-col gap-2 md:gap-3 relative overflow-hidden">
+            <div className="absolute -top-10 -right-10 w-24 h-24 bg-white/10 blur-2xl rounded-full"></div>
+            
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 md:w-6 md:h-6 rounded-full bg-white/10"></div>
+              <div className="flex flex-col gap-1 flex-1">
+                <div className="h-1.5 md:h-2 w-1/2 rounded-full bg-white/10"></div>
+                <div className="h-1 md:h-1.5 w-1/3 rounded-full bg-white/5"></div>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-1.5 md:gap-2">
+              <div className="h-10 md:h-16 rounded-md md:rounded-lg bg-white/5 relative overflow-hidden flex items-end p-1">
+                 <div className="w-full h-[60%] bg-gradient-to-t from-white/15 to-transparent"></div>
+              </div>
+              <div className="h-10 md:h-16 rounded-md md:rounded-lg bg-white/5 flex items-end justify-center gap-1 p-1 md:p-1.5">
+                 <div className="w-1.5 md:w-2.5 h-[30%] bg-white/20 rounded-t-sm group-hover:h-[60%] transition-all duration-500"></div>
+                 <div className="w-1.5 md:w-2.5 h-[60%] bg-white/30 rounded-t-sm group-hover:h-[90%] transition-all duration-700"></div>
+                 <div className="w-1.5 md:w-2.5 h-[40%] bg-white/20 rounded-t-sm group-hover:h-[70%] transition-all duration-300"></div>
+              </div>
+            </div>
+
+            <div className="flex-1 rounded-md md:rounded-lg bg-white/[0.02] border border-white/5 p-1.5 flex flex-col gap-1.5">
+               <div className="h-1.5 md:h-2 w-3/4 rounded-full bg-white/10"></div>
+               <div className="h-1 md:h-1.5 w-full rounded-full bg-white/5"></div>
+               <div className="h-1 md:h-1.5 w-5/6 rounded-full bg-white/5"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* IPHONE (Right/Front) */}
+        <div className="absolute z-30 right-[8%] md:right-[15%] top-[40%] md:top-[30%] w-[70px] md:w-[100px] h-[140px] md:h-[200px] rounded-[1.2rem] md:rounded-[1.8rem] border-[3px] border-zinc-500/30 bg-zinc-950/80 backdrop-blur-xl shadow-[0_30px_60px_rgba(0,0,0,0.9)] flex flex-col p-1 md:p-1.5 transform rotate-12 transition-all duration-700 group-hover:rotate-6 group-hover:-translate-y-8">
+          <div className="absolute top-0 inset-x-0 h-3 md:h-4 flex justify-center z-10">
+            <div className="w-6 md:w-10 h-1.5 md:h-2 rounded-b-lg md:rounded-b-xl bg-zinc-800/80 absolute top-0"></div>
+          </div>
+          <div className="flex-1 mt-2 md:mt-3.5 rounded-[0.8rem] md:rounded-xl border border-white/5 bg-white/[0.02] p-1.5 flex flex-col gap-1.5 md:gap-2 relative overflow-hidden">
+             <div className="h-1 md:h-1.5 w-1/2 rounded-full bg-white/10 relative z-10"></div>
+             
+             <div className="h-8 md:h-12 rounded-lg bg-white/5 relative z-10 flex items-center justify-center">
+                 <Smartphone className="size-3 md:size-4 text-white/30" />
+             </div>
+             
+             <div className="flex-1 rounded-lg bg-white/5"></div>
+             
+             <div className="h-5 md:h-8 border border-white/10 rounded-lg bg-white/10 flex items-center justify-center backdrop-blur-md relative z-10">
+               <div className="h-1 w-1/2 rounded-full bg-white/50 animate-pulse"></div>
+             </div>
+          </div>
+        </div>
+
+        {/* Floating Code Snippet Card */}
+        <div className="absolute z-40 left-[15%] md:left-[22%] bottom-[12%] md:bottom-[15%] w-28 md:w-40 rounded-lg md:rounded-xl border border-white/10 bg-black/60 backdrop-blur-md shadow-2xl p-2 md:p-3 transform -rotate-6 transition-all duration-700 group-hover:-rotate-12 group-hover:-translate-y-4 opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100">
+           <div className="flex items-center gap-1 md:gap-1.5 mb-1.5 md:mb-2">
+             <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-red-400"></div>
+             <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-yellow-400"></div>
+             <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-green-400"></div>
+           </div>
+           <div className="space-y-1 md:space-y-1.5">
+             <div className="h-1 md:h-1.5 w-full bg-blue-400/30 rounded-full"></div>
+             <div className="h-1 md:h-1.5 w-3/4 bg-purple-400/30 rounded-full ml-1 md:ml-2"></div>
+             <div className="h-1 md:h-1.5 w-4/5 bg-zinc-400/30 rounded-full ml-1 md:ml-2"></div>
+             <div className="h-1 md:h-1.5 w-1/2 bg-zinc-400/30 rounded-full"></div>
+           </div>
+        </div>
+
       </div>
     </div>
   );
