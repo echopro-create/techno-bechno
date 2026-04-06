@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { BackgroundEffects } from '@/components/BackgroundEffects';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { SeoRelatedLinks } from '@/components/SeoRelatedLinks';
 import { seoPages, seoPageMap } from '@/lib/seo-pages';
 import {
   SeoPageHeader,
@@ -62,22 +63,36 @@ export async function generateMetadata({
       images: ['/og-image.png'],
     },
     other: {
-      'application/ld+json': JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Service',
-        name: page.heading,
-        description: page.description,
-        provider: {
-          '@type': 'Organization',
-          name: 'Техно-Бэхно',
-          url: 'https://tehnobehno.site',
+      'application/ld+json': JSON.stringify([
+        {
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          name: page.heading,
+          description: page.description,
+          provider: {
+            '@type': 'Organization',
+            name: 'Техно-Бэхно',
+            url: 'https://tehnobehno.site',
+          },
+          areaServed: {
+            '@type': 'Place',
+            name: 'Краснодар, Краснодарский край',
+          },
+          url: `https://tehnobehno.site/${page.slug}`,
         },
-        areaServed: {
-          '@type': 'Place',
-          name: 'Краснодар, Краснодарский край',
-        },
-        url: `https://tehnobehno.site/${page.slug}`,
-      }),
+        page.faq?.length ? {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: page.faq.map((item) => ({
+            '@type': 'Question',
+            name: item.q,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: item.a,
+            },
+          })),
+        } : null
+      ].filter(Boolean)),
     },
   };
 }
@@ -135,6 +150,8 @@ export default async function SeoLanding({
           description={page.description}
           currentSlug={page.slug}
         />
+
+        <SeoRelatedLinks currentSlug={page.slug} />
       </main>
 
       <Footer />

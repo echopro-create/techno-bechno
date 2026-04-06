@@ -27,8 +27,15 @@ export const metadata: Metadata = {
   title: 'Техно-Бэхно — Разработка сайтов и мобильных приложений',
   description: 'Создаем премиальные веб-сайты и приложения для iOS и Android с акцентом на качество и минимализм.',
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   openGraph: {
     title: 'Техно-Бэхно — Разработка сайтов и мобильных приложений',
