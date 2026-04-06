@@ -112,7 +112,7 @@ export function Footer() {
           </div>
         </div>
 
-        {/* SEO Спам-Матрица (Все кластеры) */}
+        {/* Карта сайта (Услуги и направления) */}
         <div className="pt-10 mb-10 border-t border-white/10">
           <h4 className="text-zinc-500 font-medium mb-6 text-sm uppercase tracking-wider">Все услуги и гео-направления</h4>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-3">
