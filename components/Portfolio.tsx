@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from 'motion/react';
 import Image from 'next/image';
 
 export function Portfolio() {
-  const showcaseRef = useRef(null);
+  const showcaseRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: showcaseScroll } = useScroll({
     target: showcaseRef,
     offset: ["start end", "end start"]

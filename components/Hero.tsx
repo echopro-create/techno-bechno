@@ -6,7 +6,7 @@ import { ChevronRight } from 'lucide-react';
 import { CONTACT_CTA } from '@/lib/company-profile';
 
 export function Hero() {
-  const heroRef = useRef(null);
+  const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: heroScroll } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"]

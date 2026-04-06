@@ -18,7 +18,7 @@ export function SpotlightCard({ children, className = "", delay = 0 }: { childre
     <motion.div
       ref={divRef}
       role="region"
-      aria-label="Card"
+      aria-label="Spotlight card"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

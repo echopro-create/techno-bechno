@@ -10,6 +10,7 @@ import {
   SERVICE_AREAS,
 } from '@/lib/company-profile';
 import { SEO_LANDING_LINKS } from '@/lib/seo-nav';
+import { CopyrightYear } from './CopyrightYear';
 
 const ICON_MAP: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
   Twitter: Twitter,
@@ -51,9 +52,9 @@ export function Footer() {
             <ul className="space-y-4 text-zinc-400">
               {SEO_LANDING_LINKS.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="hover:text-white transition-colors">
+                  <Link href={link.href} className="hover:text-white transition-colors">
                     {link.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -101,7 +102,7 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-zinc-500">
-          <p>© {new Date().getFullYear()} Техно-Бэхно. Все права защищены. Сделано с любовью к минимализму.</p>
+          <p>© <CopyrightYear /> Техно-Бэхно. Все права защищены. Сделано с любовью к минимализму.</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-white transition-colors">Политика конфиденциальности</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Условия использования</Link>

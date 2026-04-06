@@ -17,6 +17,11 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-mono',
 });
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://tehnobehno.site'),
   title: 'Техно-Бэхно — Разработка сайтов и мобильных приложений',

@@ -16,8 +16,8 @@ test('SEO page has back to home link', async ({ page }) => {
 
 test('SEO page has benefits section', async ({ page }) => {
   await page.goto(`/${seoPages[0].slug}`);
-  const benefits = page.locator('div[class*="rounded-"]').first();
-  await expect(benefits).toBeVisible();
+  const section = page.locator('section').filter({ hasText: seoPages[0].benefits[0].substring(0, 20) });
+  await expect(section.first()).toBeVisible();
 });
 
 test('SEO page has FAQ heading', async ({ page }) => {

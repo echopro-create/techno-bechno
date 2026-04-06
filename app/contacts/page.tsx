@@ -31,18 +31,18 @@ export default function ContactsPage() {
           </span>
         </div>
 
-        <p className="text-sm uppercase tracking-[0.22em] text-zinc-500">Контакты и география</p>
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-6xl">
+        <p className="text-sm uppercase tracking-[0.22em] text-zinc-500 text-center md:text-left">Контакты и география</p>
+        <h1 className="mt-4 text-3xl sm:text-4xl md:text-6xl font-semibold tracking-tight text-center md:text-left">
           Работаем по Краснодару и Краснодарскому краю
         </h1>
-        <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-300">
+        <p className="mt-6 max-w-3xl text-base sm:text-lg leading-8 text-zinc-300 text-center md:text-left">
           Эта страница нужна как публичная точка контакта, географии и юридической прозрачности. Реальные
           каналы связи будут подключены после финального подтверждения реквизитов.
         </p>
 
         <section className="mt-12 grid gap-6 md:grid-cols-2">
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl">
-            <h2 className="text-2xl font-semibold tracking-tight">География работы</h2>
+          <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 sm:p-8 backdrop-blur-xl">
+            <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-center md:text-left">География работы</h2>
             <ul className="mt-6 space-y-3 text-zinc-300">
               {SERVICE_AREAS.map((area) => (
                 <li key={area} className="rounded-2xl border border-white/10 px-4 py-3">
@@ -52,8 +52,8 @@ export default function ContactsPage() {
             </ul>
           </div>
 
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl">
-            <h2 className="text-2xl font-semibold tracking-tight">Публичные каналы связи</h2>
+          <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 sm:p-8 backdrop-blur-xl">
+            <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-center md:text-left">Публичные каналы связи</h2>
             {hasContacts ? (
               <ul className="mt-6 space-y-3 text-zinc-300">
                 {PUBLIC_CONTACTS.email ? <li>Email: {PUBLIC_CONTACTS.email}</li> : null}
@@ -68,8 +68,8 @@ export default function ContactsPage() {
           </div>
         </section>
 
-        <section className="mt-6 rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl">
-          <h2 className="text-2xl font-semibold tracking-tight">Что можно подготовить до созвона</h2>
+        <section className="mt-6 rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 sm:p-8 backdrop-blur-xl">
+          <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-center md:text-left">Что можно подготовить до созвона</h2>
           <ul className="mt-6 space-y-3 text-zinc-300">
             <li className="rounded-2xl border border-white/10 px-4 py-3">Цель проекта и тип продукта: сайт, iOS, Android, интернет-магазин или MVP.</li>
             <li className="rounded-2xl border border-white/10 px-4 py-3">Желаемый срок запуска и ограничения по бюджету.</li>

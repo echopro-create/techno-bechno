@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { BackgroundEffects } from '@/components/BackgroundEffects';
+import { Navbar } from '@/components/Navbar';
+import { Footer } from '@/components/Footer';
 import { seoPages, seoPageMap } from '@/lib/seo-pages';
 import {
   SeoPageHeader,
@@ -15,7 +17,7 @@ import {
   SeoPageCta,
 } from '@/components/seo-page-sections';
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return seoPages.map(({ slug }) => ({ slug }));
 }
 
@@ -35,7 +37,7 @@ export async function generateMetadata({
     title: page.title,
     description: page.description,
     alternates: {
-      canonical: `/${page.slug}`,
+      canonical: `https://tehnobehno.site/${page.slug}`,
     },
     openGraph: {
       title: page.title,
@@ -59,6 +61,24 @@ export async function generateMetadata({
       description: page.description,
       images: ['/og-image.png'],
     },
+    other: {
+      'application/ld+json': JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: page.heading,
+        description: page.description,
+        provider: {
+          '@type': 'Organization',
+          name: 'Техно-Бэхно',
+          url: 'https://tehnobehno.site',
+        },
+        areaServed: {
+          '@type': 'Place',
+          name: 'Краснодар, Краснодарский край',
+        },
+        url: `https://tehnobehno.site/${page.slug}`,
+      }),
+    },
   };
 }
 
@@ -77,6 +97,7 @@ export default async function SeoLanding({
   return (
     <div className="min-h-screen bg-black text-[#f5f5f7] selection:bg-white/20">
       <BackgroundEffects />
+      <Navbar />
 
       <main className="relative z-10">
         <SeoPageHeader
@@ -115,6 +136,8 @@ export default async function SeoLanding({
           currentSlug={page.slug}
         />
       </main>
+
+      <Footer />
     </div>
   );
 }

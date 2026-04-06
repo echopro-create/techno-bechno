@@ -16,13 +16,13 @@ import { CONTACT_CTA } from '@/lib/company-profile';
 import { SEO_LANDING_LINKS } from '@/lib/seo-nav';
 import { motion } from 'motion/react';
 
-const SEO_ICONS = [
-  <Globe key="globe" className="size-8 sm:size-9 md:size-10 mb-6 md:mb-8 text-white" />,
-  <Key key="key" className="size-8 sm:size-9 md:size-10 mb-6 md:mb-8 text-white" />,
-  <Smartphone key="smartphone" className="size-8 sm:size-9 md:size-10 mb-6 md:mb-8 text-white" />,
-  <Apple key="apple" className="size-8 sm:size-9 md:size-10 mb-6 md:mb-8 text-white" />,
-  <Monitor key="monitor" className="size-8 sm:size-9 md:size-10 mb-6 md:mb-8 text-white" />,
-];
+const ICON_MAP: Record<string, React.ReactNode> = {
+  Globe: <Globe className="size-8 sm:size-9 md:size-10 mb-6 md:mb-8 text-white" />,
+  Key: <Key className="size-8 sm:size-9 md:size-10 mb-6 md:mb-8 text-white" />,
+  Smartphone: <Smartphone className="size-8 sm:size-9 md:size-10 mb-6 md:mb-8 text-white" />,
+  Apple: <Apple className="size-8 sm:size-9 md:size-10 mb-6 md:mb-8 text-white" />,
+  Monitor: <Monitor className="size-8 sm:size-9 md:size-10 mb-6 md:mb-8 text-white" />,
+};
 
 export default function Home() {
   // Smooth scrolling setup
@@ -78,7 +78,7 @@ export default function Home() {
                   <div className="relative z-10 h-full flex flex-col justify-between items-center md:items-start">
                     <div>
                       <div className="transform group-hover:scale-110 group-hover:-translate-y-2 transition-transform duration-500 flex justify-center md:block">
-                        {SEO_ICONS[index]}
+                        {ICON_MAP[item.icon]}
                       </div>
                       <h3 className="text-xl sm:text-2xl font-semibold mb-3 md:mb-4 font-display">{item.title}</h3>
                       <p className="text-zinc-400 leading-relaxed text-base md:text-lg">{item.description}</p>
@@ -94,7 +94,7 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-24 md:py-28 lg:py-32 px-6 relative z-10">
+        <section id="cta" className="py-24 md:py-28 lg:py-32 px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
