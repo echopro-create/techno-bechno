@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect } from 'react';
 import Lenis from 'lenis';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Globe, Key, Smartphone, Apple, Monitor } from 'lucide-react';
 import { BackgroundEffects } from '@/components/BackgroundEffects';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
@@ -16,28 +16,13 @@ import { CONTACT_CTA } from '@/lib/company-profile';
 import { SEO_LANDING_LINKS } from '@/lib/seo-nav';
 import { motion } from 'motion/react';
 
-const SEO_CARD_META = [
-  {
-    eyebrow: 'Веб-решения',
-    accentClass: 'bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.12),transparent_58%)]',
-  },
-  {
-    eyebrow: 'Полный цикл',
-    accentClass: 'bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.1),transparent_55%)]',
-  },
-  {
-    eyebrow: 'Mobile MVP',
-    accentClass: 'bg-[radial-gradient(circle_at_right,rgba(255,255,255,0.09),transparent_54%)]',
-  },
-  {
-    eyebrow: 'Native iOS',
-    accentClass: 'bg-[radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.08),transparent_56%)]',
-  },
-  {
-    eyebrow: 'Android',
-    accentClass: 'bg-[radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.08),transparent_56%)]',
-  },
-] as const;
+const SEO_ICONS = [
+  <Globe className="size-10 mb-8 text-white" />,
+  <Key className="size-10 mb-8 text-white" />,
+  <Smartphone className="size-10 mb-8 text-white" />,
+  <Apple className="size-10 mb-8 text-white" />,
+  <Monitor className="size-10 mb-8 text-white" />,
+];
 
 export default function Home() {
   // Smooth scrolling setup
@@ -87,41 +72,15 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 auto-rows-fr">
+            <div className="flex flex-wrap justify-center gap-6">
               {SEO_LANDING_LINKS.map((item, index) => (
-                <SpotlightCard key={item.href} delay={index * 0.08} className="h-full min-h-[280px] p-12">
-                  <Link href={item.href} className="relative z-10 grid h-full grid-rows-[auto_minmax(0,1fr)_auto]">
-                    <div
-                      aria-hidden="true"
-                      className={`absolute inset-0 opacity-60 transition-opacity duration-500 group-hover:opacity-90 ${SEO_CARD_META[index]?.accentClass ?? SEO_CARD_META[0].accentClass}`}
-                    />
-
-                    <div className="relative z-10 mb-8 flex items-center justify-between gap-4 transition-transform duration-500 group-hover:-translate-y-2">
-                      <span className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-zinc-200">
-                        {SEO_CARD_META[index]?.eyebrow ?? 'Направление'}
-                      </span>
-                      <span className="text-xs uppercase tracking-[0.22em] text-zinc-500">
-                        {String(index + 1).padStart(2, '0')}
-                      </span>
+                <SpotlightCard key={item.href} delay={index * 0.1} className="w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)] p-12">
+                  <Link href={item.href} className="relative z-10 group">
+                    <div className="transform group-hover:scale-110 group-hover:-translate-y-2 transition-transform duration-500">
+                      {SEO_ICONS[index]}
                     </div>
-
-                    <div className="relative z-10 flex max-w-[15.5rem] flex-col">
-                      <h3 className="mb-4 min-h-[4.625rem] text-2xl font-semibold leading-[1.02] tracking-tight font-display text-balance text-white">
-                        {item.title}
-                      </h3>
-                      <p className="min-h-[5.5rem] text-lg leading-[1.65] text-zinc-400 text-pretty">
-                        {item.description}
-                      </p>
-                    </div>
-
-                    <div className="relative z-10 flex items-center justify-between gap-4 pt-8">
-                      <span className="text-sm font-medium text-zinc-200 transition-colors group-hover:text-white">
-                        Открыть страницу
-                      </span>
-                      <span className="inline-flex size-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-zinc-200 transition-all duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:border-white/20 group-hover:text-white">
-                        <ArrowUpRight className="size-4" />
-                      </span>
-                    </div>
+                    <h3 className="text-2xl font-semibold mb-4 font-display">{item.title}</h3>
+                    <p className="text-zinc-400 leading-relaxed text-lg">{item.description}</p>
                   </Link>
                 </SpotlightCard>
               ))}
