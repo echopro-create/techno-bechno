@@ -169,12 +169,12 @@ export function Features() {
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[minmax(240px,auto)] md:auto-rows-[280px]">
             {/* Card 1: Large */}
-            <SpotlightCard delay={0} className="md:col-span-2 md:row-span-2 p-6 sm:p-8 md:p-10 flex flex-col text-center md:text-left h-full">
-              <div className="relative z-10 h-full flex flex-col">
-              <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-white font-display">Нативный опыт</h3>
-              <p className="text-zinc-400 text-base md:text-lg max-w-sm mx-auto md:mx-0 mb-6 md:mb-10">Пользователи чувствуют себя как дома. Интерфейсы, которые понятны интуитивно и работают без сбоев.</p>
-                <NativeExperienceGraphic />
+            <SpotlightCard delay={0} className="md:col-span-2 md:row-span-2 overflow-hidden flex flex-col text-center md:text-left h-full group p-0 relative border border-white/5">
+              <div className="relative z-20 p-6 sm:p-8 md:p-10 flex flex-col pointer-events-none">
+                <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-white font-display pointer-events-auto drop-shadow-md">Нативный опыт</h3>
+                <p className="text-zinc-400 text-base md:text-lg max-w-sm mx-auto md:mx-0 mb-6 pointer-events-auto drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)] mix-blend-plus-lighter">Пользователи чувствуют себя как дома. Интерфейсы, которые понятны интуитивно и работают без сбоев.</p>
               </div>
+              <NativeExperienceGraphic />
             </SpotlightCard>
 
             {/* Card 2: Square */}
