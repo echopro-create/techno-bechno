@@ -45,7 +45,7 @@ export function Breadcrumbs({ titleOverride }: { titleOverride?: string }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
-      <nav aria-label="Бредкрамбс" className="flex items-center text-sm text-zinc-400 mb-8 overflow-hidden whitespace-nowrap">
+      <nav aria-label="Хлебные крошки" className="flex items-center text-sm text-zinc-400 mb-8 overflow-hidden whitespace-nowrap">
         <Link href="/" className="flex items-center gap-1.5 hover:text-white transition-colors duration-200">
           <Home className="w-4 h-4" />
           <span className="sr-only sm:not-sr-only">Главная</span>
