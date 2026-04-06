@@ -39,3 +39,7 @@ next-env.d.ts
 
 # local artifacts
 /implementation_plan.md
+
+# playwright
+/playwright-report/
+/test-results/
