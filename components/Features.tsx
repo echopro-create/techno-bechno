@@ -94,28 +94,30 @@ export function Features() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                icon: <Monitor className="size-10 mb-8 text-white" />,
+                icon: <Monitor className="size-8 sm:size-9 md:size-10 mb-6 md:mb-8 text-white" />,
                 title: "Веб-разработка",
                 desc: "Современные веб-приложения на React и Next.js с невероятной производительностью и SEO."
               },
               {
-                icon: <Apple className="size-10 mb-8 text-white" />,
+                icon: <Apple className="size-8 sm:size-9 md:size-10 mb-6 md:mb-8 text-white" />,
                 title: "iOS-разработка",
                 desc: "Нативные приложения для iPhone и iPad с идеальным UI/UX и использованием последних API Apple."
               },
               {
-                icon: <Smartphone className="size-10 mb-8 text-white" />,
+                icon: <Smartphone className="size-8 sm:size-9 md:size-10 mb-6 md:mb-8 text-white" />,
                 title: "Android-разработка",
                 desc: "Kotlin-приложения, которые идеально работают на тысячах различных устройств."
               }
             ].map((service, i) => (
-              <SpotlightCard key={service.title} delay={i * 0.1} className="p-12">
-                <div className="relative z-10">
-                  <div className="transform group-hover:scale-110 group-hover:-translate-y-2 transition-transform duration-500">
-                    {service.icon}
+              <SpotlightCard key={service.title} delay={i * 0.1} className="p-6 sm:p-8 md:p-10 lg:p-12 h-full">
+                <div className="relative z-10 h-full flex flex-col justify-between">
+                  <div>
+                    <div className="transform group-hover:scale-110 group-hover:-translate-y-2 transition-transform duration-500">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-semibold mb-3 md:mb-4 font-display">{service.title}</h3>
+                    <p className="text-zinc-400 leading-relaxed text-base md:text-lg">{service.desc}</p>
                   </div>
-                  <h3 className="text-2xl font-semibold mb-4 font-display">{service.title}</h3>
-                  <p className="text-zinc-400 leading-relaxed text-lg">{service.desc}</p>
                 </div>
               </SpotlightCard>
             ))}
@@ -135,12 +137,12 @@ export function Features() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[280px]">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[minmax(240px,auto)] md:auto-rows-[280px]">
             {/* Card 1: Large */}
             <SpotlightCard delay={0} className="md:col-span-2 md:row-span-2 p-10 flex flex-col">
               <div className="relative z-10 h-full flex flex-col">
-                <h3 className="text-3xl font-semibold mb-4 text-white font-display">Нативный опыт</h3>
-                <p className="text-zinc-400 text-lg max-w-sm">Пользователи чувствуют себя как дома. Интерфейсы, которые понятны интуитивно и работают без сбоев.</p>
+                <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-white font-display">Нативный опыт</h3>
+                <p className="text-zinc-400 text-base md:text-lg max-w-sm">Пользователи чувствуют себя как дома. Интерфейсы, которые понятны интуитивно и работают без сбоев.</p>
                 <EcosystemBlueprint />
               </div>
             </SpotlightCard>

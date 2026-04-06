@@ -38,7 +38,7 @@ export function Hero() {
           variants={textContainer}
           initial="hidden"
           animate="show"
-          className="text-3xl min-[375px]:text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-semibold tracking-tighter leading-[1.05] mb-8 flex flex-row justify-center gap-2 md:gap-4 whitespace-nowrap font-display"
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tighter leading-[1.05] mb-8 flex flex-row justify-center gap-2 md:gap-4 whitespace-nowrap font-display"
         >
           <motion.span variants={textItem} className="inline-block">Создаем</motion.span>
           <motion.span variants={textItem} className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 via-zinc-400 to-zinc-600">будущее</motion.span>

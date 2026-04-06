@@ -17,11 +17,11 @@ import { SEO_LANDING_LINKS } from '@/lib/seo-nav';
 import { motion } from 'motion/react';
 
 const SEO_ICONS = [
-  <Globe key="globe" className="size-10 mb-8 text-white" />,
-  <Key key="key" className="size-10 mb-8 text-white" />,
-  <Smartphone key="smartphone" className="size-10 mb-8 text-white" />,
-  <Apple key="apple" className="size-10 mb-8 text-white" />,
-  <Monitor key="monitor" className="size-10 mb-8 text-white" />,
+  <Globe key="globe" className="size-8 sm:size-9 md:size-10 mb-6 md:mb-8 text-white" />,
+  <Key key="key" className="size-8 sm:size-9 md:size-10 mb-6 md:mb-8 text-white" />,
+  <Smartphone key="smartphone" className="size-8 sm:size-9 md:size-10 mb-6 md:mb-8 text-white" />,
+  <Apple key="apple" className="size-8 sm:size-9 md:size-10 mb-6 md:mb-8 text-white" />,
+  <Monitor key="monitor" className="size-8 sm:size-9 md:size-10 mb-6 md:mb-8 text-white" />,
 ];
 
 export default function Home() {
@@ -74,14 +74,16 @@ export default function Home() {
 
             <div className="flex flex-wrap justify-center gap-6">
               {SEO_LANDING_LINKS.map((item, index) => (
-                <SpotlightCard key={item.href} delay={index * 0.1} className="w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)] p-12">
-                  <div className="relative z-10">
-                    <div className="transform group-hover:scale-110 group-hover:-translate-y-2 transition-transform duration-500">
-                      {SEO_ICONS[index]}
+                <SpotlightCard key={item.href} delay={index * 0.1} className="w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)] p-6 sm:p-8 md:p-10 lg:p-12 h-full">
+                  <div className="relative z-10 h-full flex flex-col justify-between">
+                    <div>
+                      <div className="transform group-hover:scale-110 group-hover:-translate-y-2 transition-transform duration-500">
+                        {SEO_ICONS[index]}
+                      </div>
+                      <h3 className="text-xl sm:text-2xl font-semibold mb-3 md:mb-4 font-display">{item.title}</h3>
+                      <p className="text-zinc-400 leading-relaxed text-base md:text-lg">{item.description}</p>
                     </div>
-                    <h3 className="text-2xl font-semibold mb-4 font-display">{item.title}</h3>
-                    <p className="text-zinc-400 leading-relaxed text-lg">{item.description}</p>
-                    <Link href={item.href} className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-zinc-300 transition-colors hover:text-white">
+                    <Link href={item.href} className="mt-6 md:mt-8 inline-flex items-center gap-2 text-sm font-medium text-zinc-300 transition-colors hover:text-white">
                       Подробнее <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </div>
@@ -103,7 +105,7 @@ export default function Home() {
               <h2 className="text-5xl md:text-7xl font-semibold tracking-tight mb-8 font-display text-balance">
                 Обсудим проект?
               </h2>
-              <p className="text-xl md:text-2xl text-zinc-400 mb-12 text-pretty">
+              <p className="text-xl md:text-2xl text-zinc-400 mb-12 max-w-2xl mx-auto">
                 Напишите нам, и мы подготовим оценку стоимости и сроков в течение 24 часов.
               </p>
               <a
