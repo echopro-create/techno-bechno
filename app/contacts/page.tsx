@@ -1,25 +1,27 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import Link from 'next/link';
+import { Mail, MessageCircle, Phone, MapPin, ArrowUpRight, Globe } from 'lucide-react';
 import { BackgroundEffects } from '@/components/BackgroundEffects';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import {
   COMPANY_NAME,
   PUBLIC_CONTACTS,
+  MEETING_LOCATION,
   SERVICE_AREAS,
 } from '@/lib/company-profile';
 
 export const metadata: Metadata = {
-  title: 'Контакты | Техно-Бэхно',
+  title: 'Контакты | Техно-Бэхно — Свяжитесь с нами',
   description:
-    'Контакты и география работы Техно-Бэхно: Краснодар, Сочи, Новороссийск, Анапа и Краснодарский край.',
+    'Контакты Техно-Бэхно: WhatsApp, Telegram, Email. Работаем удалённо по всему миру. Очные встречи в Париже.',
   alternates: {
     canonical: 'https://tehnobehno.site/contacts',
   },
   openGraph: {
     title: 'Контакты | Техно-Бэхно',
-    description: 'Контакты и география работы Техно-Бэхно в Краснодаре и ЮФО.',
+    description: 'Свяжитесь с нами через WhatsApp, Telegram или Email. Очные встречи в Париже.',
     url: 'https://tehnobehno.site/contacts',
     siteName: 'Техно-Бэхно',
     locale: 'ru_RU',
@@ -29,14 +31,15 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Контакты | Техно-Бэхно',
-    description: 'Контакты и география работы Техно-Бэхно в Краснодаре и ЮФО.',
+    description: 'Свяжитесь с нами через WhatsApp, Telegram или Email.',
     images: ['/og-image.png'],
   },
 };
 
-export default function ContactsPage() {
-  const hasContacts = Object.values(PUBLIC_CONTACTS).some(Boolean);
+const whatsappLink = `https://wa.me/${PUBLIC_CONTACTS.whatsapp.replace(/[^0-9]/g, '')}`;
+const telegramLink = `https://t.me/${PUBLIC_CONTACTS.telegram.replace('@', '')}`;
 
+export default function ContactsPage() {
   return (
     <div className="min-h-screen bg-black text-[#f5f5f7] selection:bg-white/20">
       <Script id="local-business-schema" type="application/ld+json" dangerouslySetInnerHTML={{
@@ -46,7 +49,24 @@ export default function ContactsPage() {
           "name": "Техно-Бэхно",
           "url": "https://tehnobehno.site",
           "description": "Разработка премиальных веб-сайтов и мобильных приложений для B2B сегмента",
-          "areaServed": SERVICE_AREAS.map(area => ({"@type": "City", "name": area})),
+          "email": PUBLIC_CONTACTS.email,
+          "areaServed": [
+            ...SERVICE_AREAS.map(area => ({"@type": "City", "name": area})),
+            {"@type": "City", "name": MEETING_LOCATION.city}
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": MEETING_LOCATION.city,
+            "addressCountry": "FR"
+          },
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "contactType": "sales",
+              "email": PUBLIC_CONTACTS.email,
+              "availableLanguage": ["Russian", "English", "French"]
+            }
+          ],
           "priceRange": "$$$$"
         })
       }} />
@@ -67,51 +87,126 @@ export default function ContactsPage() {
             </span>
           </div>
 
-          <p className="text-sm uppercase tracking-[0.22em] text-zinc-500 text-center md:text-left mt-8 font-mono">Контакты и гео-покрытие</p>
+          <p className="text-sm uppercase tracking-[0.22em] text-zinc-500 text-center md:text-left mt-8 font-mono">Контакты</p>
           <h1 className="mt-4 text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-center md:text-left">
-            IT-интеграция в Краснодаре и ЮФО
+            Давайте обсудим проект
           </h1>
           <p className="mt-6 max-w-3xl text-base sm:text-lg leading-8 text-zinc-400 text-center md:text-left font-light">
-            Мы проектируем архитектуру сложных систем и разрабатываем B2B-продукты премиального уровня. Готовы погрузиться в логику вашего бизнеса, провести глубокий IT-аудит (CustDev) и собрать Estimate. Вся предпроектная работа строго в рамках NDA.
+            Выберите удобный канал связи. Ответим в течение часа в рабочее время. Вся предпроектная коммуникация строго в рамках NDA.
           </p>
 
-          <section className="mt-16 grid gap-6 md:grid-cols-2">
+          {/* ---------- Contact Cards ---------- */}
+          <section className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Telegram */}
+            <a
+              href={telegramLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              id="contact-telegram"
+              className="group relative rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 backdrop-blur-xl transition-all duration-300 hover:bg-[#2AABEE]/[0.08] hover:border-[#2AABEE]/30 hover:scale-[1.02]"
+            >
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex size-14 items-center justify-center rounded-2xl bg-[#2AABEE]/10 text-[#2AABEE] transition-colors group-hover:bg-[#2AABEE]/20">
+                  <MessageCircle className="size-7" />
+                </div>
+                <ArrowUpRight className="size-5 text-zinc-600 transition-all group-hover:text-[#2AABEE] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </div>
+              <h2 className="text-xl font-semibold tracking-tight text-white">Telegram</h2>
+              <p className="mt-1 text-sm text-zinc-500">Быстрые вопросы и обсуждения</p>
+              <p className="mt-4 text-lg font-medium text-zinc-300 group-hover:text-white transition-colors">
+                {PUBLIC_CONTACTS.telegram}
+              </p>
+            </a>
+
+            {/* WhatsApp */}
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              id="contact-whatsapp"
+              className="group relative rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 backdrop-blur-xl transition-all duration-300 hover:bg-[#25D366]/[0.08] hover:border-[#25D366]/30 hover:scale-[1.02]"
+            >
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex size-14 items-center justify-center rounded-2xl bg-[#25D366]/10 text-[#25D366] transition-colors group-hover:bg-[#25D366]/20">
+                  <Phone className="size-7" />
+                </div>
+                <ArrowUpRight className="size-5 text-zinc-600 transition-all group-hover:text-[#25D366] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </div>
+              <h2 className="text-xl font-semibold tracking-tight text-white">WhatsApp</h2>
+              <p className="mt-1 text-sm text-zinc-500">Звонки и переписка</p>
+              <p className="mt-4 text-lg font-medium text-zinc-300 group-hover:text-white transition-colors">
+                {PUBLIC_CONTACTS.whatsapp}
+              </p>
+            </a>
+
+            {/* Email */}
+            <a
+              href={`mailto:${PUBLIC_CONTACTS.email}`}
+              id="contact-email"
+              className="group relative rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 backdrop-blur-xl transition-all duration-300 hover:bg-purple-500/[0.08] hover:border-purple-500/30 hover:scale-[1.02] sm:col-span-2 lg:col-span-1"
+            >
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex size-14 items-center justify-center rounded-2xl bg-purple-500/10 text-purple-400 transition-colors group-hover:bg-purple-500/20">
+                  <Mail className="size-7" />
+                </div>
+                <ArrowUpRight className="size-5 text-zinc-600 transition-all group-hover:text-purple-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </div>
+              <h2 className="text-xl font-semibold tracking-tight text-white">Email</h2>
+              <p className="mt-1 text-sm text-zinc-500">Документы, ТЗ и формальные запросы</p>
+              <p className="mt-4 text-lg font-medium text-zinc-300 group-hover:text-white transition-colors break-all">
+                {PUBLIC_CONTACTS.email}
+              </p>
+            </a>
+          </section>
+
+          {/* ---------- Meeting & Remote ---------- */}
+          <section className="mt-6 grid gap-5 md:grid-cols-2">
+            {/* Очные встречи */}
             <div className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 sm:p-10 backdrop-blur-xl transition-colors hover:bg-white/[0.04]">
-              <h2 className="text-2xl font-semibold tracking-tight text-center md:text-left text-white">Географическое присутствие</h2>
-              <p className="mt-2 text-zinc-500 text-sm text-center md:text-left mb-6">Физическое присутствие для очных встреч</p>
-              <ul className="space-y-3 text-zinc-300">
-                {SERVICE_AREAS.map((area) => (
-                  <li key={area} className="rounded-xl border border-white/5 bg-black/40 px-5 py-4 font-medium tracking-wide">
-                    {area}
-                  </li>
-                ))}
-              </ul>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="flex size-12 items-center justify-center rounded-xl bg-amber-500/10 text-amber-400">
+                  <MapPin className="size-6" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-semibold tracking-tight text-white">Очные встречи</h2>
+                  <p className="text-sm text-zinc-500">Личные презентации и брифинги</p>
+                </div>
+              </div>
+              <div className="rounded-xl border border-white/5 bg-black/40 px-5 py-5">
+                <p className="text-2xl font-semibold text-white">{MEETING_LOCATION.city}, {MEETING_LOCATION.country}</p>
+                <p className="mt-2 text-sm text-zinc-400 font-light leading-relaxed">{MEETING_LOCATION.note}</p>
+              </div>
+              <div className="mt-5 text-sm uppercase tracking-widest text-zinc-500 font-mono bg-black/30 w-fit px-4 py-2 rounded-lg border border-white/5">
+                SLA Support: Пн–Пт, 10:00 — 19:00 CET
+              </div>
             </div>
 
+            {/* Удалённая работа */}
             <div className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 sm:p-10 backdrop-blur-xl transition-colors hover:bg-white/[0.04]">
-              <h2 className="text-2xl font-semibold tracking-tight text-center md:text-left text-white">Прямая линия</h2>
-              <p className="mt-2 text-zinc-500 text-sm text-center md:text-left mb-6">Связь с техническим руководством</p>
-              {hasContacts ? (
-                <ul className="space-y-3 text-zinc-300">
-                  {PUBLIC_CONTACTS.email ? <li className="rounded-xl border border-white/5 bg-black/40 px-5 py-4"><span className="text-zinc-500 mr-2">Email:</span>{PUBLIC_CONTACTS.email}</li> : null}
-                  {PUBLIC_CONTACTS.phone ? <li className="rounded-xl border border-white/5 bg-black/40 px-5 py-4"><span className="text-zinc-500 mr-2">Телефон:</span>{PUBLIC_CONTACTS.phone}</li> : null}
-                  {PUBLIC_CONTACTS.telegram ? <li className="rounded-xl border border-white/5 bg-black/40 px-5 py-4"><span className="text-zinc-500 mr-2">Telegram:</span>{PUBLIC_CONTACTS.telegram}</li> : null}
-                  {PUBLIC_CONTACTS.whatsapp ? <li className="rounded-xl border border-white/5 bg-black/40 px-5 py-4"><span className="text-zinc-500 mr-2">WhatsApp:</span>{PUBLIC_CONTACTS.whatsapp}</li> : null}
-                  {PUBLIC_CONTACTS.address ? <li className="rounded-xl border border-white/5 bg-black/40 px-5 py-4"><span className="text-zinc-500 mr-2">Адрес:</span>{PUBLIC_CONTACTS.address}</li> : null}
-                </ul>
-              ) : (
-                <div className="h-full flex flex-col justify-center pb-8">
-                  <p className="leading-7 text-zinc-400 text-center md:text-left font-light">
-                    В данный момент мы перестраиваем систему приема внешних лидов для корпоративного сегмента. Для безопасного обмена вводными данными оставьте заявку через формы на сайте, и Senior Project Manager выйдет с вами на связь в течение часа.
-                  </p>
-                  <div className="mt-8 text-sm uppercase tracking-widest text-zinc-500 font-mono text-center md:text-left bg-black/30 w-fit mx-auto md:mx-0 px-4 py-2 rounded-lg border border-white/5">
-                    SLA Support: Пн-Пт, 10:00 — 19:00
-                  </div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="flex size-12 items-center justify-center rounded-xl bg-sky-500/10 text-sky-400">
+                  <Globe className="size-6" />
                 </div>
-              )}
+                <div>
+                  <h2 className="text-xl font-semibold tracking-tight text-white">Удалённая работа</h2>
+                  <p className="text-sm text-zinc-500">Полный рабочий цикл дистанционно</p>
+                </div>
+              </div>
+              <ul className="space-y-3 text-zinc-300">
+                <li className="rounded-xl border border-white/5 bg-black/40 px-5 py-4 font-medium">
+                  🌍 Работаем с клиентами по всему миру
+                </li>
+                <li className="rounded-xl border border-white/5 bg-black/40 px-5 py-4 font-medium">
+                  🔒 NDA и безопасность на каждом этапе
+                </li>
+                <li className="rounded-xl border border-white/5 bg-black/40 px-5 py-4 font-medium">
+                  📹 Видеозвонки, демо, аудит — удалённо
+                </li>
+              </ul>
             </div>
           </section>
 
+          {/* ---------- Info Pool ---------- */}
           <section className="mt-6 rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 sm:p-10 backdrop-blur-xl transition-colors hover:bg-white/[0.04]">
             <h2 className="text-2xl font-semibold tracking-tight text-center md:text-left text-white">Информационный пул для старта</h2>
             <p className="mt-2 text-zinc-500 text-sm text-center md:text-left mb-6">Метрики, которые ускорят оценку проекта (Estimate)</p>

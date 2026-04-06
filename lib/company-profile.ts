@@ -15,11 +15,17 @@ export const SERVICE_AREAS = [
 ] as const;
 
 export const PUBLIC_CONTACTS = {
-  email: '',
+  email: 'echoproject@icloud.com',
   phone: '',
-  telegram: '',
-  whatsapp: '',
+  telegram: '@tehnobehno',
+  whatsapp: '+33605646494',
   address: '',
+} as const;
+
+export const MEETING_LOCATION = {
+  city: 'Париж',
+  country: 'Франция',
+  note: 'Очные встречи проводим в Париже. Удалённая работа — по всему миру.',
 } as const;
 
 export const PUBLIC_SOCIAL_LINKS: Array<{

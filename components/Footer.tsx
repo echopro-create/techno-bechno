@@ -6,7 +6,6 @@ import {
   CONTACT_CTA,
   PUBLIC_CONTACTS,
   PUBLIC_SOCIAL_LINKS,
-  SERVICE_AREAS,
 } from '@/lib/company-profile';
 import { SEO_LANDING_LINKS } from '@/lib/seo-nav';
 import { seoPages } from '@/lib/seo-pages';
@@ -66,11 +65,25 @@ export function Footer() {
               {PUBLIC_CONTACTS.email && (
                 <li>
                   <a href={`mailto:${PUBLIC_CONTACTS.email}`} className="hover:text-white transition-colors">
-                    {PUBLIC_CONTACTS.email}
+                    ✉ {PUBLIC_CONTACTS.email}
                   </a>
                 </li>
               )}
-              <li>География: {SERVICE_AREAS.join(', ')}</li>
+              {PUBLIC_CONTACTS.telegram && (
+                <li>
+                  <a href={`https://t.me/${PUBLIC_CONTACTS.telegram.replace('@', '')}`} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                    💬 Telegram: {PUBLIC_CONTACTS.telegram}
+                  </a>
+                </li>
+              )}
+              {PUBLIC_CONTACTS.whatsapp && (
+                <li>
+                  <a href={`https://wa.me/${PUBLIC_CONTACTS.whatsapp.replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                    📱 WhatsApp: {PUBLIC_CONTACTS.whatsapp}
+                  </a>
+                </li>
+              )}
+              <li>Встречи: Париж | Удалённо: весь мир</li>
               {PUBLIC_SOCIAL_LINKS.length > 0 ? (
                 <li className="pt-4 flex gap-4">
                   {PUBLIC_SOCIAL_LINKS.map((social) => {
