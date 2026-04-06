@@ -42,7 +42,7 @@ const telegramLink = `https://t.me/${PUBLIC_CONTACTS.telegram.replace('@', '')}`
 export default function ContactsPage() {
   return (
     <div className="min-h-screen bg-black text-[#f5f5f7] selection:bg-white/20">
-      <Script id="local-business-schema" type="application/ld+json" dangerouslySetInnerHTML={{
+      <script id="local-business-schema" type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ProfessionalService",

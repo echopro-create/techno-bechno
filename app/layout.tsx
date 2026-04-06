@@ -69,26 +69,34 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="ru" className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} dark`}>
       <body className="bg-black text-white font-sans antialiased selection:bg-white/30" suppressHydrationWarning>
-        <Script id="org-schema" type="application/ld+json" dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Техно-Бэхно",
-            "url": "https://tehnobehno.site",
-            "logo": "https://tehnobehno.site/icon.svg",
-            "description": "Создаем премиальные веб-сайты и мобильные приложения для B2B сегмента. Краснодар и ЮФО.",
-            "areaServed": [
-              {"@type": "City", "name": "Краснодар"},
-              {"@type": "City", "name": "Сочи"},
-              {"@type": "City", "name": "Новороссийск"},
-              {"@type": "City", "name": "Анапа"}
-            ],
-            "sameAs": [
-              "https://t.me/tehnobehno"
-            ]
-          })
+        <script id="schema-global" type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Техно-Бэхно",
+              "url": "https://tehnobehno.site",
+              "logo": "https://tehnobehno.site/icon.svg",
+              "description": "Создаем премиальные веб-сайты и мобильные приложения для B2B сегмента. Краснодар и ЮФО.",
+              "areaServed": [
+                {"@type": "City", "name": "Краснодар"},
+                {"@type": "City", "name": "Сочи"},
+                {"@type": "City", "name": "Новороссийск"},
+                {"@type": "City", "name": "Анапа"}
+              ],
+              "sameAs": [
+                "https://t.me/tehnobehno"
+              ]
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Техно-Бэхно",
+              "url": "https://tehnobehno.site"
+            }
+          ])
         }} />
-        
+
         {/* Google Analytics */}
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>

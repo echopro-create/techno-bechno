@@ -40,9 +40,8 @@ export function Hero() {
           animate="show"
           className="text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] xl:text-[6rem] font-semibold tracking-tight mb-8 font-display text-center whitespace-nowrap"
         >
-          <span className="sr-only">Создаем сайты</span>
-          <motion.span variants={textItem} className="inline-block" aria-hidden="true">Создаем&nbsp;</motion.span>
-          <motion.span variants={textItem} className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-300 to-zinc-400" aria-hidden="true">сайты</motion.span>
+          <motion.span variants={textItem} className="inline-block">Создаем&nbsp;</motion.span>
+          <motion.span variants={textItem} className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-300 to-zinc-400">сайты</motion.span>
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}

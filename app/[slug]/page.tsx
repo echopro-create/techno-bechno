@@ -5,6 +5,7 @@ import { BackgroundEffects } from '@/components/BackgroundEffects';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { SeoRelatedLinks } from '@/components/SeoRelatedLinks';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { seoPages, seoPageMap } from '@/lib/seo-pages';
 import {
   SeoPageHeader,
@@ -83,7 +84,7 @@ export default async function SeoLanding({
       <BackgroundEffects />
       <Navbar />
 
-      <Script id="seo-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{
+      <script id="seo-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify([
           {
             '@context': 'https://schema.org',
@@ -134,13 +135,17 @@ export default async function SeoLanding({
         ].filter(Boolean))
       }} />
 
-      <main className="relative z-10">
-        <SeoPageHeader
-          eyebrow={page.eyebrow}
-          heading={page.heading}
-          intro={page.intro}
-          summary={page.summary}
-        />
+      <main className="relative z-10 px-6 max-w-7xl mx-auto pt-24 md:pt-32">
+        <Breadcrumbs titleOverride={page.heading || page.title} />
+        
+        <div className="-mt-8 md:-mt-12">
+          <SeoPageHeader
+            eyebrow={page.eyebrow}
+            heading={page.heading}
+            intro={page.intro}
+            summary={page.summary}
+          />
+        </div>
 
         <SeoPageBenefits benefits={page.benefits} />
 
