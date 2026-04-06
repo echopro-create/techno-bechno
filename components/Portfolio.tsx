@@ -46,7 +46,7 @@ export function Portfolio() {
           {/* MacBook Mockup */}
           <motion.div 
             style={{ y: yMac }}
-            className="relative w-full max-w-3xl flex flex-col items-center"
+            className="relative w-full max-w-3xl flex flex-col items-center group cursor-pointer"
           >
             {/* Screen Frame */}
             <div className="relative w-full p-3 sm:p-4 bg-zinc-800 rounded-t-3xl shadow-2xl">
@@ -60,11 +60,14 @@ export function Portfolio() {
                   fill 
                   priority
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
-                  className="object-cover brightness-50 contrast-125 saturate-50"
+                  className="object-cover opacity-75 group-hover:opacity-90 transition-opacity duration-700"
                 />
-                {/* Artificial Dark Mode Overlays */}
-                <div className="absolute inset-0 bg-[#0a0a0a]/50 mix-blend-multiply pointer-events-none z-10"></div>
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a]/20 to-[#0a0a0a]/90 pointer-events-none z-10"></div>
+                
+                {/* Subtle Vignette for screen realism without destroying legibility */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_50%,_rgba(0,0,0,0.6)_150%)] pointer-events-none z-10"></div>
+                
+                {/* Smooth blend into the bottom of the section */}
+                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#0a0a0a]/90 via-[#0a0a0a]/20 to-transparent pointer-events-none z-10"></div>
               </div>
             </div>
             {/* Base */}
