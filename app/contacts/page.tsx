@@ -103,13 +103,13 @@ export default function ContactsPage() {
               target="_blank"
               rel="noopener noreferrer"
               id="contact-telegram"
-              className="group relative flex flex-col rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 backdrop-blur-xl transition-all duration-300 hover:bg-[#2AABEE]/[0.08] hover:border-[#2AABEE]/30 hover:scale-[1.02]"
+              className="group relative flex flex-col rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 backdrop-blur-xl transition-all duration-300 hover:bg-white/[0.05] hover:border-white/20 hover:scale-[1.02]"
             >
               <div className="flex items-center justify-between mb-6">
-                <div className="flex size-14 items-center justify-center rounded-2xl bg-[#2AABEE]/10 text-[#2AABEE] transition-colors group-hover:bg-[#2AABEE]/20">
+                <div className="flex size-14 items-center justify-center rounded-2xl bg-white/5 text-zinc-400 transition-colors group-hover:bg-white/10 group-hover:text-white">
                   <MessageCircle className="size-7" />
                 </div>
-                <ArrowUpRight className="size-5 text-zinc-600 transition-all group-hover:text-[#2AABEE] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight className="size-5 text-zinc-600 transition-all group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </div>
               <h2 className="text-xl font-semibold tracking-tight text-white">Telegram</h2>
               <p className="mt-1 text-sm text-zinc-500">Быстрые вопросы и обсуждения</p>
@@ -124,13 +124,13 @@ export default function ContactsPage() {
               target="_blank"
               rel="noopener noreferrer"
               id="contact-whatsapp"
-              className="group relative flex flex-col rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 backdrop-blur-xl transition-all duration-300 hover:bg-[#25D366]/[0.08] hover:border-[#25D366]/30 hover:scale-[1.02]"
+              className="group relative flex flex-col rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 backdrop-blur-xl transition-all duration-300 hover:bg-white/[0.05] hover:border-white/20 hover:scale-[1.02]"
             >
               <div className="flex items-center justify-between mb-6">
-                <div className="flex size-14 items-center justify-center rounded-2xl bg-[#25D366]/10 text-[#25D366] transition-colors group-hover:bg-[#25D366]/20">
+                <div className="flex size-14 items-center justify-center rounded-2xl bg-white/5 text-zinc-400 transition-colors group-hover:bg-white/10 group-hover:text-white">
                   <Phone className="size-7" />
                 </div>
-                <ArrowUpRight className="size-5 text-zinc-600 transition-all group-hover:text-[#25D366] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight className="size-5 text-zinc-600 transition-all group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </div>
               <h2 className="text-xl font-semibold tracking-tight text-white">WhatsApp</h2>
               <p className="mt-1 text-sm text-zinc-500">Звонки и переписка</p>
@@ -143,13 +143,13 @@ export default function ContactsPage() {
             <a
               href={`mailto:${PUBLIC_CONTACTS.email}`}
               id="contact-email"
-              className="group relative flex flex-col rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 backdrop-blur-xl transition-all duration-300 hover:bg-purple-500/[0.08] hover:border-purple-500/30 hover:scale-[1.02] sm:col-span-2 lg:col-span-1"
+              className="group relative flex flex-col rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 backdrop-blur-xl transition-all duration-300 hover:bg-white/[0.05] hover:border-white/20 hover:scale-[1.02] sm:col-span-2 lg:col-span-1"
             >
               <div className="flex items-center justify-between mb-6">
-                <div className="flex size-14 items-center justify-center rounded-2xl bg-purple-500/10 text-purple-400 transition-colors group-hover:bg-purple-500/20">
+                <div className="flex size-14 items-center justify-center rounded-2xl bg-white/5 text-zinc-400 transition-colors group-hover:bg-white/10 group-hover:text-white">
                   <Mail className="size-7" />
                 </div>
-                <ArrowUpRight className="size-5 text-zinc-600 transition-all group-hover:text-purple-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight className="size-5 text-zinc-600 transition-all group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </div>
               <h2 className="text-xl font-semibold tracking-tight text-white">Email</h2>
               <p className="mt-1 text-sm text-zinc-500">Документы и формальные запросы</p>
@@ -164,7 +164,7 @@ export default function ContactsPage() {
             {/* Очные встречи */}
             <div className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 sm:p-10 backdrop-blur-xl transition-colors hover:bg-white/[0.04]">
               <div className="flex items-center gap-3 mb-6">
-                <div className="flex size-12 items-center justify-center rounded-xl bg-amber-500/10 text-amber-400">
+                <div className="flex size-12 items-center justify-center rounded-xl bg-white/5 text-zinc-400">
                   <MapPin className="size-6" />
                 </div>
                 <div>
@@ -184,7 +184,7 @@ export default function ContactsPage() {
             {/* Удалённая работа */}
             <div className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 sm:p-10 backdrop-blur-xl transition-colors hover:bg-white/[0.04]">
               <div className="flex items-center gap-3 mb-6">
-                <div className="flex size-12 items-center justify-center rounded-xl bg-sky-500/10 text-sky-400">
+                <div className="flex size-12 items-center justify-center rounded-xl bg-white/5 text-zinc-400">
                   <Globe className="size-6" />
                 </div>
                 <div>
@@ -194,13 +194,13 @@ export default function ContactsPage() {
               </div>
               <ul className="space-y-3 text-zinc-300">
                 <li className="rounded-xl border border-white/5 bg-black/40 px-5 py-4 font-medium">
-                  🌍 Работаем с клиентами по всему миру
+                  Работаем с клиентами по всему миру
                 </li>
                 <li className="rounded-xl border border-white/5 bg-black/40 px-5 py-4 font-medium">
-                  🔒 NDA и безопасность на каждом этапе
+                  NDA и безопасность на каждом этапе
                 </li>
                 <li className="rounded-xl border border-white/5 bg-black/40 px-5 py-4 font-medium">
-                  📹 Видеозвонки, демо, аудит — удалённо
+                  Видеозвонки, демо, аудит — удалённо
                 </li>
               </ul>
             </div>
