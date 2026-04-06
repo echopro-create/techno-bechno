@@ -38,14 +38,12 @@ export function Hero() {
           variants={textContainer}
           initial="hidden"
           animate="show"
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tighter leading-[1.05] mb-8 flex flex-wrap items-center justify-center gap-x-[0.27em] gap-y-[0.1em] font-display text-center max-w-5xl mx-auto"
+          className="text-[2.5rem] leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-8 font-display text-center text-balance max-w-5xl mx-auto"
         >
           <span className="sr-only">Разработка сайтов и мобильных приложений</span>
-          <motion.span variants={textItem} className="inline-block" aria-hidden="true">Разработка</motion.span>
-          <motion.span variants={textItem} className="inline-block" aria-hidden="true">сайтов</motion.span>
-          <motion.span variants={textItem} className="inline-block" aria-hidden="true">и</motion.span>
-          <motion.span variants={textItem} className="inline-block" aria-hidden="true">мобильных</motion.span>
-          <motion.span variants={textItem} className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 via-zinc-400 to-zinc-600" aria-hidden="true">приложений</motion.span>
+          <motion.span variants={textItem} className="inline-block" aria-hidden="true">Разработка сайтов&nbsp;</motion.span>
+          <motion.span variants={textItem} className="inline-block" aria-hidden="true">и мобильных&nbsp;</motion.span>
+          <motion.span variants={textItem} className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-300 to-zinc-600" aria-hidden="true">приложений</motion.span>
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
