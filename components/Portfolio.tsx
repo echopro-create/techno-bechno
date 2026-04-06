@@ -60,8 +60,11 @@ export function Portfolio() {
                   fill 
                   priority
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
-                  className="object-cover"
+                  className="object-cover brightness-50 contrast-125 saturate-50"
                 />
+                {/* Artificial Dark Mode Overlays */}
+                <div className="absolute inset-0 bg-[#0a0a0a]/50 mix-blend-multiply pointer-events-none z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a]/20 to-[#0a0a0a]/90 pointer-events-none z-10"></div>
               </div>
             </div>
             {/* Base */}
