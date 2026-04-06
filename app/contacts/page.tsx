@@ -103,7 +103,7 @@ export default function ContactsPage() {
               target="_blank"
               rel="noopener noreferrer"
               id="contact-telegram"
-              className="group relative rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 backdrop-blur-xl transition-all duration-300 hover:bg-[#2AABEE]/[0.08] hover:border-[#2AABEE]/30 hover:scale-[1.02]"
+              className="group relative flex flex-col rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 backdrop-blur-xl transition-all duration-300 hover:bg-[#2AABEE]/[0.08] hover:border-[#2AABEE]/30 hover:scale-[1.02]"
             >
               <div className="flex items-center justify-between mb-6">
                 <div className="flex size-14 items-center justify-center rounded-2xl bg-[#2AABEE]/10 text-[#2AABEE] transition-colors group-hover:bg-[#2AABEE]/20">
@@ -113,7 +113,7 @@ export default function ContactsPage() {
               </div>
               <h2 className="text-xl font-semibold tracking-tight text-white">Telegram</h2>
               <p className="mt-1 text-sm text-zinc-500">Быстрые вопросы и обсуждения</p>
-              <p className="mt-4 text-lg font-medium text-zinc-300 group-hover:text-white transition-colors">
+              <p className="mt-auto pt-4 text-lg font-medium text-zinc-300 group-hover:text-white transition-colors">
                 {PUBLIC_CONTACTS.telegram}
               </p>
             </a>
@@ -124,7 +124,7 @@ export default function ContactsPage() {
               target="_blank"
               rel="noopener noreferrer"
               id="contact-whatsapp"
-              className="group relative rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 backdrop-blur-xl transition-all duration-300 hover:bg-[#25D366]/[0.08] hover:border-[#25D366]/30 hover:scale-[1.02]"
+              className="group relative flex flex-col rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 backdrop-blur-xl transition-all duration-300 hover:bg-[#25D366]/[0.08] hover:border-[#25D366]/30 hover:scale-[1.02]"
             >
               <div className="flex items-center justify-between mb-6">
                 <div className="flex size-14 items-center justify-center rounded-2xl bg-[#25D366]/10 text-[#25D366] transition-colors group-hover:bg-[#25D366]/20">
@@ -134,7 +134,7 @@ export default function ContactsPage() {
               </div>
               <h2 className="text-xl font-semibold tracking-tight text-white">WhatsApp</h2>
               <p className="mt-1 text-sm text-zinc-500">Звонки и переписка</p>
-              <p className="mt-4 text-lg font-medium text-zinc-300 group-hover:text-white transition-colors">
+              <p className="mt-auto pt-4 text-lg font-medium text-zinc-300 group-hover:text-white transition-colors">
                 {PUBLIC_CONTACTS.whatsapp}
               </p>
             </a>
@@ -143,7 +143,7 @@ export default function ContactsPage() {
             <a
               href={`mailto:${PUBLIC_CONTACTS.email}`}
               id="contact-email"
-              className="group relative rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 backdrop-blur-xl transition-all duration-300 hover:bg-purple-500/[0.08] hover:border-purple-500/30 hover:scale-[1.02] sm:col-span-2 lg:col-span-1"
+              className="group relative flex flex-col rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 backdrop-blur-xl transition-all duration-300 hover:bg-purple-500/[0.08] hover:border-purple-500/30 hover:scale-[1.02] sm:col-span-2 lg:col-span-1"
             >
               <div className="flex items-center justify-between mb-6">
                 <div className="flex size-14 items-center justify-center rounded-2xl bg-purple-500/10 text-purple-400 transition-colors group-hover:bg-purple-500/20">
@@ -152,8 +152,8 @@ export default function ContactsPage() {
                 <ArrowUpRight className="size-5 text-zinc-600 transition-all group-hover:text-purple-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </div>
               <h2 className="text-xl font-semibold tracking-tight text-white">Email</h2>
-              <p className="mt-1 text-sm text-zinc-500">Документы, ТЗ и формальные запросы</p>
-              <p className="mt-4 text-lg font-medium text-zinc-300 group-hover:text-white transition-colors break-all">
+              <p className="mt-1 text-sm text-zinc-500">Документы и формальные запросы</p>
+              <p className="mt-auto pt-4 text-lg font-medium text-zinc-300 group-hover:text-white transition-colors break-all">
                 {PUBLIC_CONTACTS.email}
               </p>
             </a>
