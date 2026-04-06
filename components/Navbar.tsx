@@ -48,16 +48,19 @@ export function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center justify-center gap-10 absolute left-1/2 -translate-x-1/2">
-            {NAV_LINKS.map((link) => (
-              <a 
-                key={link.href} 
-                href={link.href} 
-                className="hover:text-white transition-colors"
-                aria-label={link.label}
-              >
-                {link.label}
-              </a>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const href = link.href.startsWith('#') && pathname !== '/' ? `/${link.href}` : link.href;
+              return (
+                <a 
+                  key={link.href} 
+                  href={href} 
+                  className="hover:text-white transition-colors"
+                  aria-label={link.label}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </div>
 
           {/* Action Button & Mobile Toggle */}
@@ -92,19 +95,22 @@ export function Navbar() {
             className="fixed inset-0 bg-black z-[60] md:hidden flex flex-col pt-24"
           >
             <div className="flex flex-col px-8 gap-8 overflow-y-auto">
-              {NAV_LINKS.map((link, i) => (
-                <motion.a
-                  key={link.href}
-                  href={link.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
-                  className="text-4xl font-semibold font-display text-white border-b border-white/5 pb-6"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.label}
-                </motion.a>
-              ))}
+              {NAV_LINKS.map((link, i) => {
+                const href = link.href.startsWith('#') && pathname !== '/' ? `/${link.href}` : link.href;
+                return (
+                  <motion.a
+                    key={link.href}
+                    href={href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
+                    className="text-4xl font-semibold font-display text-white border-b border-white/5 pb-6"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.label}
+                  </motion.a>
+                );
+              })}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

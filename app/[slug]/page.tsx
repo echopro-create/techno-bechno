@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Script from 'next/script';
 import { BackgroundEffects } from '@/components/BackgroundEffects';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
@@ -62,56 +63,6 @@ export async function generateMetadata({
       description: page.description,
       images: ['/og-image.png'],
     },
-    other: {
-      'application/ld+json': JSON.stringify([
-        {
-          '@context': 'https://schema.org',
-          '@type': 'Service',
-          name: page.heading,
-          description: page.description,
-          provider: {
-            '@type': 'Organization',
-            name: 'Техно-Бэхно',
-            url: 'https://tehnobehno.site',
-          },
-          areaServed: {
-            '@type': 'Place',
-            name: 'Краснодар, Краснодарский край',
-          },
-          url: `https://tehnobehno.site/${page.slug}`,
-        },
-        page.faq?.length ? {
-          '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          mainEntity: page.faq.map((item) => ({
-            '@type': 'Question',
-            name: item.q,
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: item.a,
-            },
-          })),
-        } : null,
-        {
-          '@context': 'https://schema.org',
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-            {
-              '@type': 'ListItem',
-              position: 1,
-              name: 'Главная',
-              item: 'https://tehnobehno.site',
-            },
-            {
-              '@type': 'ListItem',
-              position: 2,
-              name: page.heading || page.title,
-              item: `https://tehnobehno.site/${page.slug}`,
-            },
-          ],
-        }
-      ].filter(Boolean)),
-    },
   };
 }
 
@@ -131,6 +82,57 @@ export default async function SeoLanding({
     <div className="min-h-screen bg-black text-[#f5f5f7] selection:bg-white/20">
       <BackgroundEffects />
       <Navbar />
+
+      <Script id="seo-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify([
+          {
+            '@context': 'https://schema.org',
+            '@type': 'Service',
+            name: page.heading,
+            description: page.description,
+            provider: {
+              '@type': 'Organization',
+              name: 'Техно-Бэхно',
+              url: 'https://tehnobehno.site',
+            },
+            areaServed: {
+              '@type': 'Place',
+              name: 'Краснодар, Краснодарский край',
+            },
+            url: `https://tehnobehno.site/${page.slug}`,
+          },
+          page.faq?.length ? {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: page.faq.map((item) => ({
+              '@type': 'Question',
+              name: item.q,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: item.a,
+              },
+            })),
+          } : null,
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Главная',
+                item: 'https://tehnobehno.site',
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: page.heading || page.title,
+                item: `https://tehnobehno.site/${page.slug}`,
+              },
+            ],
+          },
+        ].filter(Boolean))
+      }} />
 
       <main className="relative z-10">
         <SeoPageHeader

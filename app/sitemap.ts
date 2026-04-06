@@ -4,11 +4,16 @@ import { seoPages } from '@/lib/seo-pages';
 const BASE_URL = 'https://tehnobehno.site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = ['/', '/contacts', '/privacy', '/terms'].map((path) => ({
+  const staticPages = [
+    { path: '/', priority: 1 },
+    { path: '/contacts', priority: 0.7 },
+    { path: '/privacy', priority: 0.3 },
+    { path: '/terms', priority: 0.3 },
+  ].map(({ path, priority }) => ({
     url: `${BASE_URL}${path}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
-    priority: path === '/' ? 1 : 0.8,
+    priority,
   }));
 
   const seoPages_entries = seoPages.map((page) => ({

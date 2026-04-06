@@ -7,7 +7,23 @@ import { COMPANY_NAME } from '@/lib/company-profile';
 
 export const metadata: Metadata = {
   title: 'Условия использования | Техно-Бэхно',
-  description: 'Условия использования сайта Техно-Бэхно.',
+  description: 'Условия использования сайта Техно-Бэхно. Правовой статус материалов и защита интеллектуальной собственности.',
+  alternates: {
+    canonical: 'https://tehnobehno.site/terms',
+  },
+  openGraph: {
+    title: 'Условия использования | Техно-Бэхно',
+    description: 'Правовой статус материалов и защита интеллектуальной собственности.',
+    url: 'https://tehnobehno.site/terms',
+    siteName: 'Техно-Бэхно',
+    locale: 'ru_RU',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Условия использования | Техно-Бэхно',
+    description: 'Правовой статус материалов и защита интеллектуальной собственности.',
+  },
 };
 
 export default function TermsPage() {

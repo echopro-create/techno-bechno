@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import Link from 'next/link';
 import { BackgroundEffects } from '@/components/BackgroundEffects';
 import { Navbar } from '@/components/Navbar';
@@ -13,6 +14,24 @@ export const metadata: Metadata = {
   title: 'Контакты | Техно-Бэхно',
   description:
     'Контакты и география работы Техно-Бэхно: Краснодар, Сочи, Новороссийск, Анапа и Краснодарский край.',
+  alternates: {
+    canonical: 'https://tehnobehno.site/contacts',
+  },
+  openGraph: {
+    title: 'Контакты | Техно-Бэхно',
+    description: 'Контакты и география работы Техно-Бэхно в Краснодаре и ЮФО.',
+    url: 'https://tehnobehno.site/contacts',
+    siteName: 'Техно-Бэхно',
+    locale: 'ru_RU',
+    type: 'website',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Контакты Техно-Бэхно' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Контакты | Техно-Бэхно',
+    description: 'Контакты и география работы Техно-Бэхно в Краснодаре и ЮФО.',
+    images: ['/og-image.png'],
+  },
 };
 
 export default function ContactsPage() {
@@ -20,6 +39,17 @@ export default function ContactsPage() {
 
   return (
     <div className="min-h-screen bg-black text-[#f5f5f7] selection:bg-white/20">
+      <Script id="local-business-schema" type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          "name": "Техно-Бэхно",
+          "url": "https://tehnobehno.site",
+          "description": "Разработка премиальных веб-сайтов и мобильных приложений для B2B сегмента",
+          "areaServed": SERVICE_AREAS.map(area => ({"@type": "City", "name": area})),
+          "priceRange": "$$$$"
+        })
+      }} />
       <BackgroundEffects />
       <Navbar />
 

@@ -54,6 +54,9 @@ export const metadata: Metadata = {
     locale: 'ru_RU',
     type: 'website',
   },
+  alternates: {
+    canonical: 'https://tehnobehno.site',
+  },
   twitter: {
     card: 'summary_large_image',
     title: 'Техно-Бэхно — Разработка сайтов и мобильных приложений',
@@ -73,6 +76,13 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             "name": "Техно-Бэхно",
             "url": "https://tehnobehno.site",
             "logo": "https://tehnobehno.site/icon.svg",
+            "description": "Создаем премиальные веб-сайты и мобильные приложения для B2B сегмента. Краснодар и ЮФО.",
+            "areaServed": [
+              {"@type": "City", "name": "Краснодар"},
+              {"@type": "City", "name": "Сочи"},
+              {"@type": "City", "name": "Новороссийск"},
+              {"@type": "City", "name": "Анапа"}
+            ],
             "sameAs": [
               "https://t.me/tehnobehno"
             ]

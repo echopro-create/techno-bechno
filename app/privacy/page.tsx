@@ -7,7 +7,23 @@ import { COMPANY_NAME } from '@/lib/company-profile';
 
 export const metadata: Metadata = {
   title: 'Политика конфиденциальности | Техно-Бэхно',
-  description: 'Политика конфиденциальности сайта Техно-Бэхно.',
+  description: 'Политика конфиденциальности сайта Техно-Бэхно. Порядок обработки персональных данных и меры безопасности.',
+  alternates: {
+    canonical: 'https://tehnobehno.site/privacy',
+  },
+  openGraph: {
+    title: 'Политика конфиденциальности | Техно-Бэхно',
+    description: 'Порядок обработки персональных данных и меры безопасности.',
+    url: 'https://tehnobehno.site/privacy',
+    siteName: 'Техно-Бэхно',
+    locale: 'ru_RU',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Политика конфиденциальности | Техно-Бэхно',
+    description: 'Порядок обработки персональных данных и меры безопасности.',
+  },
 };
 
 export default function PrivacyPage() {
